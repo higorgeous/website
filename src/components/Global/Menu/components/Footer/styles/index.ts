@@ -1,6 +1,6 @@
 import styled from '@emotion/styled';
 
-export const Wrapper = styled.nav`
+export const Wrapper = styled.div`
   position: relative;
   display: flex;
   flex-direction: column;

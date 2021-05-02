@@ -12,7 +12,7 @@ const Icons: React.FC = () => {
         contentfulGlobalInformation(
           id: { eq: "e42f42c3-d5d5-57f7-95bb-0eb8ef56a767" }
         ) {
-          contractLink
+          uniswap
         }
       }
     `,
@@ -20,7 +20,7 @@ const Icons: React.FC = () => {
   return (
     <Wrapper>
       <a
-        href={data.contentfulGlobalInformation.contractLink}
+        href={data.contentfulGlobalInformation.uniswap}
         target="_blank"
         rel="noopener noreferrer"
       >

@@ -4,18 +4,18 @@ import { Wrapper } from './styles';
 
 type Props = {
   children: ReactNode;
-  onClick?: any;
+  click?: any;
   isFilled?: boolean;
   isFullWidth?: boolean;
 };
 
 const Button: React.FC<Props> = ({
   children,
-  onClick,
+  click,
   isFilled,
   isFullWidth,
 }: Props) => (
-  <Wrapper isFilled={isFilled} isFullWidth={isFullWidth} onClick={onClick}>
+  <Wrapper isFilled={isFilled} isFullWidth={isFullWidth} onClick={click}>
     <span className="text">{children}</span>
   </Wrapper>
 );

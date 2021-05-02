@@ -3,7 +3,8 @@ import { connect } from 'react-redux';
 
 import { Wrapper, Inner } from './styles';
 import Navigation from './components/Navigation';
-import CTA from './components/CTA';
+import SecondaryNavigation from './components/SecondaryNavigation';
+import Footer from './components/Footer';
 
 const Menu: React.FC<any> = ({ menu }) => {
   const isActive = menu;
@@ -11,7 +12,8 @@ const Menu: React.FC<any> = ({ menu }) => {
     <Wrapper isActive={isActive}>
       <Inner>
         <Navigation />
-        <CTA />
+        <SecondaryNavigation />
+        <Footer />
       </Inner>
     </Wrapper>
   );
