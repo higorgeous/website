@@ -3,15 +3,15 @@ import { PageProps, graphql } from 'gatsby';
 
 import Page from '@/components/Library/Page';
 
-const Home: React.FC<PageProps> = ({ data }) => <Page data={data} />;
+const PageTemplate: React.FC<PageProps> = ({ data }) => <Page data={data} />;
 
 export const query = graphql`
-  query {
-    theme: contentfulComposePage(slug: { eq: "/" }) {
+  query pageQuery($slug: String!) {
+    theme: contentfulComposePage(slug: { eq: $slug }) {
       leftColor
       rightColor
     }
-    seo: contentfulComposePage(slug: { eq: "/" }) {
+    seo: contentfulComposePage(slug: { eq: $slug }) {
       slug
       seo {
         title
@@ -24,4 +24,4 @@ export const query = graphql`
   }
 `;
 
-export default Home;
+export default PageTemplate;

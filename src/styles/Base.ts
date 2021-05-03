@@ -6,7 +6,7 @@ export default css`
   body {
     margin: 0;
     min-height: 100%;
-    background-color: ${theme.palette.dark};
+    background-color: ${theme.palette.pink};
     font-family: ${theme.font.body};
     color: ${theme.palette.dark};
     font-size: 14px;

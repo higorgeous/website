@@ -1,7 +1,13 @@
 import styled from '@emotion/styled';
-import theme from '@/styles/Theme';
+import { Link } from 'gatsby';
 
-export const Wrapper = styled.div<{ isFilled: boolean; isFullWidth: boolean }>`
+import theme from '@/styles/Theme';
+import { css } from '@emotion/react';
+
+export const buttonStyles: any = (
+  isFilled: boolean,
+  isFullWidth: boolean,
+) => css`
   position: relative;
   z-index: 2;
   margin-top: 1em;
@@ -14,14 +20,11 @@ export const Wrapper = styled.div<{ isFilled: boolean; isFullWidth: boolean }>`
   display: flex;
   justify-content: center;
   align-items: center;
-  border: 1px solid
-    ${({ isFilled }) => (isFilled ? theme.palette.dark : theme.palette.dark)};
-  background-color: ${({ isFilled }) =>
-    isFilled ? theme.palette.dark : `transparent`};
+  border: 1px solid ${isFilled ? theme.palette.dark : theme.palette.dark};
+  background-color: ${isFilled ? theme.palette.dark : `transparent`};
   transition: border-color 0.2s, color 0.2s;
-  color: ${({ isFilled }) =>
-    isFilled ? theme.palette.light : theme.palette.dark};
-  width: ${({ isFullWidth }) => (isFullWidth ? `100%` : `auto`)};
+  color: ${isFilled ? theme.palette.light : theme.palette.dark};
+  width: ${isFullWidth ? `100%` : `auto`};
   height: 2.5em;
   overflow: hidden;
   cursor: pointer;
@@ -44,4 +47,27 @@ export const Wrapper = styled.div<{ isFilled: boolean; isFullWidth: boolean }>`
   span {
     margin: 1em auto 0.8em;
   }
+`;
+
+export const BtnDiv = styled.div<{
+  isFilled: boolean;
+  isFullWidth: boolean;
+}>`
+  ${({ isFilled, isFullWidth }) => buttonStyles(isFilled, isFullWidth)}
+`;
+
+export const BtnLink = styled(Link)<{
+  isFilled: boolean;
+  isFullWidth: boolean;
+}>`
+  ${({ isFilled, isFullWidth }) => buttonStyles(isFilled, isFullWidth)}
+  text-decoration: none;
+`;
+
+export const BtnAnchor = styled.a<{
+  isFilled: boolean;
+  isFullWidth: boolean;
+}>`
+  ${({ isFilled, isFullWidth }) => buttonStyles(isFilled, isFullWidth)}
+  text-decoration: none;
 `;

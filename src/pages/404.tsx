@@ -1,6 +1,8 @@
 import React from 'react';
 import { PageProps } from 'gatsby';
 
-const NotFound: React.FC<PageProps> = () => <h1>Sorry, page not found!</h1>;
+import Page from '@/components/Library/Page';
+
+const NotFound: React.FC<PageProps> = ({ data }) => <Page data={data} />;
 
 export default NotFound;

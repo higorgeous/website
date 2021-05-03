@@ -1,23 +1,56 @@
 import React, { ReactNode } from 'react';
 
-import { Wrapper } from './styles';
+import { BtnAnchor, BtnLink, BtnDiv } from './styles';
 
 type Props = {
   children: ReactNode;
-  click?: any;
+  type?: 'anchor' | 'link';
+  href?: string;
+  onClick?: any;
   isFilled?: boolean;
   isFullWidth?: boolean;
 };
 
 const Button: React.FC<Props> = ({
   children,
-  click,
+  type,
+  href,
+  onClick,
   isFilled,
   isFullWidth,
-}: Props) => (
-  <Wrapper isFilled={isFilled} isFullWidth={isFullWidth} onClick={click}>
-    <span className="text">{children}</span>
-  </Wrapper>
-);
+}: Props) => {
+  switch (type) {
+    case `anchor`:
+      return (
+        <BtnAnchor
+          href={href}
+          target="_blank"
+          rel="noreferrer noopener"
+          isFilled={isFilled}
+          isFullWidth={isFullWidth}
+          onClick={onClick}
+        >
+          <span className="text">{children}</span>
+        </BtnAnchor>
+      );
+    case `link`:
+      return (
+        <BtnLink
+          to={href}
+          isFilled={isFilled}
+          isFullWidth={isFullWidth}
+          onClick={onClick}
+        >
+          <span className="text">{children}</span>
+        </BtnLink>
+      );
+    default:
+      return (
+        <BtnDiv isFilled={isFilled} isFullWidth={isFullWidth} onClick={onClick}>
+          <span className="text">{children}</span>
+        </BtnDiv>
+      );
+  }
+};
 
 export default Button;

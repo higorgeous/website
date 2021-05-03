@@ -1,7 +1,6 @@
 import React from 'react';
 import { useStaticQuery, graphql } from 'gatsby';
 
-import { isBrowser } from '@/utils';
 import Button from '@/components/Library/Button';
 
 import { Wrapper } from './styles';
@@ -15,32 +14,26 @@ const Footer: React.FC = () => {
         ) {
           uniswap
           contractLink
-          facebook
-          twitter
-          telegram
         }
       }
     `,
   );
 
-  const uniSwapLink = () => {
-    if (isBrowser) {
-      window.open(data.contentfulGlobalInformation.uniswap, `_blank`);
-    }
-  };
-
-  const contractLink = () => {
-    if (isBrowser) {
-      window.open(data.contentfulGlobalInformation.contractLink, `_blank`);
-    }
-  };
-
   return (
     <Wrapper>
-      <Button isFullWidth click={() => uniSwapLink()}>
+      <Button
+        type="anchor"
+        isFullWidth
+        href={data.contentfulGlobalInformation.uniswap}
+      >
         Get Gorgeous
       </Button>
-      <Button isFullWidth isFilled click={() => contractLink()}>
+      <Button
+        type="anchor"
+        isFullWidth
+        isFilled
+        href={data.contentfulGlobalInformation.contractLink}
+      >
         View contract
       </Button>
     </Wrapper>
