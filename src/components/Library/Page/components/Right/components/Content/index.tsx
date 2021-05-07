@@ -19,6 +19,7 @@ const options = {
   },
   renderNode: {
     [BLOCKS.PARAGRAPH]: (_node: any, children: any) => <Text>{children}</Text>,
+    [BLOCKS.QUOTE]: (_node: any, children: any) => <Text>{children}</Text>,
     [BLOCKS.EMBEDDED_ASSET]: (node: any) => {
       const { data } = node;
       return (
