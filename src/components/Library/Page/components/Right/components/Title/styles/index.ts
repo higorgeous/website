@@ -13,7 +13,7 @@ export const Wrapper = styled.div<{ color: string; width: number }>`
   @media screen and (max-width: ${theme.responsive.large}) {
     position: sticky;
     top: 0;
-    padding-top: 7em;
+    padding-top: 5em;
     width: ${({ width }) => `calc(${width}px - 4em)`};
   }
 `;
@@ -29,7 +29,7 @@ export const Text = styled.h1`
   text-transform: uppercase;
   border-bottom: 1px solid currentColor;
   @media screen and (max-width: ${theme.responsive.large}) {
-    font-size: 2em;
+    font-size: 3em;
     padding-bottom: 0.5em;
   }
   span {

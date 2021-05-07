@@ -7,6 +7,7 @@ import { Wrapper, Section, Title, Body } from './styles';
 
 type Props = {
   sections: any;
+  color: string;
 };
 
 const Bold = ({ children }) => <strong>{children}</strong>;
@@ -27,14 +28,14 @@ const options = {
   },
 };
 
-const Content: React.FC<Props> = ({ sections }: Props) => (
+const Content: React.FC<Props> = ({ sections, color }: Props) => (
   <Wrapper>
     {sections.map((section: any) => {
       const { title, body } = section;
 
       return (
         <Section key={section.id}>
-          <Title>{title}</Title>
+          <Title color={color}>{title}</Title>
           <Body>{body && renderRichText(body, options)}</Body>
         </Section>
       );

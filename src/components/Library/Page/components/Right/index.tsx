@@ -23,7 +23,7 @@ const Right: React.FC<Props> = ({ theme, content }: Props) => {
   return (
     <Wrapper color={rightColor} ref={wrapperRef}>
       {title && <Title title={title} color={rightColor} width={width} />}
-      {sections && <Content sections={sections} />}
+      {sections && <Content sections={sections} color={rightColor} />}
     </Wrapper>
   );
 };

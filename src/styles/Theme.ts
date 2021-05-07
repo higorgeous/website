@@ -8,6 +8,7 @@ type Props = {
     small: string;
     medium: string;
     large: string;
+    xlarge: string;
   };
   font: {
     body: string;
@@ -25,6 +26,7 @@ const theme: Props = {
     small: `34.214em`,
     medium: `54.786em`,
     large: `70.786em`,
+    xlarge: `87.857em`,
   },
   font: {
     body: `'Markpro', sans-serif`,
