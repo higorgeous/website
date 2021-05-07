@@ -3,7 +3,14 @@ import { GatsbyImage, getImage } from 'gatsby-plugin-image';
 import { BLOCKS, MARKS } from '@contentful/rich-text-types';
 import { renderRichText } from 'gatsby-source-contentful/rich-text';
 
-import { Wrapper, Section, Title, Body } from './styles';
+import {
+  Wrapper,
+  Section,
+  Title,
+  Body,
+  QuoteHeading,
+  Blockquote,
+} from './styles';
 
 type Props = {
   sections: any;
@@ -19,7 +26,12 @@ const options = {
   },
   renderNode: {
     [BLOCKS.PARAGRAPH]: (_node: any, children: any) => <Text>{children}</Text>,
-    [BLOCKS.QUOTE]: (_node: any, children: any) => <Text>{children}</Text>,
+    [BLOCKS.HEADING_4]: (_node: any, children: any) => (
+      <QuoteHeading><h4>{children}</h4></QuoteHeading>
+    ),
+    [BLOCKS.QUOTE]: (_node: any, children: any) => (
+      <Blockquote>{children}</Blockquote>
+    ),
     [BLOCKS.EMBEDDED_ASSET]: (node: any) => {
       const { data } = node;
       return (

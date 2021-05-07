@@ -77,3 +77,32 @@ export const Body = styled.div`
     margin-bottom: 5em;
   }
 `;
+
+export const QuoteHeading = styled.div`
+  display: inline-block;
+  justify-content: flex-end;
+  margin-right: 1em;
+  padding: 0.25em;
+  border: 1px solid currentColor;
+
+  h4 {
+    font-feature-settings: 'aalt';
+    text-align: center;
+    font-size: 1.5em;
+    font-weight: 700;
+    text-transform: uppercase;
+    word-spacing: 7px;
+  }
+`;
+
+export const Blockquote = styled.div`
+  padding: 2em 1.5em;
+  border: 1px solid currentColor;
+  margin-bottom: 5em;
+  p {
+    margin-bottom: 1em !important;
+    &:last-of-type {
+      margin-bottom: 0 !important;
+    }
+  }
+`;
