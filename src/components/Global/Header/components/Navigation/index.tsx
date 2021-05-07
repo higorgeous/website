@@ -3,7 +3,13 @@ import { useStaticQuery, graphql, Link } from 'gatsby';
 
 import { Wrapper } from './styles';
 
-const Navigation: React.FC = () => {
+type Props = {
+  theme: {
+    leftDark: boolean;
+  };
+};
+
+const Navigation: React.FC<Props> = ({ theme }: Props) => {
   const data = useStaticQuery(
     graphql`
       query {
@@ -20,7 +26,7 @@ const Navigation: React.FC = () => {
     `,
   );
   return (
-    <Wrapper>
+    <Wrapper theme={theme}>
       {data.contentfulGlobalInformation.navigation.map(
         (nav: { id: string; slug: string; name: string }) => (
           <Link key={nav.id} to={nav.slug}>

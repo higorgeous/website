@@ -1,5 +1,7 @@
 import { css } from '@emotion/react';
 
+import theme from './Theme';
+
 export default css`
   html {
     font-family: sans-serif;
@@ -16,6 +18,9 @@ export default css`
     height: 100%;
     overflow: hidden;
     cursor: default;
+    @media screen and (max-width: ${theme.responsive.large}) {
+      overflow: visible;
+    }
   }
 
   article,

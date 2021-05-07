@@ -10,7 +10,7 @@ const Menu: React.FC<any> = ({ menu }) => {
   const isActive = menu;
   return (
     <Wrapper isActive={isActive}>
-      <Inner>
+      <Inner isActive={isActive}>
         <Navigation />
         <SecondaryNavigation />
         <Footer />

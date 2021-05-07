@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { Wrapper } from './styles';
-import Title from './components/Title';
+import Content from './components/Content';
 
 type Props = {
   theme: any;
@@ -12,7 +12,7 @@ const Left: React.FC<Props> = ({ theme, seo }: Props) => {
   const { leftColor } = theme;
   return (
     <Wrapper color={leftColor}>
-      <Title {...seo} />
+      <Content {...seo} />
     </Wrapper>
   );
 };

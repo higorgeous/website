@@ -1,24 +1,55 @@
 import styled from '@emotion/styled';
 
-import theme from '@/styles/Theme';
+import globalTheme from '@/styles/Theme';
 
-export const Wrapper = styled.header<{ isActive: boolean }>`
+const getColor: any = (
+  isActive: boolean,
+  theme: { leftDark: boolean; rightDark: boolean },
+  scrollColor: boolean,
+) => {
+  const themeColor = theme.leftDark
+    ? globalTheme.palette.light
+    : globalTheme.palette.dark;
+  if (isActive) {
+    return globalTheme.palette.dark;
+  }
+  if (!isActive && scrollColor) {
+    return theme.rightDark
+      ? globalTheme.palette.light
+      : globalTheme.palette.dark;
+  }
+  return themeColor;
+};
+
+const getMobilePadding: any = (isActive: boolean, scrollColor: boolean) => {
+  if (isActive) {
+    return `5em 2em`;
+  }
+  if (!isActive && scrollColor) {
+    return `0.5em 2em`;
+  }
+  return `2em`;
+};
+
+export const Wrapper = styled.header<{
+  isActive: boolean;
+  theme: any;
+  scrollColor: boolean;
+}>`
   position: fixed;
-  display: flex;
-  left: 0;
-  top: 0;
-  right: 0;
-  padding: 4em 3em;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  padding: 2em 3em;
   width: 100%;
-  height: 5em;
-  justify-content: space-between;
+  justify-content: space-evenly;
   align-items: center;
-  color: ${({ isActive }) =>
-    isActive ? theme.palette.dark : theme.palette.light};
-  z-index: 99;
+  color: ${({ isActive, theme, scrollColor }) =>
+    getColor(isActive, theme, scrollColor)};
   transition: padding 0.6s ease;
-  @media screen and (max-width: ${theme.responsive.large}) {
-    padding: ${({ isActive }) => (isActive ? `5em 2em` : `2em`)};
+  z-index: 99;
+  @media screen and (max-width: ${globalTheme.responsive.large}) {
+    padding: ${({ isActive, scrollColor }) =>
+      getMobilePadding(isActive, scrollColor)};
   }
   &:after {
     clear: both;

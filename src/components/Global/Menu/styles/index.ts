@@ -33,7 +33,7 @@ export const Wrapper = styled.div<{ isActive: boolean }>`
   }
 `;
 
-export const Inner = styled.div`
+export const Inner = styled.div<{ isActive: boolean }>`
   position: relative;
   display: flex;
   flex-direction: column;
@@ -42,4 +42,7 @@ export const Inner = styled.div`
   width: 100%;
   height: 100%;
   padding: 2em;
+  transition: all 0.4s ease;
+  visibility: ${({ isActive }) => (isActive ? `visible` : `hidden`)};
+  opacity: ${({ isActive }) => (isActive ? 1 : 0)};
 `;

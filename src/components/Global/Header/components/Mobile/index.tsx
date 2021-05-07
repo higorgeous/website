@@ -1,13 +1,16 @@
 import React from 'react';
-import { useDispatch, connect } from 'react-redux';
+import { useDispatch } from 'react-redux';
 
 import { setMenu } from '@/state/actions/layout';
 
 import { Wrapper } from './styles';
 
-const Mobile: React.FC<any> = ({ menu }) => {
+type Props = {
+  isActive: boolean;
+};
+
+const Mobile: React.FC<Props> = ({ isActive }: Props) => {
   const dispatch = useDispatch();
-  const isActive = menu;
   return (
     <Wrapper isActive={isActive} onClick={() => dispatch(setMenu())}>
       <span />
@@ -20,12 +23,4 @@ const Mobile: React.FC<any> = ({ menu }) => {
   );
 };
 
-const mapStateToProps = (state: {
-  layout: {
-    menuPanel: boolean;
-  };
-}) => ({
-  menu: state.layout.menuPanel,
-});
-
-export default connect(mapStateToProps)(Mobile);
+export default Mobile;

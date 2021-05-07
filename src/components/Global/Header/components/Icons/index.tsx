@@ -5,7 +5,13 @@ import { UniSwap } from '@/components/Library/Icons';
 
 import { Wrapper } from './styles';
 
-const Icons: React.FC = () => {
+type Props = {
+  theme: {
+    rightDark: boolean;
+  };
+};
+
+const Icons: React.FC<Props> = ({ theme }: Props) => {
   const data = useStaticQuery(
     graphql`
       query {
@@ -18,7 +24,7 @@ const Icons: React.FC = () => {
     `,
   );
   return (
-    <Wrapper>
+    <Wrapper theme={theme}>
       <a
         href={data.contentfulGlobalInformation.uniswap}
         target="_blank"

@@ -21,6 +21,27 @@ export const query = graphql`
         no_follow
       }
     }
+    content: contentfulComposePage(slug: { eq: $slug }) {
+      content {
+        title
+        sections {
+          id
+          title
+          body {
+            raw
+            references {
+              id
+              ... on ContentfulAsset {
+                contentful_id
+                __typename
+                title
+                gatsbyImageData(layout: FULL_WIDTH)
+              }
+            }
+          }
+        }
+      }
+    }
   }
 `;
 
