@@ -80,13 +80,14 @@ export const Body = styled.div`
 
 export const QuoteHeading = styled.div`
   display: inline-block;
-  justify-content: flex-end;
+  margin-left: auto;
   margin-right: 1em;
-  padding: 0.25em;
   border: 1px solid currentColor;
-
+  border-bottom: none;
+  width: fit-content;
   h4 {
     font-feature-settings: 'aalt';
+    padding: 0 1em;
     text-align: center;
     font-size: 1.5em;
     font-weight: 700;
@@ -96,7 +97,7 @@ export const QuoteHeading = styled.div`
 `;
 
 export const Blockquote = styled.div`
-  padding: 2em 1.5em;
+  padding: 1.5em;
   border: 1px solid currentColor;
   margin-bottom: 5em;
   p {

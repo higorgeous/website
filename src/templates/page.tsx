@@ -30,12 +30,17 @@ export const query = graphql`
           body {
             raw
             references {
-              id
               ... on ContentfulAsset {
                 contentful_id
                 __typename
                 title
                 gatsbyImageData(layout: FULL_WIDTH)
+              }
+              ... on ContentfulComposePage {
+                contentful_id
+                __typename
+                title
+                slug
               }
             }
           }

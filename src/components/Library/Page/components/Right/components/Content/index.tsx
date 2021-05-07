@@ -3,6 +3,8 @@ import { GatsbyImage, getImage } from 'gatsby-plugin-image';
 import { BLOCKS, MARKS } from '@contentful/rich-text-types';
 import { renderRichText } from 'gatsby-source-contentful/rich-text';
 
+import Button from '@/components/Library/Button';
+
 import {
   Wrapper,
   Section,
@@ -27,7 +29,9 @@ const options = {
   renderNode: {
     [BLOCKS.PARAGRAPH]: (_node: any, children: any) => <Text>{children}</Text>,
     [BLOCKS.HEADING_4]: (_node: any, children: any) => (
-      <QuoteHeading><h4>{children}</h4></QuoteHeading>
+      <QuoteHeading>
+        <h4>{children}</h4>
+      </QuoteHeading>
     ),
     [BLOCKS.QUOTE]: (_node: any, children: any) => (
       <Blockquote>{children}</Blockquote>
@@ -36,6 +40,15 @@ const options = {
       const { data } = node;
       return (
         <GatsbyImage image={getImage(data.target)} alt={data.target.title} />
+      );
+    },
+    [BLOCKS.EMBEDDED_ENTRY]: (node: any) => {
+      const { data } = node;
+      console.log(node);
+      return (
+        <Button type="link" href={data.target.slug}>
+          {data.target.title}
+        </Button>
       );
     },
   },
