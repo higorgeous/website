@@ -7,9 +7,9 @@ import { css } from '@emotion/react';
 export const buttonStyles: any = (
   isFilled: boolean,
   isFullWidth: boolean,
+  inline: boolean,
 ) => css`
   position: relative;
-  z-index: 2;
   margin-top: 1em;
   padding: 1em 2em;
   font-family: ${theme.font.header};
@@ -34,7 +34,7 @@ export const buttonStyles: any = (
     width: 100%;
     height: 100%;
     background-color: ${theme.palette.light};
-    transform: translateY(-100%);
+    transform: translateY(-101%);
     transition: transform 0.2s;
     z-index: -1;
   }
@@ -47,27 +47,46 @@ export const buttonStyles: any = (
   span {
     margin: 1em auto 0.8em;
   }
+  ${inline &&
+  css`
+    padding: 1em 2em;
+    font-size: 1.25em;
+    &:first-of-type {
+      border: 1px solid ${theme.palette.dark};
+      background-color: ${theme.palette.dark};
+      color: ${theme.palette.light};
+      &:hover {
+        color: ${theme.palette.dark};
+      }
+    }
+  `}
 `;
 
 export const BtnDiv = styled.div<{
   isFilled: boolean;
   isFullWidth: boolean;
+  inline: boolean;
 }>`
-  ${({ isFilled, isFullWidth }) => buttonStyles(isFilled, isFullWidth)}
+  ${({ isFilled, isFullWidth, inline }) =>
+    buttonStyles(isFilled, isFullWidth, inline)}
 `;
 
 export const BtnLink = styled(Link)<{
   isFilled: boolean;
   isFullWidth: boolean;
+  inline: boolean;
 }>`
-  ${({ isFilled, isFullWidth }) => buttonStyles(isFilled, isFullWidth)}
+  ${({ isFilled, isFullWidth, inline }) =>
+    buttonStyles(isFilled, isFullWidth, inline)}
   text-decoration: none;
 `;
 
 export const BtnAnchor = styled.a<{
   isFilled: boolean;
   isFullWidth: boolean;
+  inline: boolean;
 }>`
-  ${({ isFilled, isFullWidth }) => buttonStyles(isFilled, isFullWidth)}
+  ${({ isFilled, isFullWidth, inline }) =>
+    buttonStyles(isFilled, isFullWidth, inline)}
   text-decoration: none;
 `;

@@ -9,6 +9,7 @@ type Props = {
   onClick?: any;
   isFilled?: boolean;
   isFullWidth?: boolean;
+  inline?: boolean;
 };
 
 const Button: React.FC<Props> = ({
@@ -18,6 +19,7 @@ const Button: React.FC<Props> = ({
   onClick,
   isFilled,
   isFullWidth,
+  inline,
 }: Props) => {
   switch (type) {
     case `anchor`:
@@ -28,6 +30,7 @@ const Button: React.FC<Props> = ({
           rel="noreferrer noopener"
           isFilled={isFilled}
           isFullWidth={isFullWidth}
+          inline={inline}
           onClick={onClick}
         >
           <span className="text">{children}</span>
@@ -39,6 +42,7 @@ const Button: React.FC<Props> = ({
           to={href}
           isFilled={isFilled}
           isFullWidth={isFullWidth}
+          inline={inline}
           onClick={onClick}
         >
           <span className="text">{children}</span>
@@ -46,7 +50,12 @@ const Button: React.FC<Props> = ({
       );
     default:
       return (
-        <BtnDiv isFilled={isFilled} isFullWidth={isFullWidth} onClick={onClick}>
+        <BtnDiv
+          isFilled={isFilled}
+          isFullWidth={isFullWidth}
+          inline={inline}
+          onClick={onClick}
+        >
           <span className="text">{children}</span>
         </BtnDiv>
       );
