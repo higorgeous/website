@@ -21,7 +21,7 @@ const fakeData = {
   content: null,
 };
 
-const PageTemplate: React.FC<PageProps> = () => <Page data={fakeData} />;
+const NewsTemplate: React.FC<PageProps> = () => <Page data={fakeData} />;
 
 // export const query = graphql`
 //   query pageQuery($slug: String!) {
@@ -68,4 +68,4 @@ const PageTemplate: React.FC<PageProps> = () => <Page data={fakeData} />;
 //   }
 // `;
 
-export default PageTemplate;
+export default NewsTemplate;
