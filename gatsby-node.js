@@ -16,38 +16,25 @@ exports.createPages = ({ graphql, actions }) => {
   const loadPages = new Promise((resolve) => {
     graphql(`
       {
-        allMdx {
+        allContentfulPageWebsite(filter: { slug: { ne: "/404" } }) {
           edges {
             node {
-              frontmatter {
-                type
-                slug
-              }
+              slug
             }
           }
         }
       }
     `).then((result) => {
-      const page = result.data.allMdx.edges;
+      const page = result.data.allContentfulPageWebsite.edges;
       page.forEach((edge) => {
-        const { type, slug } = edge.node.frontmatter;
-        if (type === 'page') {
-          createPage({
-            path: slug !== '/' ? `${slug}/` : `/`,
-            component: path.resolve(`./src/templates/page.tsx`),
-            context: {
-              slug,
-            },
-          });
-        } else if (type === 'news') {
-          createPage({
-            path: `news/${slug}/`,
-            component: path.resolve(`./src/templates/news.tsx`),
-            context: {
-              slug,
-            },
-          });
-        }
+        const { slug } = edge.node;
+        createPage({
+          path: slug,
+          component: path.resolve(`./src/templates/page.tsx`),
+          context: {
+            slug,
+          },
+        });
       });
       resolve();
     });

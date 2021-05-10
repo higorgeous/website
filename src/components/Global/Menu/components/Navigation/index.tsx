@@ -7,12 +7,10 @@ const Navigation: React.FC = () => {
   const data = useStaticQuery(
     graphql`
       query {
-        contentfulGlobalInformation(
-          id: { eq: "e42f42c3-d5d5-57f7-95bb-0eb8ef56a767" }
-        ) {
-          navigation {
+        contentfulInfoGlobalInformation(siteTitle: { eq: "Gorgeous" }) {
+          primaryNavigation {
             id
-            name
+            title
             slug
           }
         }
@@ -21,10 +19,10 @@ const Navigation: React.FC = () => {
   );
   return (
     <Wrapper>
-      {data.contentfulGlobalInformation.navigation.map(
-        (nav: { id: string; slug: string; name: string }) => (
+      {data.contentfulInfoGlobalInformation.primaryNavigation.map(
+        (nav: { id: string; slug: string; title: string }) => (
           <NavLink key={nav.id} to={nav.slug}>
-            {nav.name}
+            {nav.title}
           </NavLink>
         ),
       )}

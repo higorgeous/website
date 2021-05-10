@@ -15,21 +15,15 @@ const Icons: React.FC<Props> = ({ theme }: Props) => {
   const data = useStaticQuery(
     graphql`
       query {
-        contentfulGlobalInformation(
-          id: { eq: "e42f42c3-d5d5-57f7-95bb-0eb8ef56a767" }
-        ) {
-          uniswap
+        uniswap: contentfulInfoLinks(title: { eq: "Uniswap" }) {
+          uri
         }
       }
     `,
   );
   return (
     <Wrapper theme={theme}>
-      <a
-        href={data.contentfulGlobalInformation.uniswap}
-        target="_blank"
-        rel="noopener noreferrer"
-      >
+      <a href={data.uniswap.uri} target="_blank" rel="noopener noreferrer">
         <UniSwap />
       </a>
     </Wrapper>

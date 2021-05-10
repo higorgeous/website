@@ -5,22 +5,21 @@ import Link from '@/components/Library/Link';
 import { Wrapper, Top, Bottom, Heading, Text } from './styles';
 
 type Props = {
+  title: string;
   seo: any;
 };
 
-const Content: React.FC<Props> = ({ seo }: Props) => {
-  const { menuTitle, description } = seo.frontmatter;
-  const titleMap = menuTitle.split(``);
+const Content: React.FC<Props> = ({ title, seo }: Props) => {
+  const { description } = seo;
+  const titleMap = title.split(``);
 
   const data = useStaticQuery(
     graphql`
       query {
-        contentfulGlobalInformation(
-          id: { eq: "e42f42c3-d5d5-57f7-95bb-0eb8ef56a767" }
-        ) {
+        contentfulInfoGlobalInformation(siteTitle: { eq: "Gorgeous" }) {
           secondaryNavigation {
             id
-            name
+            title
             slug
           }
         }
@@ -42,13 +41,13 @@ const Content: React.FC<Props> = ({ seo }: Props) => {
             );
           })}
         </Heading>
-        <Text>{description}</Text>
+        <Text>{description.description}</Text>
       </Top>
       <Bottom>
-        {data.contentfulGlobalInformation.secondaryNavigation.map(
-          (nav: { id: string; slug: string; name: string }) => (
+        {data.contentfulInfoGlobalInformation.secondaryNavigation.map(
+          (nav: { id: string; slug: string; title: string }) => (
             <Link key={nav.id} to={nav.slug}>
-              <span>{nav.name}</span>
+              <span>{nav.title}</span>
             </Link>
           ),
         )}

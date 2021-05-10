@@ -6,6 +6,8 @@ export const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
   width: 100%;
+  padding: 3em;
+  z-index: 1;
 `;
 
 export const Top = styled.div`

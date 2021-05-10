@@ -9,11 +9,13 @@ const Footer: React.FC = () => {
   const data = useStaticQuery(
     graphql`
       query {
-        contentfulGlobalInformation(
-          id: { eq: "e42f42c3-d5d5-57f7-95bb-0eb8ef56a767" }
-        ) {
-          uniswap
-          contractLink
+        etherscan: contentfulInfoLinks(title: { eq: "Etherscan" }) {
+          text
+          uri
+        }
+        uniswap: contentfulInfoLinks(title: { eq: "Uniswap" }) {
+          text
+          uri
         }
       }
     `,
@@ -21,20 +23,11 @@ const Footer: React.FC = () => {
 
   return (
     <Wrapper>
-      <Button
-        type="anchor"
-        isFullWidth
-        href={data.contentfulGlobalInformation.uniswap}
-      >
-        Get Gorgeous
+      <Button type="anchor" isFullWidth href={data.uniswap.uri}>
+        {data.uniswap.text}
       </Button>
-      <Button
-        type="anchor"
-        isFullWidth
-        isFilled
-        href={data.contentfulGlobalInformation.contractLink}
-      >
-        View contract
+      <Button type="anchor" isFullWidth isFilled href={data.etherscan.uri}>
+        {data.etherscan.text}
       </Button>
     </Wrapper>
   );

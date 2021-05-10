@@ -56,12 +56,12 @@ const options = {
 const Content: React.FC<Props> = ({ sections, color }: Props) => (
   <Wrapper>
     {sections.map((section: any) => {
-      const { title, body } = section;
+      const { title, richtext } = section;
 
       return (
         <Section key={section.id}>
           <Title color={color}>{title}</Title>
-          <Body>{body && renderRichText(body, options)}</Body>
+          <Body>{richtext && renderRichText(richtext, options)}</Body>
         </Section>
       );
     })}

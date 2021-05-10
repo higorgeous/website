@@ -7,21 +7,18 @@ import Left from './components/Left';
 import Right from './components/Right';
 import { Wrapper } from './styles';
 
-type Props = {
-  data: any;
-};
-
-const Page: React.FC<Props> = ({ data }: Props) => {
+const Page: React.FC<any> = (data: any) => {
+  const { queries } = data;
   const dispatch = useDispatch();
   useEffect(() => {
-    dispatch(setPageTheme(data));
+    dispatch(setPageTheme(queries));
   }, []);
-  console.log(data);
+  console.log(queries);
 
   return (
     <Wrapper>
-      <Left {...data} />
-      <Right {...data} />
+      <Left {...queries} />
+      <Right {...queries} />
     </Wrapper>
   );
 };

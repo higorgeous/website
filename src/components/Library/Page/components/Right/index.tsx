@@ -6,12 +6,12 @@ import Content from './components/Content';
 
 type Props = {
   theme: any;
-  content: any;
+  contentTitle: string;
+  sections: any;
 };
 
-const Right: React.FC<Props> = ({ theme, content }: Props) => {
-  const { rightColor } = theme.frontmatter;
-  const { title, sections } = content;
+const Right: React.FC<Props> = ({ theme, contentTitle, sections }: Props) => {
+  const { rightColor } = theme;
 
   const [width, setWidth] = useState(0);
   const wrapperRef = useRef(null);
@@ -22,7 +22,9 @@ const Right: React.FC<Props> = ({ theme, content }: Props) => {
 
   return (
     <Wrapper color={rightColor} ref={wrapperRef}>
-      {title && <Title title={title} color={rightColor} width={width} />}
+      {contentTitle && (
+        <Title title={contentTitle} color={rightColor} width={width} />
+      )}
       {sections && <Content sections={sections} color={rightColor} />}
     </Wrapper>
   );

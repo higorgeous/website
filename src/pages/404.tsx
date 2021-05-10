@@ -7,18 +7,32 @@ const NotFound: React.FC<PageProps> = ({ data }) => <Page data={data} />;
 
 export const query = graphql`
   query {
-    theme: contentfulComposePage(slug: { eq: "/404" }) {
-      leftColor
-      rightColor
-    }
-    seo: contentfulComposePage(slug: { eq: "/404" }) {
+    queries: contentfulPageWebsite(slug: { eq: "404" }) {
+      title
       slug
       seo {
+        pageTitle
+        description {
+          description
+        }
+        noindex
+        nofollow
+      }
+      theme {
+        leftColor
+        rightColor
+        backgroundImage {
+          file {
+            url
+          }
+        }
+      }
+      contentTitle
+      sections {
         title
-        description
-        keywords
-        no_index
-        no_follow
+        richtext {
+          raw
+        }
       }
     }
   }
