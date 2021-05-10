@@ -14,6 +14,5 @@ export const Wrapper = styled.section<{ color: string }>`
   overflow: hidden;
   @media screen and (max-width: ${theme.responsive.large}) {
     height: 500px;
-    padding: 6em 2em;
   }
 `;

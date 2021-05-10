@@ -27,6 +27,7 @@ export const query = graphql`
         leftColor
         rightColor
         backgroundImage {
+          title
           gatsbyImageData
         }
       }

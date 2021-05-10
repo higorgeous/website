@@ -3,11 +3,11 @@ import { PageProps, graphql } from 'gatsby';
 
 import Page from '@/components/Library/Page';
 
-const NotFound: React.FC<PageProps> = ({ data }) => <Page data={data} />;
+const NotFound: React.FC<PageProps> = ({ data }) => <Page {...data} />;
 
 export const query = graphql`
   query {
-    queries: contentfulPageWebsite(slug: { eq: "404" }) {
+    queries: contentfulPageWebsite(slug: { eq: "/404" }) {
       title
       slug
       seo {
@@ -22,9 +22,8 @@ export const query = graphql`
         leftColor
         rightColor
         backgroundImage {
-          file {
-            url
-          }
+          title
+          gatsbyImageData
         }
       }
       contentTitle
