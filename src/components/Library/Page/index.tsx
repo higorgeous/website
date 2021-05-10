@@ -16,6 +16,8 @@ const Page: React.FC<Props> = ({ data }: Props) => {
   useEffect(() => {
     dispatch(setPageTheme(data));
   }, []);
+  console.log(data);
+
   return (
     <Wrapper>
       <Left {...data} />

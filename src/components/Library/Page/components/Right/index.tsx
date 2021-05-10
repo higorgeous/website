@@ -10,8 +10,8 @@ type Props = {
 };
 
 const Right: React.FC<Props> = ({ theme, content }: Props) => {
-  const { rightColor } = theme;
-  const { title, sections } = content.content;
+  const { rightColor } = theme.frontmatter;
+  const { title, sections } = content;
 
   const [width, setWidth] = useState(0);
   const wrapperRef = useRef(null);

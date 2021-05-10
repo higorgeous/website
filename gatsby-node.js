@@ -33,7 +33,7 @@ exports.createPages = ({ graphql, actions }) => {
         const { type, slug } = edge.node.frontmatter;
         if (type === 'page') {
           createPage({
-            path: slug ? `${slug}/` : `/`,
+            path: slug !== '/' ? `${slug}/` : `/`,
             component: path.resolve(`./src/templates/page.tsx`),
             context: {
               slug,

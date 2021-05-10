@@ -9,8 +9,8 @@ type Props = {
 };
 
 const Content: React.FC<Props> = ({ seo }: Props) => {
-  const { title, description } = seo;
-  const titleMap = title.split(``);
+  const { menuTitle, description } = seo.frontmatter;
+  const titleMap = menuTitle.split(``);
 
   const data = useStaticQuery(
     graphql`

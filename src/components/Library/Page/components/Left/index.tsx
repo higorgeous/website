@@ -9,10 +9,10 @@ type Props = {
 };
 
 const Left: React.FC<Props> = ({ theme, seo }: Props) => {
-  const { leftColor } = theme;
+  const { leftColor } = theme.frontmatter;
   return (
     <Wrapper color={leftColor}>
-      <Content {...seo} />
+      <Content seo={seo} />
     </Wrapper>
   );
 };
