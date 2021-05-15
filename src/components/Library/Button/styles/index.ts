@@ -28,15 +28,28 @@ export const buttonStyles: any = (
   height: 2.5em;
   overflow: hidden;
   cursor: pointer;
+  ${inline &&
+  css`
+    padding: 1em 2em;
+    font-size: 1.25em;
+    &:nth-of-type(2) {
+      border: 1px solid ${theme.palette.dark};
+      background-color: ${theme.palette.dark};
+      color: ${theme.palette.light};
+      &:hover {
+        color: ${theme.palette.dark};
+      }
+    }
+  `}
   &::before {
     content: '';
     position: absolute;
     width: 100%;
     height: 100%;
     background-color: ${theme.palette.light};
-    transform: translateY(-101%);
+    transform: translateY(-102%);
     transition: transform 0.2s;
-    z-index: -1;
+    z-index: 0;
   }
   &:hover {
     color: ${theme.palette.dark};
@@ -46,20 +59,8 @@ export const buttonStyles: any = (
   }
   span {
     margin: 1em auto 0.8em;
+    z-index: 1;
   }
-  ${inline &&
-  css`
-    padding: 1em 2em;
-    font-size: 1.25em;
-    &:first-of-type {
-      border: 1px solid ${theme.palette.dark};
-      background-color: ${theme.palette.dark};
-      color: ${theme.palette.light};
-      &:hover {
-        color: ${theme.palette.dark};
-      }
-    }
-  `}
 `;
 
 export const BtnDiv = styled.div<{
@@ -89,4 +90,13 @@ export const BtnAnchor = styled.a<{
   ${({ isFilled, isFullWidth, inline }) =>
     buttonStyles(isFilled, isFullWidth, inline)}
   text-decoration: none;
+`;
+
+export const InlineWrapper = styled.span`
+  display: block;
+  margin-bottom: 0.5em;
+  font-size: 14px;
+  a {
+    margin-top: 0 !important;
+  }
 `;

@@ -13,8 +13,6 @@ const Page: React.FC<any> = (data: any) => {
   useEffect(() => {
     dispatch(setPageTheme(queries));
   }, []);
-  console.log(queries);
-
   return (
     <Wrapper>
       <Left {...queries} />

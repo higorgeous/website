@@ -6,7 +6,7 @@ import BackgroundImage from './components/BackgroundImage';
 
 const Left: React.FC<any> = (queries: any) => {
   const { theme, seo, title } = queries;
-  const { leftColor, backgroundImage } = theme;
+  const { leftColor, backgroundImage = {} } = theme;
   return (
     <Wrapper color={leftColor}>
       <Content title={title} seo={seo} />

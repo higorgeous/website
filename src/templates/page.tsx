@@ -37,6 +37,27 @@ export const query = graphql`
         title
         richtext {
           raw
+          references {
+            ... on ContentfulAsset {
+              contentful_id
+              __typename
+              title
+              gatsbyImageData(layout: FULL_WIDTH)
+            }
+            ... on ContentfulPageWebsite {
+              contentful_id
+              __typename
+              title
+              slug
+            }
+            ... on ContentfulInfoLinks {
+              contentful_id
+              __typename
+              text
+              title
+              uri
+            }
+          }
         }
       }
     }

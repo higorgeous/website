@@ -1,10 +1,10 @@
 import React, { ReactNode } from 'react';
 
-import { BtnAnchor, BtnLink, BtnDiv } from './styles';
+import { BtnAnchor, BtnLink, BtnDiv, InlineWrapper } from './styles';
 
 type Props = {
   children: ReactNode;
-  type?: 'anchor' | 'link';
+  type?: 'anchor' | 'link' | 'inlineAnchor' | 'inlineLink';
   href?: string;
   onClick?: any;
   isFilled?: boolean;
@@ -47,6 +47,36 @@ const Button: React.FC<Props> = ({
         >
           <span className="text">{children}</span>
         </BtnLink>
+      );
+    case `inlineAnchor`:
+      return (
+        <InlineWrapper>
+          <BtnAnchor
+            href={href}
+            target="_blank"
+            rel="noreferrer noopener"
+            isFilled={isFilled}
+            isFullWidth={isFullWidth}
+            inline={inline}
+            onClick={onClick}
+          >
+            <span className="text">{children}</span>
+          </BtnAnchor>
+        </InlineWrapper>
+      );
+    case `inlineLink`:
+      return (
+        <InlineWrapper>
+          <BtnLink
+            to={href}
+            isFilled={isFilled}
+            isFullWidth={isFullWidth}
+            inline={inline}
+            onClick={onClick}
+          >
+            <span className="text">{children}</span>
+          </BtnLink>
+        </InlineWrapper>
       );
     default:
       return (
