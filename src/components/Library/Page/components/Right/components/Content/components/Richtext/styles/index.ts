@@ -16,7 +16,7 @@ export const Section = styled.div`
 export const Title = styled.div<{ color: string }>`
   position: sticky;
   top: 10em;
-  z-index: 1;
+  z-index: 2;
   margin-top: 0.8em;
   margin-bottom: 1.8em;
   font-family: ${theme.font.header};
@@ -38,14 +38,13 @@ export const Title = styled.div<{ color: string }>`
     margin-bottom: 0;
     padding-top: 1.25em;
     padding-bottom: 0.5em;
-    background: #f9c3d0;
+    background: ${({ color }) => color};
     border-bottom: 1px solid currentColor;
   }
 `;
 
 export const Body = styled.div`
   display: flex;
-  // max-width: 30em;
   margin-top: 1.1em;
   flex-direction: column;
   p {

@@ -9,7 +9,7 @@ export const Wrapper = styled.div<{ color: string; width: number }>`
   width: ${({ width }) => `calc(${width}px - 8em)`};
   padding-top: 11em;
   background-color: ${({ color }) => color};
-  z-index: 2;
+  z-index: 3;
   @media screen and (max-width: ${theme.responsive.large}) {
     position: sticky;
     top: 0;

@@ -48,12 +48,11 @@ export const Boxes = styled.div`
   display: grid;
   grid-template-columns: 2fr 2fr 2fr;
   grid-auto-rows: 1fr;
-
   justify-content: space-between;
-  align-items: flex-start;
   @media screen and (max-width: ${theme.responsive.small}) {
     grid-template-columns: 1fr;
-    margin-top: -4em;
+    grid-auto-rows: inherit;
+    margin-bottom: 5em;
   }
 `;
 
@@ -65,6 +64,14 @@ export const Box = styled.div`
   &:last-of-type {
     border-right: 1px solid currentColor;
   }
+  @media screen and (max-width: ${theme.responsive.small}) {
+    margin-bottom: 0;
+    border-right: 1px solid currentColor;
+    border-bottom: none;
+    &:last-of-type {
+      border-bottom: 1px solid currentColor;
+    }
+  }
   h3 {
     font-family: ${theme.font.header};
     font-size: 1.5em;
@@ -72,8 +79,5 @@ export const Box = styled.div`
   }
   p {
     margin-bottom: 1em !important;
-    &:last-of-type {
-      margin-bottom: 0 !important;
-    }
   }
 `;
