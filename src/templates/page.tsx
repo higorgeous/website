@@ -59,6 +59,13 @@ export const query = graphql`
             }
           }
         }
+        json {
+          type
+          content {
+            title
+            text
+          }
+        }
       }
     }
   }
