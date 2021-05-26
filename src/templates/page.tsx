@@ -1,5 +1,5 @@
 import React from 'react';
-import { PageProps, graphql } from 'gatsby';
+import { graphql, PageProps } from 'gatsby';
 
 import Page from '@/components/Library/Page';
 
@@ -23,48 +23,43 @@ export const query = graphql`
           }
         }
       }
-      theme {
-        leftColor
-        rightColor
-        backgroundImage {
+      hero {
+        title
+        backgroundColor
+        images {
+          id
           title
-          gatsbyImageData
+          file {
+            url
+            contentType
+          }
+          gatsbyImageData(layout: FULL_WIDTH)
         }
       }
-      contentTitle
       sections {
         id
         title
-        richtext {
-          raw
-          references {
-            ... on ContentfulAsset {
-              contentful_id
-              __typename
-              title
-              gatsbyImageData(layout: FULL_WIDTH)
-            }
-            ... on ContentfulPageWebsite {
-              contentful_id
-              __typename
-              title
-              slug
-            }
-            ... on ContentfulInfoLinks {
-              contentful_id
-              __typename
-              text
-              title
-              uri
-            }
+        type
+        backgroundColor
+        text {
+          childMarkdownRemark {
+            html
           }
         }
-        json {
-          type
-          content {
-            title
-            text
+        images {
+          id
+          title
+          file {
+            url
+            contentType
           }
+          gatsbyImageData(layout: FULL_WIDTH)
+        }
+      }
+      next {
+        slug
+        seo {
+          pageTitle
         }
       }
     }

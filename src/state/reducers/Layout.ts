@@ -1,23 +1,11 @@
-import { SET_MENU, RESET_LAYOUT, SET_PAGE_THEME } from '../types';
+import { SET_MENU, RESET_LAYOUT } from '../types';
 
 type State = {
   menuPanel: boolean;
-  page: {
-    theme: {
-      leftDark: boolean;
-      rightDark: boolean;
-    };
-  };
 };
 
 const initialState: State = {
   menuPanel: false,
-  page: {
-    theme: {
-      leftDark: true,
-      rightDark: false,
-    },
-  },
 };
 
 const LayoutReducer: any = (
@@ -29,16 +17,6 @@ const LayoutReducer: any = (
       return {
         ...state,
         menuPanel: !state.menuPanel,
-      };
-    case SET_PAGE_THEME:
-      return {
-        ...state,
-        page: {
-          theme: {
-            leftDark: action.payload.leftDark,
-            rightDark: action.payload.rightDark,
-          },
-        },
       };
     case RESET_LAYOUT:
       return {

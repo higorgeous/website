@@ -1,22 +1,24 @@
-import React, { useEffect } from 'react';
-import { useDispatch } from 'react-redux';
+import React from 'react';
 
-import { setPageTheme } from '@/state/actions/layout';
+import OuterNav from '@/components/Global/OutNav';
 
-import Left from './components/Left';
-import Right from './components/Right';
+import Title from './components/Title';
+import Section from './components/Section';
+import Next from './components/Next';
+
 import { Wrapper } from './styles';
 
-const Page: React.FC<any> = (data: any) => {
-  const { queries } = data;
-  const dispatch = useDispatch();
-  useEffect(() => {
-    dispatch(setPageTheme(queries));
-  }, []);
+const Page: React.FC<any> = ({ queries }) => {
+  const { hero, sections = [], next } = queries;
   return (
     <Wrapper>
-      <Left {...queries} />
-      <Right {...queries} />
+      <OuterNav />
+      <Title {...hero} />
+      {sections &&
+        sections.map((section: any) => (
+          <Section key={section.id} {...section} />
+        ))}
+      <Next {...next} />
     </Wrapper>
   );
 };

@@ -17,41 +17,49 @@ export const query = graphql`
         }
         noindex
         nofollow
-      }
-      theme {
-        leftColor
-        rightColor
-        backgroundImage {
-          title
-          gatsbyImageData
+        image {
+          file {
+            url
+          }
         }
       }
-      contentTitle
-      sections {
+      hero {
         title
-        richtext {
-          raw
-          references {
-            ... on ContentfulAsset {
-              contentful_id
-              __typename
-              title
-              gatsbyImageData(layout: FULL_WIDTH)
-            }
-            ... on ContentfulPageWebsite {
-              contentful_id
-              __typename
-              title
-              slug
-            }
-            ... on ContentfulInfoLinks {
-              contentful_id
-              __typename
-              text
-              title
-              uri
-            }
+        backgroundColor
+        images {
+          id
+          title
+          file {
+            url
+            contentType
           }
+          gatsbyImageData(layout: FULL_WIDTH)
+        }
+      }
+      sections {
+        id
+        title
+        type
+        backgroundColor
+        text {
+          childMarkdownRemark {
+            html
+          }
+        }
+        images {
+          id
+          title
+          file {
+            url
+            contentType
+          }
+          gatsbyImageData(layout: FULL_WIDTH)
+        }
+      }
+      next {
+        slug
+        seo {
+          pageTitle
         }
       }
     }

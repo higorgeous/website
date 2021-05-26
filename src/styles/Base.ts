@@ -1,15 +1,16 @@
 import { css } from '@emotion/react';
 
-import theme from './Theme';
+import { Theme } from '.';
 
 export default css`
+  html {
+    background: ${Theme.palette.light};
+    box-sizing: border-box;
+  }
+
   body {
     margin: 0;
-    min-height: 100%;
-    background-color: ${theme.palette.pink};
-    font-family: ${theme.font.body};
-    color: ${theme.palette.dark};
-    font-size: 14px;
-    line-height: 20px;
+    text-align: center;
+    overflow-x: hidden;
   }
 `;

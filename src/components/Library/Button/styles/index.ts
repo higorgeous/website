@@ -12,7 +12,7 @@ export const buttonStyles: any = (
   position: relative;
   margin-top: 1em;
   padding: 1em 2em;
-  font-family: ${theme.font.header};
+  font-family: ${theme.font};
   font-size: 2em;
   font-weight: 700;
   letter-spacing: 0.2em;

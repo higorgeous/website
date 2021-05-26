@@ -1,37 +1,29 @@
 type Props = {
   palette: {
-    light: string;
     dark: string;
-    pink: string;
+    light: string;
+    alternative: string;
   };
   responsive: {
     small: string;
     medium: string;
     large: string;
-    xlarge: string;
   };
-  font: {
-    body: string;
-    header: string;
-  };
+  font: string;
 };
 
 const theme: Props = {
   palette: {
-    light: `hsl(0deg 0% 100%)`,
-    dark: `hsl(233deg 34% 27%)`,
-    pink: `hsl(346deg 81% 87%)`,
+    dark: `#1e1e1e`,
+    light: `#ffffff`,
+    alternative: `#f9e9cc`,
   },
   responsive: {
-    small: `34.214em`,
-    medium: `54.786em`,
-    large: `70.786em`,
-    xlarge: `87.857em`,
+    small: `420px`,
+    medium: `768px`,
+    large: `960px`,
   },
-  font: {
-    body: `'Markpro', sans-serif`,
-    header: `'Formulacondensed' ,sans-serif`,
-  },
+  font: `Poppins, Helvetica, Arial, sans-serif`,
 };
 
 export default theme;

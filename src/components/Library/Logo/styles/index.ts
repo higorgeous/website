@@ -1,5 +1,3 @@
 import styled from '@emotion/styled';
 
-export const Wrapper = styled.svg`
-  fill: currentColor;
-`;
+export const Wrapper = styled.svg``;
