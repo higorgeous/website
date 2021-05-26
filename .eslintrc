@@ -26,12 +26,14 @@
     "prettier"
   ],
   "rules": {
+    "consistent-return": "off",
     "no-console": "off",
     "prettier/prettier": "error",
     "import/prefer-default-export": "off",
     "react/require-default-props": "off",
     "react/prop-types": "off",
     "react/no-danger": "off",
+    "react/no-array-index-key": "off",
     "react/jsx-filename-extension": [
       1,
       {
