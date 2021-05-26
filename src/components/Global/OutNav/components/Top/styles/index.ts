@@ -7,7 +7,7 @@ type ContainerProps = {
 };
 
 export const Wrapper = styled.div`
-  width: 100%;
+  width: 50%;
   left: 0;
   right: 0;
   pointer-events: auto;

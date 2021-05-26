@@ -1,6 +1,8 @@
 /* eslint-disable @typescript-eslint/explicit-module-boundary-types */
 import { useEffect, useState } from 'react';
-import { useLocation } from '@reach/router';
+import chroma from 'chroma-js';
+
+import { Theme } from '@/styles';
 
 // Check for window
 export const isBrowser = typeof window !== `undefined`;
@@ -48,29 +50,40 @@ export const useScrollPosition = () => {
 };
 
 // Get top and bottom ranges of section panels
-export const getSectionRanges = () => {
-  const [ranges, setRanges] = useState([]);
-  const location = useLocation();
+export const getDarkRanges = (
+  sections: any[],
+  titleRef: { current: { clientHeight: any; dataset: { background: string } } },
+) => {
+  const [darkRanges, setDarkRanges] = useState([]);
 
+  // Get locations for dark sections
   useEffect(() => {
-    const sections = document.querySelectorAll(`section`);
+    const height = titleRef.current.clientHeight;
+    const titleDark = titleRef.current.dataset.background === `dark`;
+    const initRange = { start: 0, finish: height };
+    const sectionLength = sections ? sections.length : 0;
+    const nextIndex = sectionLength + 1;
+    const nextStart = nextIndex * height;
+    const nextFinish = nextStart + height;
 
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach((entry: any, index) => {
-        const { target } = entry;
-        const { dataset } = target;
-        const { height } = entries[0].boundingClientRect;
-        const start = index * height;
+    setDarkRanges((prevState) => (titleDark ? [...prevState, initRange] : []));
+    // eslint-disable-next-line no-unused-expressions
+    sections &&
+      sections.forEach((section: any, index: number) => {
+        const indexNew = index + 1;
+        const start = indexNew * height;
         const finish = start + height;
-        if (dataset.background === `dark`)
-          setRanges((prevState) => [...prevState, { start, finish }]);
+        const dark =
+          chroma(Theme.palette[section.backgroundColor.toLowerCase()]).get(
+            `lab.l`,
+          ) < 70;
+        if (dark)
+          setDarkRanges((prevState) => [...prevState, { start, finish }]);
       });
-      sections.forEach((section) => observer.unobserve(section));
-    });
-    sections.forEach((section) => observer.observe(section));
-    return () => {
-      observer.disconnect();
-    };
-  }, [location.pathname]);
-  return ranges;
+    setDarkRanges((prevState) => [
+      ...prevState,
+      { start: nextStart, finish: nextFinish },
+    ]);
+  }, []);
+  return darkRanges;
 };

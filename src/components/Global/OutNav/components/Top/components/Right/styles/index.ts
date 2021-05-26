@@ -74,7 +74,7 @@ export const Wrapper = styled.div<WrapperProps>`
       ${({ menuPanel }) =>
         menuPanel
           ? css`
-              top: 18px;
+              top: 6px;
               width: 0;
               left: 50%;
             `

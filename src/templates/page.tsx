@@ -24,6 +24,7 @@ export const query = graphql`
         }
       }
       hero {
+        id
         title
         backgroundColor
         images {
@@ -57,6 +58,7 @@ export const query = graphql`
         }
       }
       next {
+        id
         slug
         seo {
           pageTitle

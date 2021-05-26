@@ -26,6 +26,7 @@
     "prettier"
   ],
   "rules": {
+    "no-return-assign": "off",
     "consistent-return": "off",
     "no-console": "off",
     "prettier/prettier": "error",
