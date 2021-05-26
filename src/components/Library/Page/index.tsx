@@ -9,7 +9,7 @@ import Next from './components/Next';
 import { Wrapper } from './styles';
 
 const Page: React.FC<any> = ({ queries }) => {
-  const { hero, sections = [], next } = queries;
+  const { hero, sections = [], next = null } = queries;
   return (
     <Wrapper>
       <OuterNav />
@@ -18,7 +18,7 @@ const Page: React.FC<any> = ({ queries }) => {
         sections.map((section: any) => (
           <Section key={section.id} {...section} />
         ))}
-      <Next {...next} />
+      {next && <Next {...next} />}
     </Wrapper>
   );
 };

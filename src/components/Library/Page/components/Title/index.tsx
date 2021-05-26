@@ -21,7 +21,10 @@ const Title: React.FC<Props> = (hero) => {
     chroma(Theme.palette[backgroundColor.toLowerCase()]).get(`lab.l`) < 70;
 
   return (
-    <Wrapper id={colorDark ? `dark` : null} backgroundColor={backgroundColor}>
+    <Wrapper
+      data-background={colorDark ? `dark` : null}
+      backgroundColor={backgroundColor}
+    >
       {shadows.map((i) => (
         <Shadow key={i} colorDark={colorDark}>
           <h1>{title}</h1>
