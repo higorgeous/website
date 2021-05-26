@@ -53,15 +53,17 @@ export const getSectionRanges = () => {
   const location = useLocation();
 
   useEffect(() => {
-    const sections = document.querySelectorAll(`section#dark`);
+    const sections = document.querySelectorAll(`section`);
 
     const observer = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
-        const { boundingClientRect } = entry;
-        const { top, bottom } = boundingClientRect;
-        const start = top;
-        const finish = bottom;
-        setRanges((prevState) => [...prevState, { start, finish }]);
+      entries.forEach((entry: any, index) => {
+        const { target } = entry;
+        const { dataset } = target;
+        const { height } = entries[0].boundingClientRect;
+        const start = index * height;
+        const finish = start + height;
+        if (dataset.background === `dark`)
+          setRanges((prevState) => [...prevState, { start, finish }]);
       });
       sections.forEach((section) => observer.unobserve(section));
     });
@@ -70,6 +72,5 @@ export const getSectionRanges = () => {
       observer.disconnect();
     };
   }, [location.pathname]);
-
   return ranges;
 };

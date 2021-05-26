@@ -64,7 +64,10 @@ const Section: React.FC<Props> = (section) => {
   }
 
   return (
-    <Wrapper id={colorDark ? `dark` : null} backgroundColor={backgroundColor}>
+    <Wrapper
+      data-background={colorDark ? `dark` : null}
+      backgroundColor={backgroundColor}
+    >
       <Container isSmall={isSmall} colorDark={colorDark}>
         {component}
       </Container>
