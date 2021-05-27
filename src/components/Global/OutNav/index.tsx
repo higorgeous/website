@@ -5,6 +5,7 @@ import { getDarkRanges, useWindowSize, useScrollPosition } from '@/utils';
 import Top from './components/Top';
 
 import { Wrapper } from './styles';
+import Bottom from './components/Bottom';
 
 type Props = {
   sections: Array<any>;
@@ -22,6 +23,7 @@ const OuterNav: React.FC<Props> = ({ sections, titleRef }) => {
         windowSize={windowSize}
         scrollPosition={scrollPosition}
       />
+      <Bottom darkRanges={darkRanges} scrollPosition={scrollPosition} />
     </Wrapper>
   );
 };

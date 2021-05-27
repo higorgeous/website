@@ -13,4 +13,15 @@ export default css`
     text-align: center;
     overflow-x: hidden;
   }
+
+  ul {
+    margin: 0;
+  }
+
+  a {
+    background: transparent;
+    color: currentColor;
+    text-decoration: none;
+    cursor: pointer;
+  }
 `;

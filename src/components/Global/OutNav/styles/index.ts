@@ -21,4 +21,7 @@ export const Wrapper = styled.div`
   @media (min-width: ${Theme.responsive.medium}) {
     padding: 48px 56px;
   }
+  & > * {
+    pointer-events: auto;
+  }
 `;
