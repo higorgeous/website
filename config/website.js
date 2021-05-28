@@ -1,3 +1,3 @@
 module.exports = {
-  siteLogo: '../src/Images/icon.png', // Used for SEO, sharing and manifest
+  siteLogo: '../icon.png', // Used for SEO, sharing and manifest
 };
