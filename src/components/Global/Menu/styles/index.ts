@@ -15,7 +15,7 @@ export const Wrapper = styled.div`
       bottom: 0;
       width: 100%;
       background: ${Theme.palette.navigation};
-      z-index: 999;
+      z-index: 9998;
       @media (max-width: ${Theme.responsive.large}) {
         width: calc(100% + 100px);
       }

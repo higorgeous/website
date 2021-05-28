@@ -72,7 +72,7 @@ const Right: React.FC<any> = ({ scrollPosition, darkRanges }) => {
       }
     `,
   );
-  const characters = Array.from(`–––––––––– share`);
+  const characters = Array.from(`–––––––––– follow us`);
   return (
     <Wrapper>
       <ul>

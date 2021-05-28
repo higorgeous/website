@@ -14,7 +14,7 @@ export const Wrapper = styled(motion.div)`
   overflow: scroll;
   -ms-overflow-style: none;
   scrollbar-width: none;
-  z-index: 999;
+  z-index: 9998;
   @media (max-width: ${Theme.responsive.large}) {
     width: 100%;
     padding: 350px 28px 150px;
@@ -34,6 +34,9 @@ export const Wrapper = styled(motion.div)`
       width: 100%;
       padding: 0;
       margin-top: 100px;
+      &:first-of-type {
+        margin-top: 300px;
+      }
     }
     &.social {
       li {

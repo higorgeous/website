@@ -26,7 +26,7 @@ export const Wrapper = styled.div<WrapperProps>`
     path {
       stroke: ${({ colorDark }) =>
         colorDark ? Theme.palette.light : Theme.palette.dark};
-      @media (max-width: ${Theme.responsive.medium}) {
+      @media (max-width: ${Theme.responsive.large}) {
         transition: stroke 1s;
         stroke: ${({ isOpen }) => (isOpen ? Theme.palette.light : null)};
       }

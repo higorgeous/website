@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { ReduxProvider } from './src/state';
+import Layout from './src/layout';
 
 export const onRenderBody = ({ setHeadComponents }) => {
   // Segment's minified snippet (version 4.13.2)
@@ -17,4 +17,4 @@ export const onRenderBody = ({ setHeadComponents }) => {
   ]);
 };
 
-export const wrapRootElement = ReduxProvider;
+export const wrapRootElement = Layout;

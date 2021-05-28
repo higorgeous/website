@@ -1,1 +1,0 @@
-export { setMenu } from './setMenu';
