@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useStaticQuery, graphql } from 'gatsby';
 
+import { isBrowser } from '@/utils';
 import { Wrapper, Character } from './styles';
 
 const MapCharComponent = ({ character, scrollPosition, darkRanges, index }) => {
@@ -35,17 +36,32 @@ const Left: React.FC<any> = ({ scrollPosition, darkRanges }) => {
         ) {
           id
           uri
+          text
         }
       }
     `,
   );
 
-  const { id, uri } = data.pancakeswap;
+  const { id, uri, text } = data.pancakeswap;
   const characters = Array.from(`Get on Pancakeswap`);
+
+  const handleClick = () => {
+    if (isBrowser)
+      (window as any).analytics.track(`External page clicked`, {
+        uri,
+        Name: text,
+      });
+  };
   return (
     <Wrapper>
       <ul>
-        <a key={id} href={uri} target="_blank" rel="noreferrer">
+        <a
+          key={id}
+          href={uri}
+          target="_blank"
+          rel="noreferrer"
+          onClick={() => handleClick()}
+        >
           {characters.map((character, index) => (
             <MapCharComponent
               key={index}

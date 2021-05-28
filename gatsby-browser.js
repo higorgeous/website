@@ -4,10 +4,21 @@ import { AnimatePresence } from 'framer-motion';
 
 import Layout from './src/layout';
 
-const segmentPageTrack = () => window.analytics && window.analytics.page();
-
-export const onRouteUpdate = () => {
-  segmentPageTrack();
+export const onRouteUpdate = ({ prevLocation }) => {
+  function trackSegmentPage() {
+    const delay = Math.max(0, 50);
+    window.setTimeout(() => {
+      // eslint-disable-next-line no-unused-expressions
+      window.analytics && window.analytics.page(document.title);
+    }, delay);
+  }
+  if (prevLocation && window.segmentSnippetLoaded === false) {
+    window.segmentSnippetLoader(() => {
+      trackSegmentPage();
+    });
+  } else {
+    trackSegmentPage();
+  }
 };
 
 export const wrapRootElement = Layout;

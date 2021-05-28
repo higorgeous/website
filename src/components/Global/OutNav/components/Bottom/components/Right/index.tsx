@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useStaticQuery, graphql } from 'gatsby';
 
+import { isBrowser } from '@/utils';
 import { Wrapper, Icon, Share, ShareChar } from './styles';
 
 const MapIconComponent = ({ icon, scrollPosition, darkRanges }) => {
@@ -19,9 +20,22 @@ const MapIconComponent = ({ icon, scrollPosition, darkRanges }) => {
       scrollPosition < x.finish - adjustment,
   );
 
+  const handleClick = () => {
+    if (isBrowser)
+      (window as any).analytics.track(`External page clicked`, {
+        uri: icon.uri,
+        Name: icon.text,
+      });
+  };
+
   return (
     <Icon id={`iconBtm-${icon.id}`} isDark={isDark}>
-      <a href={icon.uri} target="_blank" rel="noreferrer">
+      <a
+        href={icon.uri}
+        target="_blank"
+        rel="noreferrer"
+        onClick={() => handleClick()}
+      >
         <img src={icon.icon.icon} alt={icon.text} />
       </a>
     </Icon>

@@ -9,8 +9,11 @@ export const Ring = styled.div`
   position: fixed;
   transform: translate(-50%, -50%);
   pointer-events: none;
-  transition: width, height, background-color, opacity, transform,
-    mix-blend-mode 300ms ease-in-out, top, left 70ms ease;
+
+  transition-property: width, height, background-color, opacity, transform,
+    mix-blend-mode;
+  transition-duration: 300ms, 300ms, 300ms, 300ms, 300ms, 300ms;
+  animation-timing-function: ease;
   will-change: width, height, transform, border;
   z-index: 99999;
   mix-blend-mode: difference;
