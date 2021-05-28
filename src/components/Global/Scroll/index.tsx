@@ -1,12 +1,9 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useCallback } from 'react';
 
-import { isBrowser, useWindowSize } from '@/utils';
+import { isBrowser } from '@/utils';
 import { Wrapper } from './styles';
 
 const Scroll: React.FC = ({ children }) => {
-  const windowSize = useWindowSize();
-  const scrollingContainerRef = useRef();
-
   const data = {
     ease: 0.1,
     current: 0,
@@ -14,32 +11,24 @@ const Scroll: React.FC = ({ children }) => {
     rounded: 0,
   };
 
-  const setBodyHeight = () => {
-    if (isBrowser)
-      document.body.style.height = `${
-        scrollingContainerRef.current.getBoundingClientRect().height
-      }px`;
-  };
-
-  useEffect(() => {
-    setBodyHeight();
-  }, [windowSize.height]);
-
-  const smoothScrollingHandler = () => {
-    data.current = window.scrollY;
+  const smoothScrollingHandler = (node) => {
+    data.current = isBrowser && window.scrollY;
     data.previous += (data.current - data.previous) * data.ease;
     data.rounded = Math.round(data.previous * 100) / 103;
-    scrollingContainerRef.current.style.transform = `translateY(-${data.previous}px)`;
-    requestAnimationFrame(() => smoothScrollingHandler());
+    // eslint-disable-next-line no-param-reassign
+    node.style.transform = `translateY(-${data.previous}px)`;
+    requestAnimationFrame(() => smoothScrollingHandler(node));
   };
 
-  useEffect(() => {
-    requestAnimationFrame(() => smoothScrollingHandler());
+  const setRef = useCallback((node) => {
+    if (isBrowser && node)
+      document.body.style.height = `${node?.getBoundingClientRect().height}px`;
+    if (node) requestAnimationFrame(() => smoothScrollingHandler(node));
   }, []);
 
   return (
     <Wrapper>
-      <div ref={scrollingContainerRef}>{children}</div>
+      <div ref={setRef}>{children}</div>
     </Wrapper>
   );
 };
