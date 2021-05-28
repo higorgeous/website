@@ -1,3 +1,5 @@
+const config = require('./config/website');
+
 require('dotenv').config({
   path: `.env.${process.env.NODE_ENV}`,
 });
@@ -40,7 +42,7 @@ module.exports = {
         background_color: '#232129',
         theme_color: '#f9e9cc',
         display: 'standalone',
-        icon: `./src/images/icon.png`,
+        icon: config.siteLogo,
       },
     },
     `gatsby-plugin-offline`,

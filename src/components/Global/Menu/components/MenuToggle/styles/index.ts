@@ -17,7 +17,7 @@ export const Wrapper = styled.div<WrapperProps>`
   transform: rotate(0deg);
   transition: transform 0.5s ease-in-out;
   cursor: pointer;
-  z-index: 999;
+  z-index: 9999;
   @media (max-width: ${Theme.responsive.medium}) {
     top: 3px;
     right: 0;

@@ -28,6 +28,9 @@ export const Ring = styled.div`
     transform: translate(-50%, -50%) scale(0.25);
     background-color: ${Theme.palette.alternative};
   }
+  @media (max-width: ${Theme.responsive.medium}) {
+    display: none !important;
+  }
 `;
 
 export const Dot = styled.div`
@@ -48,5 +51,8 @@ export const Dot = styled.div`
   }
   &.cursor--clicked {
     display: none;
+  }
+  @media (max-width: ${Theme.responsive.medium}) {
+    display: none !important;
   }
 `;

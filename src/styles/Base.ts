@@ -15,7 +15,9 @@ export default css`
 
   html *,
   body * {
-    cursor: none !important;
+    @media (min-width: ${Theme.responsive.medium}) {
+      cursor: none !important;
+    }
   }
 
   &::selection {
