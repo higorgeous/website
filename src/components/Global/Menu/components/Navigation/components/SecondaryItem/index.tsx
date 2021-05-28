@@ -1,5 +1,6 @@
 import * as React from 'react';
 import { motion } from 'framer-motion';
+import { isBrowser } from '@/utils';
 
 const variants = {
   open: {
@@ -18,12 +19,26 @@ const variants = {
   },
 };
 
-const SecondaryItem: React.FC<any> = ({ link }) => (
-  <motion.li variants={variants}>
-    <a href={link.uri} target="_blank" rel="noreferrer">
-      <motion.span className="primary">{link.text}</motion.span>
-    </a>
-  </motion.li>
-);
+const SecondaryItem: React.FC<any> = ({ link }) => {
+  const handleClick = () => {
+    if (isBrowser)
+      (window as any).analytics.track(`External page clicked`, {
+        uri: link.uri,
+        Name: link.text,
+      });
+  };
+  return (
+    <motion.li variants={variants}>
+      <a
+        href={link.uri}
+        target="_blank"
+        rel="noreferrer"
+        onClick={() => handleClick()}
+      >
+        <motion.span className="primary">{link.text}</motion.span>
+      </a>
+    </motion.li>
+  );
+};
 
 export default SecondaryItem;

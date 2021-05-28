@@ -18,6 +18,9 @@ export const query = graphql`
         noindex
         nofollow
         image {
+          fluid(maxWidth: 2000) {
+            ...GatsbyContentfulFluid_withWebp
+          }
           file {
             url
           }

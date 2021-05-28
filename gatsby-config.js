@@ -10,6 +10,7 @@ module.exports = {
     `gatsby-transformer-sharp`,
     `gatsby-transformer-remark`,
     `gatsby-plugin-react-helmet`,
+    `gatsby-plugin-sitemap`,
     {
       resolve: `gatsby-plugin-webfonts`,
       options: {
@@ -30,5 +31,18 @@ module.exports = {
         accessToken: process.env.GATSBY_CONTENTFUL_ACCESS_TOKEN,
       },
     },
+    {
+      resolve: 'gatsby-plugin-manifest',
+      options: {
+        name: `Gorgeous Charity Token`,
+        short_name: `Gorgeous`,
+        start_url: `https://www.higorgeous.io`,
+        background_color: '#232129',
+        theme_color: '#f9e9cc',
+        display: 'standalone',
+        icon: `./src/images/icon.png`,
+      },
+    },
+    `gatsby-plugin-offline`,
   ],
 };

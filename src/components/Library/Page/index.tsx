@@ -1,9 +1,10 @@
 import React, { useRef } from 'react';
 
-import OuterNav from '@/components/Global/OutNav';
-import Menu from '@/components/Global/Menu';
 import PageTransitions from '@/components/Global/PageTransition';
 import Cursor from '@/components/Global/Cursor';
+import SEO from '@/components/Global/Seo';
+import OuterNav from '@/components/Global/OutNav';
+import Menu from '@/components/Global/Menu';
 
 import Title from './components/Title';
 import Section from './components/Section';
@@ -13,11 +14,12 @@ import { Wrapper } from './styles';
 
 const Page: React.FC<any> = ({ queries }) => {
   const titleRef = useRef(null);
-  const { hero, sections = [], next = null } = queries;
+  const { slug, seo, hero, sections = [], next = null } = queries;
   return (
     <Wrapper>
       <PageTransitions />
       <Cursor />
+      <SEO slug={slug} {...seo} />
       <OuterNav titleRef={titleRef} sections={sections} />
       <Menu titleRef={titleRef} sections={sections} />
       <Title {...hero} innerRef={titleRef} />
