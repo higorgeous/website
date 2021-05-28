@@ -13,6 +13,11 @@ export default css`
     }
   }
 
+  html *,
+  body * {
+    cursor: none !important;
+  }
+
   &::selection {
     background: #f6e4f7;
     color: ${Theme.palette.dark};

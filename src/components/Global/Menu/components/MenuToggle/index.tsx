@@ -19,7 +19,7 @@ const Path = (props) => (
 );
 
 const MenuToggle: React.FC<Props> = ({ colorDark, isOpen, toggle }: Props) => (
-  <Wrapper onClick={toggle} colorDark={colorDark} isOpen={isOpen}>
+  <Wrapper id="trigger" onClick={toggle} colorDark={colorDark} isOpen={isOpen}>
     <svg width="23" height="23" viewBox="0 0 23 23">
       <Path
         variants={{

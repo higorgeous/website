@@ -10,8 +10,9 @@ export const SlideIn = styled(motion.div)`
   height: 100vh;
   width: 100%;
   background: ${Theme.palette.navigation};
+  filter: brightness(0.9);
   transform-origin: left;
-  z-index: 9997;
+  z-index: 9999;
 `;
 
 export const SlideOut = styled(motion.div)`
@@ -21,6 +22,7 @@ export const SlideOut = styled(motion.div)`
   height: 100vh;
   width: 100%;
   background: ${Theme.palette.navigation};
+  filter: brightness(0.9);
   transform-origin: right;
-  z-index: 9997;
+  z-index: 9999;
 `;
