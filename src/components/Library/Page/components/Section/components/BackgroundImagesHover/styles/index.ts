@@ -10,7 +10,6 @@ export const Image = styled.div<ImageProps>`
   width: 100%;
   opacity: ${({ isActive }) => (isActive ? `0.99` : `0`)} !important;
   visibility: ${({ isActive }) => (isActive ? `visible` : `hidden`)};
-  transform: translateY(-25vh);
   > div {
     position: absolute !important;
     height: 100vh;

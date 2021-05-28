@@ -3,8 +3,6 @@ import React from 'react';
 import Helmet from 'react-helmet';
 
 const SEO: React.FC<any> = (seo) => {
-  console.log(seo);
-
   const { pageTitle, slug, description, image, noindex, nofollow } = seo;
 
   const pageUrl = `${websiteConfig.siteUrl}/${slug}/`;

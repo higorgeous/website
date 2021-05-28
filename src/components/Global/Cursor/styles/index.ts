@@ -1,5 +1,6 @@
-import { Theme } from '@/styles';
 import styled from '@emotion/styled';
+
+import { Theme } from '@/styles';
 
 export const Ring = styled.div`
   width: 80px;
