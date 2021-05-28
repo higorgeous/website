@@ -16,7 +16,7 @@ type TitleProps = {
 };
 
 export const Wrapper = styled.section<WrapperProps>`
-  height: 150vh;
+  height: 100vh;
   width: 100vw;
   display: flex;
   justify-content: center;
@@ -29,9 +29,6 @@ export const Wrapper = styled.section<WrapperProps>`
   padding: 0 30px;
   @media (max-width: ${Theme.responsive.large}) {
     padding: 0 50px;
-  }
-  & > * {
-    transform: translateY(-25vh);
   }
 `;
 
