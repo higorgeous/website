@@ -1,5 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { motion, useCycle } from 'framer-motion';
+import { Helmet } from 'react-helmet';
 
 import { getDarkRanges, useWindowSize, useScrollPosition } from '@/utils';
 
@@ -58,6 +59,13 @@ const Menu: React.FC<Props> = ({ sections, titleRef }) => {
 
   return (
     <Wrapper>
+      {isOpen && (
+        <Helmet
+          bodyAttributes={{
+            class: `menu`,
+          }}
+        />
+      )}
       <motion.nav
         initial={false}
         animate={isOpen ? `open` : `closed`}

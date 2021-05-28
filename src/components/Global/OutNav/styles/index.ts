@@ -6,7 +6,7 @@ export const Wrapper = styled.div`
   letter-spacing: 2px;
   font-size: 12px;
   position: fixed;
-  z-index: 999;
+  z-index: 9996;
   padding: 24px 28px;
   top: 0;
   left: 0;

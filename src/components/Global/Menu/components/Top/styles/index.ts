@@ -8,7 +8,7 @@ export const Wrapper = styled.div`
   top: 24px;
   left: 28px;
   pointer-events: auto;
-  z-index: 999;
+  z-index: 10000;
   @media (min-width: ${Theme.responsive.medium}) {
     top: 48px;
     left: 56px;
