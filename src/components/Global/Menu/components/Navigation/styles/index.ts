@@ -22,7 +22,10 @@ export const Wrapper = styled(motion.div)`
   }
   @media (max-width: ${Theme.responsive.medium}) {
     top: 80px;
-    padding: 300px 28px 150px;
+    padding: 600px 28px 150px;
+  }
+  @media (max-width: ${Theme.responsive.small}) {
+    padding: 650px 28px 150px;
   }
   &::-webkit-scrollbar {
     display: none;
