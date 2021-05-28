@@ -9,19 +9,21 @@ import BackgroundVideo from './components/BackgroundVideo';
 import { Wrapper, Shadow, PageTitle } from './styles';
 
 type Props = {
+  innerRef: any;
   title: string;
   backgroundColor: string;
   images?: any;
 };
 
 const Title: React.FC<Props> = (hero) => {
-  const { title, backgroundColor = `Alternative`, images } = hero;
+  const { title, backgroundColor = `Alternative`, images, innerRef } = hero;
   const shadows = [1, 2, 3];
   const colorDark =
     chroma(Theme.palette[backgroundColor.toLowerCase()]).get(`lab.l`) < 70;
 
   return (
     <Wrapper
+      ref={innerRef}
       data-background={colorDark ? `dark` : null}
       backgroundColor={backgroundColor}
     >

@@ -8,9 +8,25 @@ export default css`
     box-sizing: border-box;
   }
 
+  &::selection {
+    background: ${Theme.palette.navigation};
+    text-shadow: none;
+  }
+
   body {
     margin: 0;
     text-align: center;
     overflow-x: hidden;
+  }
+
+  ul {
+    margin: 0;
+  }
+
+  a {
+    background: transparent;
+    color: currentColor;
+    text-decoration: none;
+    cursor: pointer;
   }
 `;

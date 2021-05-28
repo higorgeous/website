@@ -1,21 +1,15 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'gatsby';
 
-import { Logo, LogoMobile, LogoTablet } from '@/components/Library/Logo';
-import { useWindowSize, useScrollPosition, getSectionRanges } from '@/utils';
+import { LogoDesktop, LogoMobile, LogoTablet } from '@/components/Library/Logo';
 
 import { Wrapper, Container } from './styles';
-import Right from './components/Right';
 
-const Top: React.FC<any> = () => {
-  const size = useWindowSize();
-  const scrollPosition = useScrollPosition();
-  const sectionRanges = getSectionRanges();
+const Top: React.FC<any> = ({ darkRanges, windowSize, scrollPosition }) => {
+  const adjustment = windowSize.width > 768 ? 61 : 45;
 
-  const adjustment = size.width > 768 ? 61 : 45;
-
-  const isDark = sectionRanges.some(
-    (x) =>
+  const isDark = darkRanges.some(
+    (x: { start: number; finish: number }) =>
       scrollPosition > x.start - adjustment &&
       scrollPosition < x.finish - adjustment,
   );
@@ -24,16 +18,15 @@ const Top: React.FC<any> = () => {
 
   useEffect(() => {
     setColorDark(isDark);
-  }, [sectionRanges, scrollPosition]);
+  }, [darkRanges, scrollPosition]);
 
   return (
     <Wrapper>
       <Link to="/">
         <Container colorDark={colorDark}>
-          {size.width > 960 && <Logo />}
-          {size.width < 960 && size.width > 768 && <LogoTablet />}
-          {size.width < 768 && <LogoMobile />}
-          <Right colorDark={colorDark} />
+          {windowSize.width > 960 && <LogoDesktop />}
+          {windowSize.width < 960 && windowSize.width > 768 && <LogoTablet />}
+          {windowSize.width < 768 && <LogoMobile />}
         </Container>
       </Link>
     </Wrapper>

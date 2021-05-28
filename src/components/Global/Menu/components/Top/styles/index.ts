@@ -2,23 +2,24 @@ import styled from '@emotion/styled';
 
 import { Theme } from '@/styles';
 
-type ContainerProps = {
-  colorDark: boolean;
-};
-
 export const Wrapper = styled.div`
+  position: fixed;
   width: 50%;
-  left: 0;
-  right: 0;
+  top: 24px;
+  left: 28px;
   pointer-events: auto;
+  z-index: 999;
+  @media (min-width: ${Theme.responsive.medium}) {
+    top: 48px;
+    left: 56px;
+  }
 `;
 
-export const Container = styled.div<ContainerProps>`
+export const Container = styled.div`
   max-width: 140px;
   top: 0;
   left: 0;
-  color: ${({ colorDark }) =>
-    colorDark ? Theme.palette.light : Theme.palette.dark};
+  color: ${Theme.palette.light};
   @media (min-width: ${Theme.responsive.medium}) {
     max-width: 350px;
   }
