@@ -8,6 +8,11 @@ export default css`
     box-sizing: border-box;
   }
 
+  &::selection {
+    background: ${Theme.palette.navigation};
+    text-shadow: none;
+  }
+
   body {
     margin: 0;
     text-align: center;

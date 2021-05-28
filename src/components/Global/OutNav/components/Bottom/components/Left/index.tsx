@@ -26,7 +26,7 @@ const MapCharComponent = ({ character, scrollPosition, darkRanges, index }) => {
   );
 };
 
-const Right: React.FC<any> = ({ scrollPosition, darkRanges }) => {
+const Left: React.FC<any> = ({ scrollPosition, darkRanges }) => {
   const data = useStaticQuery(
     graphql`
       query {
@@ -34,15 +34,14 @@ const Right: React.FC<any> = ({ scrollPosition, darkRanges }) => {
           id: { eq: "2d1a0537-de2a-5a3a-befe-7bda5d489ace" }
         ) {
           id
-          text
           uri
         }
       }
     `,
   );
 
-  const { id, text, uri } = data.pancakeswap;
-  const characters = Array.from(text);
+  const { id, uri } = data.pancakeswap;
+  const characters = Array.from(`Get on Pancakeswap`);
   return (
     <Wrapper>
       <ul>
@@ -62,4 +61,4 @@ const Right: React.FC<any> = ({ scrollPosition, darkRanges }) => {
   );
 };
 
-export default Right;
+export default Left;

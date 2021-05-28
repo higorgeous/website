@@ -1,6 +1,7 @@
 import React, { useRef } from 'react';
 
 import OuterNav from '@/components/Global/OutNav';
+import Menu from '@/components/Global/Menu';
 
 import Title from './components/Title';
 import Section from './components/Section';
@@ -14,6 +15,7 @@ const Page: React.FC<any> = ({ queries }) => {
   return (
     <Wrapper>
       <OuterNav titleRef={titleRef} sections={sections} />
+      <Menu titleRef={titleRef} sections={sections} />
       <Title {...hero} innerRef={titleRef} />
       {sections &&
         sections.map((section: any) => (

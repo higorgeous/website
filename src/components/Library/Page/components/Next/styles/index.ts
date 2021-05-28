@@ -30,7 +30,6 @@ export const NextTitle = styled.span`
   text-transform: uppercase;
   text-decoration: none;
   color: ${Theme.palette.light};
-  cursor: pointer;
   @media (max-width: ${Theme.responsive.medium}) {
     font-size: 18px;
   }

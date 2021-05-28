@@ -8,7 +8,7 @@ export const Wrapper = styled.div`
   right: 0;
   bottom: 0;
   display: none;
-  @media (min-width: ${Theme.responsive.medium}) {
+  @media (min-width: ${Theme.responsive.large}) {
     display: block;
   }
 `;

@@ -4,7 +4,6 @@ import { Link } from 'gatsby';
 import { LogoDesktop, LogoMobile, LogoTablet } from '@/components/Library/Logo';
 
 import { Wrapper, Container } from './styles';
-import Right from './components/Right';
 
 const Top: React.FC<any> = ({ darkRanges, windowSize, scrollPosition }) => {
   const adjustment = windowSize.width > 768 ? 61 : 45;
@@ -30,7 +29,6 @@ const Top: React.FC<any> = ({ darkRanges, windowSize, scrollPosition }) => {
           {windowSize.width < 768 && <LogoMobile />}
         </Container>
       </Link>
-      <Right colorDark={colorDark} />
     </Wrapper>
   );
 };

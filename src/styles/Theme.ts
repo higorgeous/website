@@ -3,6 +3,7 @@ type Props = {
     dark: string;
     light: string;
     alternative: string;
+    navigation: string;
   };
   responsive: {
     small: string;
@@ -17,6 +18,7 @@ const theme: Props = {
     dark: `#1e1e1e`,
     light: `#ffffff`,
     alternative: `#f9e9cc`,
+    navigation: `#232129`,
   },
   responsive: {
     small: `420px`,
