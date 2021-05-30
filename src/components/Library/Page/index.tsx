@@ -23,14 +23,14 @@ const Page: React.FC<any> = ({ queries }) => {
       <SEO slug={slug} {...seo} />
       <OuterNav titleRef={titleRef} sections={sections} />
       <Menu titleRef={titleRef} sections={sections} />
-      <SmoothScroll>
-        <Title {...hero} innerRef={titleRef} />
-        {sections &&
-          sections.map((section: any) => (
-            <Section key={section.id} {...section} />
-          ))}
-        {next && <Next {...next} />}
-      </SmoothScroll>
+      {/* <SmoothScroll> */}
+      <Title {...hero} innerRef={titleRef} />
+      {sections &&
+        sections.map((section: any) => (
+          <Section key={section.id} {...section} />
+        ))}
+      {next && <Next {...next} />}
+      {/* </SmoothScroll> */}
     </Wrapper>
   );
 };
