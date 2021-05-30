@@ -8,8 +8,7 @@ export default css`
     font-size: 22px;
     line-height: 1.25;
     font-weight: 200;
-    -webkit-text-size-adjust: 100%;
-    -ms-text-size-adjust: 100%;
+    text-size-adjust: 100%;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     text-rendering: optimizeLegibility;
