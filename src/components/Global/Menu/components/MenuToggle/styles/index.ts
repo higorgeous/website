@@ -5,6 +5,7 @@ import { Theme } from '@/styles';
 type WrapperProps = {
   colorDark: boolean;
   isOpen: boolean;
+  menuCanClose: boolean;
 };
 
 export const Wrapper = styled.div<WrapperProps>`
@@ -27,7 +28,9 @@ export const Wrapper = styled.div<WrapperProps>`
       stroke: ${({ colorDark }) =>
         colorDark ? Theme.palette.light : Theme.palette.dark};
       @media (max-width: ${Theme.responsive.large}) {
-        transition: stroke 1s;
+        transition: stroke ${({ isOpen }) => (isOpen ? `0.5s` : `0s`)};
+        transition-delay: ${({ menuCanClose }) =>
+          menuCanClose ? `0.3s` : `0s`};
         stroke: ${({ isOpen }) => (isOpen ? Theme.palette.light : null)};
       }
     }

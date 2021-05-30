@@ -18,13 +18,14 @@ export const Wrapper = styled.section<WrapperProps>`
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  position: sticky;
-  top: -1px;
+  position: relative;
   overflow: hidden;
   background-color: ${({ backgroundColor }) =>
     Theme.palette[backgroundColor.toLowerCase()]};
   @media (min-width: ${Theme.responsive.medium}) {
     height: 150vh;
+    top: -1px;
+    position: sticky;
     & > * {
       transform: translateY(-25vh);
     }
