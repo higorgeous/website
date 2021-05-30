@@ -21,15 +21,18 @@ const Scroll: React.FC = ({ children }) => {
     requestAnimationFrame(() => smoothScrollingHandler(node));
   };
 
-  const setRef = useCallback((node) => {
-    if (windowSize.width <= 768) {
-      if (isBrowser && node)
-        document.body.style.height = `${
-          node?.getBoundingClientRect().height
-        }px`;
-      if (node) requestAnimationFrame(() => smoothScrollingHandler(node));
-    }
-  }, []);
+  const setRef = useCallback(
+    (node) => {
+      if (windowSize.width <= 768) {
+        if (isBrowser && node)
+          document.body.style.height = `${
+            node?.getBoundingClientRect().height
+          }px`;
+        if (node) requestAnimationFrame(() => smoothScrollingHandler(node));
+      }
+    },
+    [windowSize],
+  );
 
   return (
     <Wrapper desktop={windowSize.width >= 769}>
