@@ -27,6 +27,7 @@ const SEO: React.FC<any> = (seo) => {
   return (
     <Helmet>
       {/* General tags */}
+      <meta charSet="utf-8" />
       <html lang={websiteConfig.siteLanguage} />
       <title>
         {pageTitle} - {websiteConfig.siteTitle}
