@@ -10,7 +10,6 @@ module.exports = {
     `gatsby-transformer-sharp`,
     `gatsby-transformer-remark`,
     `gatsby-plugin-react-helmet`,
-    `gatsby-plugin-sitemap`,
     {
       resolve: `gatsby-plugin-webfonts`,
       options: {
@@ -31,6 +30,28 @@ module.exports = {
         accessToken: process.env.GATSBY_CONTENTFUL_ACCESS_TOKEN,
       },
     },
+    // {
+    //   resolve: 'gatsby-plugin-sitemap',
+    //   options: {
+    //     query: `
+    //     {
+    //       allContentfulPageWebsite(filter: {slug: {ne: "/404"}}) {
+    //         edges {
+    //           node {
+    //             slug
+    //           }
+    //         }
+    //       }
+    //     }
+    //   `,
+    //     resolveSiteUrl: () => `https://www.higorgeous.io`,
+    //     resolvePages: ({ allContentfulPageWebsite: { nodes: allPages } }) =>
+    //       allPages.map((page) => ({ ...page[page.slug] })),
+    //     serialize: ({ slug }) => ({
+    //       url: slug,
+    //     }),
+    //   },
+    // },
     {
       resolve: 'gatsby-plugin-manifest',
       options: {
