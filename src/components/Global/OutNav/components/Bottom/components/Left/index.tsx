@@ -55,23 +55,25 @@ const Left: React.FC<any> = ({ scrollPosition, darkRanges }) => {
   return (
     <Wrapper>
       <ul>
-        <a
-          key={id}
-          href={uri}
-          target="_blank"
-          rel="noreferrer"
-          onClick={() => handleClick()}
-        >
-          {characters.map((character, index) => (
-            <MapCharComponent
-              key={index}
-              character={character}
-              scrollPosition={scrollPosition}
-              darkRanges={darkRanges}
-              index={index}
-            />
-          ))}
-        </a>
+        <li>
+          <a
+            key={id}
+            href={uri}
+            target="_blank"
+            rel="noreferrer"
+            onClick={() => handleClick()}
+          >
+            {characters.map((character, index) => (
+              <MapCharComponent
+                key={index}
+                character={character}
+                scrollPosition={scrollPosition}
+                darkRanges={darkRanges}
+                index={index}
+              />
+            ))}
+          </a>
+        </li>
       </ul>
     </Wrapper>
   );

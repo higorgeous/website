@@ -12,23 +12,19 @@ type ContainterProps = {
 };
 
 export const Wrapper = styled.section<WrapperProps>`
-  height: 100vh;
+  height: 150vh;
   width: 100vw;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  position: relative;
+  position: sticky;
+  top: -1px;
   overflow: hidden;
   background-color: ${({ backgroundColor }) =>
     Theme.palette[backgroundColor.toLowerCase()]};
-  @media (min-width: ${Theme.responsive.medium}) {
-    height: 150vh;
-    top: -1px;
-    position: sticky;
-    & > * {
-      transform: translateY(-25vh);
-    }
+  & > * {
+    transform: translateY(-25vh);
   }
 `;
 

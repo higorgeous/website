@@ -13,6 +13,10 @@ export const Wrapper = styled.div`
   bottom: 20px;
   left: 0;
   font-weight: 500;
+  ul {
+    list-style: none;
+    padding-left: 28px;
+  }
 `;
 
 export const Character = styled.span<CharacterProps>`

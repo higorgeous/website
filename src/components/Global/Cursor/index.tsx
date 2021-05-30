@@ -2,13 +2,8 @@
 import React, { useEffect, useState } from 'react';
 import classNames from 'classnames';
 
-import { isBrowser } from '@/utils';
+import { isBrowser, isMobile } from '@/utils';
 import { Ring, Dot } from './styles';
-
-const isMobile = () => {
-  const ua = navigator.userAgent;
-  return /Android|Mobi/i.test(ua);
-};
 
 const Cursor: React.FC = () => {
   if (typeof navigator !== `undefined` && isMobile()) return null;

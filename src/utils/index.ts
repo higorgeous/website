@@ -7,6 +7,12 @@ import { Theme } from '@/styles';
 // Check for window
 export const isBrowser = typeof window !== `undefined`;
 
+// Check for mobile device
+export const isMobile = () => {
+  const ua = navigator.userAgent;
+  return /Android|Mobi/i.test(ua);
+};
+
 // Get window size
 export const useWindowSize = () => {
   const [windowSize, setWindowSize] = useState({

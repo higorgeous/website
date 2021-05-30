@@ -15,7 +15,7 @@ export default css`
 
   html *,
   body * {
-    @media (min-width: ${Theme.responsive.medium}) {
+    @media (min-width: ${Theme.responsive.large}) {
       cursor: none !important;
     }
   }
