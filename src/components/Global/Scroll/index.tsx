@@ -6,7 +6,7 @@ import { Wrapper } from './styles';
 const Scroll: React.FC = ({ children }) => {
   const windowSize = useWindowSize();
   const data = {
-    ease: 0.1,
+    ease: 0.2,
     current: 0,
     previous: 0,
     rounded: 0,
@@ -15,7 +15,7 @@ const Scroll: React.FC = ({ children }) => {
   const smoothScrollingHandler = (node) => {
     data.current = isBrowser && window.scrollY;
     data.previous += (data.current - data.previous) * data.ease;
-    data.rounded = Math.round(data.previous * 100) / 103;
+    data.rounded = Math.round(data.previous * 100) / 101;
     // eslint-disable-next-line no-param-reassign
     node.style.transform = `translateY(-${data.previous}px)`;
     requestAnimationFrame(() => smoothScrollingHandler(node));
