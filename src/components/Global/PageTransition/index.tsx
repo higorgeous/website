@@ -9,13 +9,13 @@ const PageTransition: React.FC = () => (
       initial={{ scaleX: 0 }}
       animate={{ scaleX: 0 }}
       exit={{ scaleX: 1 }}
-      transition={{ duration: 0.75, ease: `easeInOut` }}
+      transition={{ duration: 0.5, ease: `easeInOut` }}
     />
     <SlideOut
       initial={{ scaleX: 1 }}
       animate={{ scaleX: 0 }}
       exit={{ scaleX: 0 }}
-      transition={{ duration: 0.75, ease: `easeInOut` }}
+      transition={{ duration: 0.5, ease: `easeInOut` }}
     />
   </>
 );
