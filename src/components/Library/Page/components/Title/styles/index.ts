@@ -22,8 +22,7 @@ export const Wrapper = styled.section<WrapperProps>`
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  position: sticky;
-  top: -1px;
+  position: relative;
   background: ${({ backgroundColor }) =>
     Theme.palette[backgroundColor.toLowerCase()]};
   padding: 0 30px;
@@ -31,6 +30,8 @@ export const Wrapper = styled.section<WrapperProps>`
     padding: 0 50px;
   }
   @media (min-width: ${Theme.responsive.medium}) {
+    position: sticky;
+    top: -1px;
     height: 150vh;
     & > * {
       transform: translateY(-25vh);

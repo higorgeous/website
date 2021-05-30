@@ -5,7 +5,7 @@ import Cursor from '@/components/Global/Cursor';
 import SEO from '@/components/Global/Seo';
 import OuterNav from '@/components/Global/OutNav';
 import Menu from '@/components/Global/Menu';
-import SmoothScroll from '@/components/Global/Scroll';
+// import SmoothScroll from '@/components/Global/Scroll'; Removed for better user experience on mobile
 
 import Title from './components/Title';
 import Section from './components/Section';
