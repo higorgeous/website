@@ -40,8 +40,7 @@ module.exports = {
         background_color: '#232129',
         theme_color: '#f9e9cc',
         display: 'standalone',
-        icon: `//images.ctfassets.net/rko89ci1023p/2j5XNWBtQxWeyO9G0wviBQ/f644cc76ba192bf337aa4005d9427fd9/Icon.png`,
-        // //images.ctfassets.net/rko89ci1023p/2j5XNWBtQxWeyO9G0wviBQ/f644cc76ba192bf337aa4005d9427fd9/Icon.png
+        icon: `src/images/icon.png`,
       },
     },
     `gatsby-plugin-offline`,
