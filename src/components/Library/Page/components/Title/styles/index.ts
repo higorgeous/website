@@ -16,26 +16,22 @@ type TitleProps = {
 };
 
 export const Wrapper = styled.section<WrapperProps>`
-  height: 100vh;
+  height: 150vh;
   width: 100vw;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  position: relative;
+  position: sticky;
+  top: -1px;
   background: ${({ backgroundColor }) =>
     Theme.palette[backgroundColor.toLowerCase()]};
   padding: 0 30px;
   @media (max-width: ${Theme.responsive.large}) {
     padding: 0 50px;
   }
-  @media (min-width: ${Theme.responsive.medium}) {
-    position: sticky;
-    top: -1px;
-    height: 150vh;
-    & > * {
-      transform: translateY(-25vh);
-    }
+  & > * {
+    transform: translateY(-25vh);
   }
 `;
 

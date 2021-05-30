@@ -2,8 +2,6 @@ import React, { useEffect, useRef, useState } from 'react';
 import { motion, useCycle } from 'framer-motion';
 import { Helmet } from 'react-helmet';
 
-import { getDarkRanges, useWindowSize, useScrollPosition } from '@/utils';
-
 import MenuToggle from './components/MenuToggle';
 import Top from './components/Top';
 import Navigation from './components/Navigation';
@@ -31,15 +29,12 @@ const background = {
 };
 
 type Props = {
-  sections: Array<any>;
-  titleRef: any;
+  darkRanges: any;
+  windowSize: any;
+  scrollPosition: any;
 };
 
-const Menu: React.FC<Props> = ({ sections, titleRef }) => {
-  const darkRanges = getDarkRanges(sections, titleRef);
-  const windowSize = useWindowSize();
-  const scrollPosition = useScrollPosition();
-
+const Menu: React.FC<Props> = ({ darkRanges, windowSize, scrollPosition }) => {
   const [isOpen, toggleOpen] = useCycle(false, true);
   const menuRef = useRef(null);
 

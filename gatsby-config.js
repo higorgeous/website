@@ -57,7 +57,7 @@ module.exports = {
       options: {
         name: `Gorgeous Charity Token`,
         short_name: `Gorgeous`,
-        start_url: `https://www.higorgeous.io`,
+        start_url: `/`,
         background_color: '#232129',
         theme_color: '#f9e9cc',
         display: 'standalone',
