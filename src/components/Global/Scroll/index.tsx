@@ -1,9 +1,10 @@
 import React, { useCallback } from 'react';
 
-import { isBrowser } from '@/utils';
+import { isBrowser, useWindowSize } from '@/utils';
 import { Wrapper } from './styles';
 
 const Scroll: React.FC = ({ children }) => {
+  const windowSize = useWindowSize();
   const data = {
     ease: 0.1,
     current: 0,
@@ -21,14 +22,18 @@ const Scroll: React.FC = ({ children }) => {
   };
 
   const setRef = useCallback((node) => {
-    if (isBrowser && node)
-      document.body.style.height = `${node?.getBoundingClientRect().height}px`;
-    if (node) requestAnimationFrame(() => smoothScrollingHandler(node));
+    if (windowSize.width <= 768) {
+      if (isBrowser && node)
+        document.body.style.height = `${
+          node?.getBoundingClientRect().height
+        }px`;
+      if (node) requestAnimationFrame(() => smoothScrollingHandler(node));
+    }
   }, []);
 
   return (
-    <Wrapper>
-      <div ref={setRef}>{children}</div>
+    <Wrapper desktop={windowSize.width >= 769}>
+      <div ref={windowSize.width <= 769 ? setRef : null}>{children}</div>
     </Wrapper>
   );
 };

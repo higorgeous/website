@@ -23,6 +23,12 @@ export const Wrapper = styled.section<WrapperProps>`
   overflow: hidden;
   background-color: ${({ backgroundColor }) =>
     Theme.palette[backgroundColor.toLowerCase()]};
+  @media (min-width: ${Theme.responsive.medium}) {
+    height: 150vh;
+    & > * {
+      transform: translateY(-25vh);
+    }
+  }
 `;
 
 export const Container = styled.div<ContainterProps>`

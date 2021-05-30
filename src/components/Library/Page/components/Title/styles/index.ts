@@ -30,6 +30,12 @@ export const Wrapper = styled.section<WrapperProps>`
   @media (max-width: ${Theme.responsive.large}) {
     padding: 0 50px;
   }
+  @media (min-width: ${Theme.responsive.medium}) {
+    height: 150vh;
+    & > * {
+      transform: translateY(-25vh);
+    }
+  }
 `;
 
 const slideUp = keyframes({
