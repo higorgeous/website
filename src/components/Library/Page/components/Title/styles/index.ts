@@ -110,7 +110,7 @@ export const PageTitle = styled.h1<TitleProps>`
     top: 0px;
     left: 0px;
     font-size: 25px;
-    transform: translate(-45px, 7px);
+    transform: translate(-45px, 6px);
     letter-spacing: 2px;
     @media (max-width: ${Theme.responsive.large}) {
       display: none;
