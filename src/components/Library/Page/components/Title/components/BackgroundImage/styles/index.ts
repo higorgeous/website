@@ -7,5 +7,4 @@ export const Image = styled(BackgroundImage)`
   width: 100%;
   background-position: center;
   background-size: cover;
-  transform: translateY(0);
 `;

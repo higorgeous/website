@@ -23,7 +23,7 @@ const PrimaryItem: React.FC<any> = ({ link, index }) => (
   <motion.li variants={variants}>
     <Link to={link.slug} activeClassName="active">
       <motion.span className="primary" data-section={`0${index + 1}`}>
-        {link.title}
+        {link.seo.pageTitle}
       </motion.span>
     </Link>
   </motion.li>
