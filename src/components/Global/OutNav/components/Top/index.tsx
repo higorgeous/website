@@ -22,7 +22,12 @@ const Top: React.FC<any> = ({ darkRanges, windowSize, scrollPosition }) => {
 
   return (
     <Wrapper>
-      <Link to="/" title="Gorgeous home page" aria-current="page">
+      <Link
+        to="/"
+        title="Gorgeous home page"
+        aria-label="Gorgeous home page"
+        aria-current="page"
+      >
         <Container colorDark={colorDark}>
           {windowSize.width > 960 && <LogoDesktop />}
           {windowSize.width < 960 && windowSize.width > 768 && <LogoTablet />}
