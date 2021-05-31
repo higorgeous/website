@@ -85,8 +85,10 @@ const Navigation: React.FC<any> = () => {
           id
           primaryNavigation {
             id
-            title
             slug
+            seo {
+              pageTitle
+            }
           }
         }
         secondaryLinks: contentfulInfoGlobalInformation(

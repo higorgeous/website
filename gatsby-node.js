@@ -16,7 +16,9 @@ exports.createPages = ({ graphql, actions }) => {
   const loadPages = new Promise((resolve) => {
     graphql(`
       {
-        allContentfulPageWebsite(filter: { slug: { ne: "/404" } }) {
+        websitePages: allContentfulPageWebsite(
+          filter: { slug: { ne: "/404" } }
+        ) {
           edges {
             node {
               slug
@@ -25,8 +27,8 @@ exports.createPages = ({ graphql, actions }) => {
         }
       }
     `).then((result) => {
-      const page = result.data.allContentfulPageWebsite.edges;
-      page.forEach((edge) => {
+      const websitePages = result.data.websitePages.edges;
+      websitePages.forEach((edge) => {
         const { slug } = edge.node;
         createPage({
           path: slug,

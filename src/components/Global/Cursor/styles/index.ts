@@ -12,8 +12,8 @@ export const Ring = styled.div`
   pointer-events: none;
 
   transition-property: width, height, background-color, opacity, transform,
-    mix-blend-mode;
-  transition-duration: 300ms, 300ms, 300ms, 300ms, 300ms, 300ms;
+    mix-blend-mode, left, top;
+  transition-duration: 300ms, 300ms, 300ms, 300ms, 300ms, 300ms, 100ms, 100ms;
   animation-timing-function: ease;
   will-change: width, height, transform, border;
   z-index: 99999;

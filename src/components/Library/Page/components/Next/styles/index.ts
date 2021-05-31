@@ -84,20 +84,11 @@ export const NextLink = styled.div`
       position: absolute;
       top: 0px;
       left: 0px;
-      font-size: 50px;
+      font-size: 25px;
       transform: translate(-50px, 10px);
       letter-spacing: 2px;
       @media (max-width: ${Theme.responsive.large}) {
-        font-size: 45px;
-        transform: translate(-40px, 5px);
-      }
-      @media (max-width: ${Theme.responsive.medium}) {
-        font-size: 35px;
-        transform: translate(-30px, 5px);
-      }
-      @media (max-width: ${Theme.responsive.small}) {
-        font-size: 25px;
-        transform: translate(-25px, 5px);
+        display: none;
       }
     }
     &:hover {
