@@ -7,10 +7,16 @@ type ContainerProps = {
 };
 
 export const Wrapper = styled.div`
-  width: 50%;
+  width: 140px;
   left: 0;
   right: 0;
   pointer-events: auto;
+  @media (min-width: ${Theme.responsive.medium}) {
+    width: 350px;
+  }
+  @media (min-width: ${Theme.responsive.large}) {
+    width: 400px;
+  }
 `;
 
 export const Container = styled.div<ContainerProps>`
