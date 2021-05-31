@@ -7,7 +7,12 @@ import { Wrapper, Container } from './styles';
 
 const Top: React.FC<any> = ({ windowSize }) => (
   <Wrapper>
-    <Link to="/">
+    <Link
+      to="/"
+      title="Gorgeous home page"
+      aria-label="Gorgeous home page"
+      aria-current="page"
+    >
       <Container>
         {windowSize.width > 960 && <LogoDesktop />}
         {windowSize.width < 960 && windowSize.width > 768 && <LogoTablet />}
