@@ -15,7 +15,7 @@ export const Ring = styled.div`
     mix-blend-mode, left, top;
   transition-duration: 300ms, 300ms, 300ms, 300ms, 300ms, 300ms, 100ms, 100ms;
   animation-timing-function: ease;
-  will-change: width, height, transform, border;
+  will-change: width, height, transform, border, left, top;
   z-index: 99999;
   mix-blend-mode: difference;
   &.cursor--hidden {

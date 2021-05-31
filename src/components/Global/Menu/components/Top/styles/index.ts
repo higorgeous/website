@@ -4,7 +4,7 @@ import { Theme } from '@/styles';
 
 export const Wrapper = styled.div`
   position: fixed;
-  width: 50%;
+  width: 140px;
   top: 24px;
   left: 28px;
   pointer-events: auto;
@@ -12,6 +12,10 @@ export const Wrapper = styled.div`
   @media (min-width: ${Theme.responsive.medium}) {
     top: 48px;
     left: 56px;
+    width: 350px;
+  }
+  @media (min-width: ${Theme.responsive.large}) {
+    width: 400px;
   }
 `;
 

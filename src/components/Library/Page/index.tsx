@@ -23,8 +23,8 @@ const Page: React.FC<any> = ({ queries }) => {
   const scrollPosition = useScrollPosition();
   return (
     <Wrapper>
-      <PageTransitions />
       {windowSize.width > 960 && <Cursor />}
+      <PageTransitions />
       <SEO slug={slug} {...seo} />
       <OuterNav
         darkRanges={darkRanges}
