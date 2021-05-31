@@ -100,4 +100,20 @@ export const PageTitle = styled.h1<TitleProps>`
   @media (max-width: ${Theme.responsive.small}) {
     font-size: 30px;
   }
+  &::after {
+    display: block;
+    -webkit-text-stroke: 0px;
+    -webkit-text-fill-color: ${({ colorDark }) =>
+      colorDark ? Theme.palette.light : Theme.palette.dark};
+    content: attr(data-section);
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    font-size: 25px;
+    transform: translate(-45px, 7px);
+    letter-spacing: 2px;
+    @media (max-width: ${Theme.responsive.large}) {
+      display: none;
+    }
+  }
 `;

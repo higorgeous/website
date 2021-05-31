@@ -36,7 +36,7 @@ const Page: React.FC<any> = ({ queries }) => {
         windowSize={windowSize}
         scrollPosition={scrollPosition}
       />
-      <Title {...hero} innerRef={titleRef} />
+      <Title {...hero} slug={slug} innerRef={titleRef} />
       {sections &&
         sections.map((section: any) => (
           <Section key={section.id} {...section} />
