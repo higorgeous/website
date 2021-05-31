@@ -85,7 +85,7 @@ export const NextLink = styled.div`
       top: 0px;
       left: 0px;
       font-size: 25px;
-      transform: translate(-50px, 10px);
+      transform: translate(-45px, 10px);
       letter-spacing: 2px;
       @media (max-width: ${Theme.responsive.large}) {
         display: none;
