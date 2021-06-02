@@ -11,6 +11,7 @@ import BackgroundVideo from './components/BackgroundVideo';
 import { Wrapper, Container } from './styles';
 
 type Props = {
+  type: string;
   backgroundColor: string;
   width: string;
   richtext?: any;
@@ -22,6 +23,7 @@ type Props = {
 const Section: React.FC<Props> = (section) => {
   const [activeImage, setActiveImage] = useState(null);
   const {
+    type = `Default`,
     backgroundColor = `Alternative`,
     width = `Wide`,
     richtext = null,
@@ -48,7 +50,7 @@ const Section: React.FC<Props> = (section) => {
         </Container>
       )}
       {image && <BackgroundImage {...section} />}
-      {images && (
+      {images && type === `Hover images` && (
         <BackgroundImagesHover activeImage={activeImage} {...section} />
       )}
       {video && <BackgroundVideo {...section} />}
