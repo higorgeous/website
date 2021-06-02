@@ -27,6 +27,7 @@
   ],
   "rules": {
     "no-return-assign": "off",
+    "no-underscore-dangle": "off",
     "consistent-return": "off",
     "no-console": "off",
     "prettier/prettier": "error",

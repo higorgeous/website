@@ -8,6 +8,7 @@ import BackgroundImage from './components/BackgroundImage';
 import BackgroundVideo from './components/BackgroundVideo';
 
 import { Wrapper, Shadow, PageTitle } from './styles';
+import HomeHero from './components/HomeHero';
 
 type Props = {
   innerRef: any;
@@ -54,17 +55,24 @@ const Title: React.FC<Props> = (hero) => {
       data-background={colorDark ? `dark` : null}
       backgroundColor={backgroundColor}
     >
-      {shadows.map((i) => (
-        <Shadow key={i} colorDark={colorDark}>
-          <h1>{title}</h1>
-        </Shadow>
-      ))}
-      <PageTitle
-        colorDark={colorDark}
-        data-section={index === 0 ? `` : `0${index}`}
-      >
-        {title}
-      </PageTitle>
+      {slug === `/` ? (
+        <HomeHero title={title} colorDark={colorDark} />
+      ) : (
+        <>
+          {shadows.map((i) => (
+            <Shadow key={i} colorDark={colorDark}>
+              <h1>{title}</h1>
+            </Shadow>
+          ))}
+          <PageTitle
+            colorDark={colorDark}
+            data-section={index === 0 ? `` : `0${index}`}
+          >
+            {title}
+          </PageTitle>
+        </>
+      )}
+
       {images && images.length === 1 && <BackgroundImage {...hero} />}
       {images && images.length > 1 && <BackgroundVideo {...hero} />}
     </Wrapper>

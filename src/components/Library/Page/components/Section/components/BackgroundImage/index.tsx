@@ -4,8 +4,8 @@ import { convertToBgImage } from 'gbimage-bridge';
 
 import { Image } from './styles';
 
-const BackgroundImage: React.FC<any> = ({ images, backgroundColor }) => {
-  const bgImage = getImage(images[0]);
+const BackgroundImage: React.FC<any> = ({ image, backgroundColor }) => {
+  const bgImage = getImage(image);
   const backgroundImage = convertToBgImage(bgImage);
   return (
     <Image

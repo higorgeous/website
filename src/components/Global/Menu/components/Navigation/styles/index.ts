@@ -63,6 +63,7 @@ export const Wrapper = styled(motion.div)`
       list-style: none;
       margin-bottom: 20px;
       a {
+        text-decoration: none;
         &.active {
           pointer-events: none;
           cursor: default;

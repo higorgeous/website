@@ -20,6 +20,12 @@ export default css`
     }
   }
 
+  *,
+  ::after,
+  ::before {
+    box-sizing: border-box;
+  }
+
   &::selection {
     background: #f6e4f7;
     color: ${Theme.palette.dark};
@@ -27,22 +33,31 @@ export default css`
   }
 
   body {
+    position: relative;
     margin: 0;
-    text-align: center;
     overflow-x: hidden;
+    min-height: 100%;
+    box-sizing: inherit;
+    text-align: center;
     &.menu {
       overflow: hidden;
     }
   }
 
-  ul {
-    margin: 0;
+  footer,
+  header,
+  section,
+  div {
+    display: block;
   }
 
-  a {
-    background: transparent;
-    color: currentColor;
-    text-decoration: none;
-    cursor: pointer;
+  image {
+    max-width: 100%;
+    height: auto;
+    border: 0;
+  }
+
+  video {
+    vertical-align: middle;
   }
 `;

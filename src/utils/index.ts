@@ -13,6 +13,15 @@ export const isMobile = () => {
   return /Android|Mobi/i.test(ua);
 };
 
+// Send external click data to Segment
+export const handleExternalClick = ({ uri, name }) => {
+  if (isBrowser)
+    (window as any).analytics.track(`External page clicked`, {
+      uri,
+      name,
+    });
+};
+
 // Get window size
 export const useWindowSize = () => {
   const [windowSize, setWindowSize] = useState({
