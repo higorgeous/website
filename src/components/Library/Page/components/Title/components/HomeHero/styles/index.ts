@@ -6,6 +6,10 @@ type WrapperProps = {
   colorDark: boolean;
 };
 
+type TopProps = {
+  colorDark: boolean;
+};
+
 type BottomBoxProps = {
   colorDark: boolean;
 };
@@ -26,15 +30,49 @@ export const Wrapper = styled.div<WrapperProps>`
   }
 `;
 
-export const Top = styled.div`
+export const Top = styled.a<TopProps>`
   display: flex;
   overflow: hidden;
-  margin-right: -50%;
+  margin-right: -60%;
   padding: 15px 30px;
   justify-content: center;
   align-items: center;
   border: 1px solid currentColor;
   background-color: rgba(0, 0, 0, 0.25);
+  border: 1px solid
+    ${({ colorDark }) => (colorDark ? Theme.palette.light : Theme.palette.dark)};
+  border-bottom: none;
+  background-color: rgba(0, 0, 0, 0.25);
+  background-image: linear-gradient(
+    to right,
+    ${Theme.palette.dark},
+    ${Theme.palette.dark} 50%,
+    transparent 50%
+  );
+  background-size: 201% 100%;
+  background-position: 100%;
+  transition: all 0.5s cubic-bezier(0, 0, 0.23, 1);
+  &:hover {
+    color: ${Theme.palette.light};
+    background-position: 0%;
+  }
+  &.dark {
+    background-image: linear-gradient(
+      to right,
+      ${Theme.palette.light},
+      ${Theme.palette.light} 50%,
+      transparent 50%
+    );
+    &:hover {
+      color: ${Theme.palette.dark};
+    }
+  }
+  @media (max-width: ${Theme.responsive.medium}) {
+    margin-right: -40%;
+  }
+  @media (max-width: ${Theme.responsive.small}) {
+    margin-right: -30%;
+  }
   p {
     margin: 0;
     text-transform: uppercase;

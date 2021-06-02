@@ -15,6 +15,12 @@ const HomeHero: React.FC<any> = ({ title, colorDark }) => {
         ) {
           tokenCode
         }
+        chart: contentfulInfoLinks(
+          id: { eq: "6832c26a-2de9-501a-b00b-7500e6041c37" }
+        ) {
+          uri
+          text
+        }
         contract: contentfulInfoLinks(
           id: { eq: "71494009-e111-58ef-8378-0fd1837ddbcf" }
         ) {
@@ -33,7 +39,19 @@ const HomeHero: React.FC<any> = ({ title, colorDark }) => {
 
   return (
     <Wrapper colorDark={colorDark}>
-      <Top>
+      <Top
+        className={`no-style ${isDark}`}
+        colorDark={colorDark}
+        href={data.chart.uri}
+        target="_blank"
+        rel="noreferrer"
+        onClick={() =>
+          handleExternalClick({
+            uri: data.chart.uri,
+            name: data.chart.text,
+          })
+        }
+      >
         <p>{data.info.tokenCode}</p>
       </Top>
       <Heading>

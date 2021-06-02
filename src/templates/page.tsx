@@ -43,6 +43,7 @@ export const query = graphql`
       sections {
         id
         title
+        type
         backgroundColor
         width
         richtext {
@@ -79,6 +80,7 @@ export const query = graphql`
         images {
           id
           title
+          description
           gatsbyImageData(layout: FULL_WIDTH)
         }
         video {

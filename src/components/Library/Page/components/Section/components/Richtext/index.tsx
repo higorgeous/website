@@ -5,9 +5,10 @@ import { renderRichText } from 'gatsby-source-contentful/rich-text';
 import { BLOCKS, MARKS, INLINES } from '@contentful/rich-text-types';
 
 import { handleExternalClick } from '@/utils';
+import ImagesHover from './components/ImagesHover';
 
 const Richtext: React.FC<any> = (section) => {
-  const { richtext, images, setActiveImage, colorDark } = section;
+  const { type, richtext, images, setActiveImage, colorDark } = section;
   const isDark = colorDark ? `dark` : ``;
   return (
     <div>
@@ -41,6 +42,10 @@ const Richtext: React.FC<any> = (section) => {
             [BLOCKS.HEADING_6]: (_node: any, children: any) => (
               <h3 className="alternative">{children}</h3>
             ),
+            [BLOCKS.LIST_ITEM]: (_node: any, children: any) => {
+              console.log(_node, children);
+              return <h3 className="alternative">{children}</h3>;
+            },
             [BLOCKS.EMBEDDED_ASSET]: ({ data }: any) => (
               <GatsbyImage
                 image={getImage(data.target)}
@@ -130,18 +135,13 @@ const Richtext: React.FC<any> = (section) => {
           },
         })}
       {images &&
+        type === `Hover images` &&
         images.map((image: { id: string; title: string }) => (
-          <h2
-            key={image.id}
-            data-fill={image.title}
-            onFocus={() => setActiveImage(image.id)}
-            onBlur={() => setActiveImage(image.id)}
-            onMouseOver={() => setActiveImage(image.id)}
-            onMouseOut={() => setActiveImage(null)}
-            className={`outline hover ${isDark}`}
-          >
-            {image.title}
-          </h2>
+          <ImagesHover
+            image={image}
+            setActiveImage={setActiveImage}
+            colorDark={colorDark}
+          />
         ))}
     </div>
   );
