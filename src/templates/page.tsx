@@ -43,21 +43,50 @@ export const query = graphql`
       sections {
         id
         title
-        type
         backgroundColor
-        text {
-          childMarkdownRemark {
-            html
+        width
+        richtext {
+          raw
+          references {
+            ... on ContentfulAsset {
+              contentful_id
+              __typename
+              title
+              gatsbyImageData(layout: FULL_WIDTH)
+            }
+            ... on ContentfulPageWebsite {
+              contentful_id
+              __typename
+              title
+              slug
+            }
+            ... on ContentfulInfoLinks {
+              contentful_id
+              __typename
+              text
+              uri
+            }
           }
         }
-        images {
-          id
+        image {
           title
           file {
             url
             contentType
           }
           gatsbyImageData(layout: FULL_WIDTH)
+        }
+        images {
+          id
+          title
+          gatsbyImageData(layout: FULL_WIDTH)
+        }
+        video {
+          id
+          file {
+            url
+            contentType
+          }
         }
       }
       next {

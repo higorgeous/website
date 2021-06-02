@@ -18,37 +18,81 @@ export default css`
   h2,
   h3,
   h4,
-  h5,
-  h6,
   p {
-    margin: 0;
+    margin: 0 0 32px;
     padding: 0;
   }
 
   h1,
-  h2,
-  h3,
-  h4 {
-    margin: 0 0 32px;
+  h2 {
+    &.outline {
+      -webkit-text-stroke: 0.02em ${Theme.palette.dark};
+      color: transparent;
+      &.dark {
+        -webkit-text-stroke: 0.02em ${Theme.palette.light};
+      }
+      &.hover {
+        position: relative;
+        display: block;
+        width: max-content;
+        margin: 0 auto;
+        cursor: pointer;
+        &::before {
+          position: absolute;
+          display: inline;
+          white-space: nowrap;
+          top: 0px;
+          left: 0px;
+          content: attr(data-fill);
+          width: 0px;
+          -webkit-text-stroke: 0px;
+          -webkit-text-fill-color: transparent;
+          background-clip: text;
+          transition: all 0.7s cubic-bezier(0.19, 1, 0.4, 1) 0s;
+        }
+
+        &:hover {
+          &::before {
+            background: ${Theme.palette.dark};
+            background-clip: text;
+            width: 100%;
+          }
+        }
+        &.dark {
+          &:hover {
+            &::before {
+              background: ${Theme.palette.light};
+              background-clip: text;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  * + p {
+    margin-top: 32px;
   }
 
   h1 {
-    font-size: 80px;
-    font-weight: 700;
+    font-size: 100px;
+    font-weight: 900;
+    text-transform: uppercase;
     @media (max-width: ${Theme.responsive.large}) {
-      font-size: 70px;
+      font-size: 90px;
     }
     @media (max-width: ${Theme.responsive.medium}) {
       font-size: 60px;
     }
     @media (max-width: ${Theme.responsive.small}) {
-      font-size: 50px;
+      font-size: 40px;
     }
   }
 
   h2 {
     font-size: 60px;
-    font-weight: 700;
+    font-weight: 900;
+    text-transform: uppercase;
     @media (max-width: ${Theme.responsive.large}) {
       font-size: 50px;
     }
@@ -61,35 +105,88 @@ export default css`
   }
 
   h3 {
-    font-size: 35px;
-    font-weight: 600;
+    font-size: 40px;
     @media (max-width: ${Theme.responsive.large}) {
-      font-size: 30px;
+      font-size: 35px;
     }
     @media (max-width: ${Theme.responsive.medium}) {
-      font-size: 26px;
+      font-size: 30px;
     }
     @media (max-width: ${Theme.responsive.small}) {
-      font-size: 22px;
+      font-size: 25px;
+    }
+    &.alternative {
+      font-weight: 400;
     }
   }
 
   p {
     font-size: 20px;
     font-weight: 400;
+    line-height: 1.5;
     @media (max-width: ${Theme.responsive.medium}) {
       font-size: 18px;
     }
     @media (max-width: ${Theme.responsive.small}) {
       font-size: 16px;
     }
+    strong {
+      font-weight: 700;
+    }
+    i {
+      font-style: italic;
+    }
+    u {
+      text-decoration: underline;
+    }
   }
 
-  p {
-    margin: 0 0 32px;
+  ul {
+    margin: 0;
   }
 
-  * + p {
-    margin-top: 32px;
+  a {
+    background: transparent;
+    color: currentColor;
+    cursor: pointer;
+    &.no-style {
+      text-decoration: none;
+    }
+    &.button {
+      position: relative;
+      padding: 10px 20px;
+      border: 2px solid ${Theme.palette.dark};
+      background-image: linear-gradient(
+        to right,
+        ${Theme.palette.dark},
+        ${Theme.palette.dark} 50%,
+        transparent 50%
+      );
+      background-size: 200% 100%;
+      background-position: 100%;
+      transition: all 0.5s cubic-bezier(0, 0, 0.23, 1);
+      border-radius: 6px;
+      margin: 32px;
+      font-weight: 900;
+      text-decoration: none;
+      text-transform: uppercase;
+      overflow: hidden;
+      &:hover {
+        color: ${Theme.palette.light};
+        background-position: 0%;
+      }
+      &.dark {
+        border: 2px solid ${Theme.palette.light};
+        background-image: linear-gradient(
+          to right,
+          ${Theme.palette.light},
+          ${Theme.palette.light} 50%,
+          transparent 50%
+        );
+        &:hover {
+          color: ${Theme.palette.dark};
+        }
+      }
+    }
   }
 `;

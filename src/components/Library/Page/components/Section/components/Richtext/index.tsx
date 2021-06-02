@@ -1,0 +1,150 @@
+import React from 'react';
+import { Link } from 'gatsby';
+import { GatsbyImage, getImage } from 'gatsby-plugin-image';
+import { renderRichText } from 'gatsby-source-contentful/rich-text';
+import { BLOCKS, MARKS, INLINES } from '@contentful/rich-text-types';
+
+import { handleExternalClick } from '@/utils';
+
+const Richtext: React.FC<any> = (section) => {
+  const { richtext, images, setActiveImage, colorDark } = section;
+  const isDark = colorDark ? `dark` : ``;
+  return (
+    <div>
+      {richtext &&
+        renderRichText(richtext, {
+          renderMark: {
+            [MARKS.BOLD]: (text: any) => <strong>{text}</strong>,
+            [MARKS.ITALIC]: (text: any) => <i>{text}</i>,
+            [MARKS.UNDERLINE]: (text: any) => <u>{text}</u>,
+          },
+
+          renderNode: {
+            [BLOCKS.PARAGRAPH]: (_node: any, children: any) => (
+              <p>{children}</p>
+            ),
+            [BLOCKS.HEADING_1]: (_node: any, children: any) => (
+              <h1>{children}</h1>
+            ),
+            [BLOCKS.HEADING_2]: (_node: any, children: any) => (
+              <h1 className={`outline ${isDark}`}>{children}</h1>
+            ),
+            [BLOCKS.HEADING_3]: (_node: any, children: any) => (
+              <h2>{children}</h2>
+            ),
+            [BLOCKS.HEADING_4]: (_node: any, children: any) => (
+              <h2 className={`outline ${isDark}`}>{children}</h2>
+            ),
+            [BLOCKS.HEADING_5]: (_node: any, children: any) => (
+              <h3>{children}</h3>
+            ),
+            [BLOCKS.HEADING_6]: (_node: any, children: any) => (
+              <h3 className="alternative">{children}</h3>
+            ),
+            [BLOCKS.EMBEDDED_ASSET]: ({ data }: any) => (
+              <GatsbyImage
+                image={getImage(data.target)}
+                alt={data.target.title}
+              />
+            ),
+            [BLOCKS.EMBEDDED_ENTRY]: ({ data }: any) => {
+              if (data.target.__typename === `ContentfulInfoLinks`) {
+                return (
+                  <a
+                    className={`button ${isDark}`}
+                    href={data.target.uri}
+                    target="_blank"
+                    rel="noreferrer"
+                    onClick={() =>
+                      handleExternalClick({
+                        uri: data.target.uri,
+                        name: data.target.text,
+                      })
+                    }
+                  >
+                    {data.target.text}
+                  </a>
+                );
+              }
+              return (
+                <Link className={`button ${isDark}`} to={data.target.slug}>
+                  {data.target.title}
+                </Link>
+              );
+            },
+            [INLINES.EMBEDDED_ENTRY]: ({ data }: any) => {
+              if (data.target.__typename === `ContentfulInfoLinks`) {
+                return (
+                  <a
+                    href={data.target.uri}
+                    target="_blank"
+                    rel="noreferrer"
+                    onClick={() =>
+                      handleExternalClick({
+                        uri: data.target.uri,
+                        name: data.target.text,
+                      })
+                    }
+                  >
+                    {data.target.text}
+                  </a>
+                );
+              }
+              return <Link to={data.target.slug}>{data.target.title}</Link>;
+            },
+            [INLINES.HYPERLINK]: ({ data }: any, children: any) => (
+              <a
+                href={data.uri}
+                target="_blank"
+                rel="noreferrer"
+                onClick={() =>
+                  handleExternalClick({
+                    uri: data.uri,
+                    name: children[0],
+                  })
+                }
+              >
+                {children}
+              </a>
+            ),
+            [INLINES.ENTRY_HYPERLINK]: ({ data }: any, children: any) => {
+              if (data.target.__typename === `ContentfulInfoLinks`) {
+                return (
+                  <a
+                    href={data.target.uri}
+                    target="_blank"
+                    rel="noreferrer"
+                    onClick={() =>
+                      handleExternalClick({
+                        uri: data.target.uri,
+                        name: children[0],
+                      })
+                    }
+                  >
+                    {children}
+                  </a>
+                );
+              }
+              return <Link to={data.target.slug}>{children}</Link>;
+            },
+          },
+        })}
+      {images &&
+        images.map((image: { id: string; title: string }) => (
+          <h2
+            key={image.id}
+            data-fill={image.title}
+            onFocus={() => setActiveImage(image.id)}
+            onBlur={() => setActiveImage(image.id)}
+            onMouseOver={() => setActiveImage(image.id)}
+            onMouseOut={() => setActiveImage(null)}
+            className={`outline hover ${isDark}`}
+          >
+            {image.title}
+          </h2>
+        ))}
+    </div>
+  );
+};
+
+export default Richtext;

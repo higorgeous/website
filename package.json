@@ -17,6 +17,7 @@
     "format": "prettier --ignore-path .gitignore \"src/**/*.+(ts|js|tsx)\" --write"
   },
   "dependencies": {
+    "@contentful/rich-text-types": "^14.1.2",
     "@emotion/react": "^11.1.5",
     "@emotion/styled": "^11.3.0",
     "chroma-js": "^2.1.1",
