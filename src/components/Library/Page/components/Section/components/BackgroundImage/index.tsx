@@ -4,7 +4,7 @@ import { convertToBgImage } from 'gbimage-bridge';
 
 import { Image } from './styles';
 
-const BackgroundImage: React.FC<any> = ({ image, backgroundColor }) => {
+const BackgroundImage: React.FC<any> = ({ image, backgroundColor, opaque }) => {
   const bgImage = getImage(image);
   const backgroundImage = convertToBgImage(bgImage);
   return (
@@ -13,6 +13,7 @@ const BackgroundImage: React.FC<any> = ({ image, backgroundColor }) => {
       {...backgroundImage}
       backgroundColor={backgroundColor}
       preserveStackingContext
+      opaque={opaque}
     />
   );
 };
