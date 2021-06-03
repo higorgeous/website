@@ -21,9 +21,6 @@ export const query = graphql`
           fluid(maxWidth: 2000) {
             ...GatsbyContentfulFluid_withWebp
           }
-          file {
-            url
-          }
         }
       }
       hero {
@@ -37,7 +34,7 @@ export const query = graphql`
             url
             contentType
           }
-          gatsbyImageData(layout: FULL_WIDTH)
+          gatsbyImageData(layout: FULL_WIDTH, quality: 80)
         }
       }
       sections {
@@ -75,13 +72,13 @@ export const query = graphql`
             url
             contentType
           }
-          gatsbyImageData(layout: FULL_WIDTH)
+          gatsbyImageData(layout: FULL_WIDTH, quality: 80)
         }
         images {
           id
           title
           description
-          gatsbyImageData(layout: FULL_WIDTH)
+          gatsbyImageData(layout: FULL_WIDTH, quality: 80)
         }
         video {
           id
