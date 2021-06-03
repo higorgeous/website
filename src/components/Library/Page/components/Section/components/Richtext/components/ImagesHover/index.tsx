@@ -5,7 +5,6 @@ const ItemGrid: React.FC<any> = (section) => {
   const isDark = colorDark ? `dark` : ``;
   return (
     <h2
-      key={image.id}
       data-fill={image.title}
       onFocus={() => setActiveImage(image.id)}
       onBlur={() => setActiveImage(image.id)}

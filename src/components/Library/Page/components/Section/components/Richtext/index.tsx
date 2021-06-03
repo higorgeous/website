@@ -5,6 +5,7 @@ import { renderRichText } from 'gatsby-source-contentful/rich-text';
 import { BLOCKS, MARKS, INLINES } from '@contentful/rich-text-types';
 
 import { handleExternalClick } from '@/utils';
+
 import ImagesHover from './components/ImagesHover';
 
 const Richtext: React.FC<any> = (section) => {
@@ -138,6 +139,7 @@ const Richtext: React.FC<any> = (section) => {
         type === `Hover images` &&
         images.map((image: { id: string; title: string }) => (
           <ImagesHover
+            key={image.id}
             image={image}
             setActiveImage={setActiveImage}
             colorDark={colorDark}
