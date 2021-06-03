@@ -3,22 +3,28 @@ import { ResponsivePie } from '@nivo/pie';
 
 const data = [
   {
-    id: `Burn wallet`,
+    id: `Burn wallet (50%)`,
     label: `Burn wallet (50%)`,
     value: 50000000,
     color: `hsl(19, 70%, 50%)`,
   },
   {
-    id: `Charity wallet`,
+    id: `Charity wallet (4%)`,
     label: `Charity wallet (4%)`,
     value: 4000000,
     color: `hsl(213, 70%, 50%)`,
   },
   {
-    id: `Project wallet`,
-    label: `Projecr wallet (4%)`,
+    id: `Project wallet (4%)`,
+    label: `Projec wallet (4%)`,
     value: 4000000,
     color: `hsl(58, 70%, 50%)`,
+  },
+  {
+    id: `Dev wallet (4%)`,
+    label: `Dev wallet (4%)`,
+    value: 4000000,
+    color: `#d9268e`,
   },
 ];
 
@@ -29,7 +35,7 @@ const SupplyChart: React.FC = () => (
     innerRadius={0.5}
     padAngle={0.7}
     cornerRadius={3}
-    colors={{ scheme: `nivo` }}
+    // colors={{ scheme: `nivo` }}
     borderWidth={1}
     borderColor={{ from: `color`, modifiers: [[`darker`, 0.2]] }}
     radialLabelsSkipAngle={10}

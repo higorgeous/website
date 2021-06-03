@@ -7,6 +7,7 @@ import { BLOCKS, MARKS, INLINES } from '@contentful/rich-text-types';
 import { handleExternalClick } from '@/utils';
 
 import ImagesHover from './components/ImagesHover';
+import SupplyChart from '../SupplyChart';
 
 const Richtext: React.FC<any> = (section) => {
   const { type, richtext, images, setActiveImage, colorDark } = section;
@@ -43,10 +44,9 @@ const Richtext: React.FC<any> = (section) => {
             [BLOCKS.HEADING_6]: (_node: any, children: any) => (
               <h3 className="alternative">{children}</h3>
             ),
-            [BLOCKS.LIST_ITEM]: (_node: any, children: any) => {
-              console.log(_node, children);
-              return <h3 className="alternative">{children}</h3>;
-            },
+            [BLOCKS.LIST_ITEM]: (_node: any, children: any) => (
+              <h3 className="alternative">{children}</h3>
+            ),
             [BLOCKS.EMBEDDED_ASSET]: ({ data }: any) => (
               <GatsbyImage
                 image={getImage(data.target)}
@@ -135,6 +135,7 @@ const Richtext: React.FC<any> = (section) => {
             },
           },
         })}
+      {type === `Supply chart` && <SupplyChart />}
       {images &&
         type === `Hover images` &&
         images.map((image: { id: string; title: string }) => (

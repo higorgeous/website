@@ -9,7 +9,6 @@ import BackgroundImagesHover from './components/BackgroundImagesHover';
 import BackgroundVideo from './components/BackgroundVideo';
 
 import { Wrapper, Container } from './styles';
-import SupplyChart from './components/SupplyChart';
 
 type Props = {
   type: string;
@@ -51,13 +50,9 @@ const Section: React.FC<Props> = (section) => {
         </Container>
       )}
       {image && type === `Default` && <BackgroundImage {...section} />}
-      {image && type === `Opaque image` && (
-        <BackgroundImage {...section} opaque />
-      )}
       {images && type === `Hover images` && (
         <BackgroundImagesHover activeImage={activeImage} {...section} />
       )}
-      {type === `Supply chart` && <SupplyChart />}
       {video && <BackgroundVideo {...section} />}
     </Wrapper>
   );
