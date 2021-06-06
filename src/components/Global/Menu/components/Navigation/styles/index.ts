@@ -62,17 +62,6 @@ export const Wrapper = styled(motion.div)`
     li {
       list-style: none;
       margin-bottom: 20px;
-      a {
-        text-decoration: none;
-        &.active {
-          pointer-events: none;
-          cursor: default;
-          span {
-            text-decoration-line: line-through;
-            pointer-events: none;
-          }
-        }
-      }
       span {
         opacity: 0.8;
         position: relative;
@@ -115,6 +104,18 @@ export const Wrapper = styled(motion.div)`
         }
         &:hover {
           background-position: 0%;
+        }
+        
+      }
+      a {
+        text-decoration: none;
+        &.active {
+          pointer-events: none;
+          cursor: default;
+          span {
+            background-position: 0%;
+            pointer-events: none;
+          }
         }
       }
       &:first-of-type {

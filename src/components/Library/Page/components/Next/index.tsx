@@ -37,7 +37,7 @@ const Next: React.FC<Props> = (next) => {
         <Link
           to={slug}
           data-fill={pageTitle}
-          data-section={index === 0 ? `` : `0${index}`}
+          data-section={`0${index}`}
         >
           {pageTitle}
         </Link>

@@ -36,7 +36,7 @@ const Richtext: React.FC<any> = (section) => {
               <h2>{children}</h2>
             ),
             [BLOCKS.HEADING_4]: (_node: any, children: any) => (
-              <h2 className={`outline ${isDark}`}>{children}</h2>
+              <h2>{children}</h2>
             ),
             [BLOCKS.HEADING_5]: (_node: any, children: any) => (
               <h3>{children}</h3>
