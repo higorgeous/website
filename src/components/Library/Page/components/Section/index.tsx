@@ -50,6 +50,9 @@ const Section: React.FC<Props> = (section) => {
         </Container>
       )}
       {image && type === `Default` && <BackgroundImage {...section} />}
+      {image && type === `Opaque image` && (
+        <BackgroundImage {...section} opaque />
+      )}
       {images && type === `Hover images` && (
         <BackgroundImagesHover activeImage={activeImage} {...section} />
       )}
