@@ -35,7 +35,7 @@ const SupplyChart: React.FC = () => (
   <Wrapper>
     <ResponsivePie
       data={data}
-      margin={{ top: 40, right: 80, bottom: 80, left: 80 }}
+      margin={{ top: 20, right: 80, bottom: 20, left: 80 }}
       sortByValue
       innerRadius={0.4}
       padAngle={3}
