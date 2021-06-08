@@ -7,7 +7,8 @@ import { BLOCKS, MARKS, INLINES } from '@contentful/rich-text-types';
 import { handleExternalClick } from '@/utils';
 
 import ImagesHover from './components/ImagesHover';
-import SupplyChart from '../SupplyChart';
+import SupplyChart from './components/SupplyChart';
+import TaxChart from './components/TaxChart';
 
 const Richtext: React.FC<any> = (section) => {
   const { type, richtext, images, setActiveImage, colorDark } = section;
@@ -135,7 +136,8 @@ const Richtext: React.FC<any> = (section) => {
             },
           },
         })}
-      {type === `Supply chart` && <SupplyChart />}
+      {type === `Supply chart` && <SupplyChart colorDark={colorDark} />}
+      {type === `Tax chart` && <TaxChart colorDark={colorDark} />}
       {images &&
         type === `Hover images` &&
         images.map((image: { id: string; title: string }) => (

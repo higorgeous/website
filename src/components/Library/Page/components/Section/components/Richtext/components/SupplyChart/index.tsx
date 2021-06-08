@@ -1,12 +1,14 @@
 import React from 'react';
 import { ResponsivePie } from '@nivo/pie';
 
+import { Theme } from '@/styles';
+
 import { Wrapper } from './styles';
 
 const data = [
   {
     id: `burn`,
-    label: `Burn wallet (50%)`,
+    label: `Burnt`,
     value: 50,
   },
   {
@@ -16,37 +18,44 @@ const data = [
   },
   {
     id: `charity`,
-    label: `Charity wallet (4%)`,
+    label: `Charity`,
     value: 4,
   },
   {
     id: `project`,
-    label: `Project wallet (4%)`,
+    label: `Project`,
     value: 4,
   },
   {
     id: `team`,
-    label: `Team wallet (4%)`,
+    label: `Team`,
     value: 4,
   },
 ];
 
-const SupplyChart: React.FC = () => (
+const SupplyChart: React.FC<any> = ({ colorDark }) => (
   <Wrapper>
     <ResponsivePie
       data={data}
-      sortByValue
+      colors={{ scheme: `red_blue` }}
+      margin={{ top: 40, right: 40, bottom: 40, left: 40 }}
+      startAngle={0}
       innerRadius={0.4}
       padAngle={3}
       cornerRadius={3}
-      colors={{ scheme: `purpleRed_green` }}
       borderWidth={2}
       borderColor={{ from: `color`, modifiers: [[`darker`, 0.3]] }}
-      enableArcLinkLabels={false}
-      // Arc Labels
-      arcLabel={(e) => `${e.id} (${e.value})`}
-      arcLabelsSkipAngle={10}
-      arcLabelsTextColor={{ theme: `background` }}
+      arcLinkLabel={(e) => `${e.label} ${e.value}%`}
+      arcLinkLabelsSkipAngle={10}
+      arcLinkLabelsDiagonalLength={12}
+      arcLinkLabelsStraightLength={10}
+      arcLinkLabelsThickness={2}
+      arcLinkLabelsColor={colorDark ? Theme.palette.light : Theme.palette.dark}
+      arcLinkLabelsTextColor={
+        colorDark ? Theme.palette.light : Theme.palette.dark
+      }
+      enableArcLabels={false}
+      isInteractive={false}
       defs={[
         {
           id: `dots`,
@@ -91,32 +100,6 @@ const SupplyChart: React.FC = () => (
             id: `team`,
           },
           id: `dots`,
-        },
-      ]}
-      isInteractive={false}
-      legends={[
-        {
-          anchor: `bottom`,
-          direction: `row`,
-          justify: false,
-          translateX: 0,
-          translateY: 56,
-          itemsSpacing: 0,
-          itemWidth: 100,
-          itemHeight: 18,
-          itemTextColor: `#999`,
-          itemDirection: `left-to-right`,
-          itemOpacity: 1,
-          symbolSize: 18,
-          symbolShape: `circle`,
-          effects: [
-            {
-              on: `hover`,
-              style: {
-                itemTextColor: `#000`,
-              },
-            },
-          ],
         },
       ]}
     />

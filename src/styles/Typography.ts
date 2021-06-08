@@ -154,7 +154,9 @@ export default css`
     }
     &.button {
       position: relative;
+      display: inline-block;
       padding: 10px 20px;
+      margin: 20px 32px;
       border: 2px solid ${Theme.palette.dark};
       background-image: linear-gradient(
         to right,
@@ -166,7 +168,6 @@ export default css`
       background-position: 100%;
       transition: all 0.5s cubic-bezier(0, 0, 0.23, 1);
       border-radius: 6px;
-      margin: 32px;
       font-weight: 900;
       text-decoration: none;
       text-transform: uppercase;

@@ -20,6 +20,7 @@
     "@contentful/rich-text-types": "^14.1.2",
     "@emotion/react": "^11.1.5",
     "@emotion/styled": "^11.3.0",
+    "@nivo/bar": "^0.70.1",
     "@nivo/core": "^0.70.1",
     "@nivo/pie": "^0.70.1",
     "chroma-js": "^2.1.1",
