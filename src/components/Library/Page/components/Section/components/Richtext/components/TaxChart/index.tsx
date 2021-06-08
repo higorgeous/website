@@ -84,7 +84,7 @@ const TaxChart: React.FC<any> = ({ colorDark, windowSize }) => (
       margin={{
         top: windowSize.width > 768 ? 50 : 10,
         right: windowSize.width > 768 ? 80 : 20,
-        bottom: windowSize.width > 768 ? 50 : 130,
+        bottom: 50,
         left: windowSize.width > 768 ? 80 : 30,
       }}
       padding={windowSize.width > 768 ? 0.3 : 0.05}

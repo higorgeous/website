@@ -25,6 +25,9 @@ export const Wrapper = styled.section<WrapperProps>`
     Theme.palette[backgroundColor.toLowerCase()]};
   & > * {
     transform: translateY(-25vh);
+    @media (max-height: 1000px) {
+      transform: scale(0.8) translateY(-25vh);
+    }
   }
 `;
 
