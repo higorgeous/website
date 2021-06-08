@@ -11,12 +11,12 @@ type LegendItemProps = {
 
 export const Wrapper = styled.div<WrapperProps>`
   width: 100%;
-  height: 400px;
+  height: 200px;
   z-index: 2;
   color: ${({ colorDark }) =>
     colorDark ? Theme.palette.light : Theme.palette.dark};
   @media (min-width: ${Theme.responsive.medium}) {
-    height: 500px;
+    height: 400px;
   }
   svg {
     text {
