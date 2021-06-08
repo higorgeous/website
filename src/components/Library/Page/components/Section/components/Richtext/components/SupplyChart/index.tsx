@@ -49,7 +49,7 @@ const SupplyChart: React.FC<any> = ({ colorDark, windowSize }) => (
       data={data}
       colors={{ scheme: `red_blue` }}
       margin={{
-        top: windowSize.width > 768 ? 50 : 0,
+        top: windowSize.width > 768 ? 70 : 0,
         right: 0,
         bottom: 0,
         left: 0,
@@ -118,7 +118,7 @@ const SupplyChart: React.FC<any> = ({ colorDark, windowSize }) => (
                 direction: `row`,
                 justify: false,
                 translateX: 0,
-                translateY: -40,
+                translateY: -60,
                 itemsSpacing: 2,
                 itemWidth: 120,
                 itemHeight: 20,
