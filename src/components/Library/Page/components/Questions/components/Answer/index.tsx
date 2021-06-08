@@ -37,7 +37,7 @@ const Answer: React.FC<any> = ({ answer }) => (
             <h3 className="alternative">{children}</h3>
           ),
           [BLOCKS.LIST_ITEM]: (_node: any, children: any) => (
-            <h3 className="alternative">{children}</h3>
+            <li>{children}</li>
           ),
           [BLOCKS.EMBEDDED_ASSET]: ({ data }: any) => (
             <GatsbyImage
