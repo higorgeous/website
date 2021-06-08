@@ -6,9 +6,9 @@ import { Theme } from '@/styles';
 import { graphql, useStaticQuery } from 'gatsby';
 import BackgroundImage from './components/BackgroundImage';
 import BackgroundVideo from './components/BackgroundVideo';
+import HomeHero from './components/HomeHero';
 
 import { Wrapper, Shadow, PageTitle } from './styles';
-import HomeHero from './components/HomeHero';
 
 type Props = {
   innerRef: any;

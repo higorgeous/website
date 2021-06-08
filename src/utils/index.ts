@@ -102,3 +102,19 @@ export const getDarkRanges = (
   }, []);
   return darkRanges;
 };
+
+// Get top and bottom ranges of FAQ section
+export const getFaqRanges = (
+  titleRef: { current: { clientHeight: any } },
+  faqRef: { current: { clientHeight: any } },
+) => {
+  const [darkRanges, setDarkRanges] = useState([]);
+
+  // Get locations for dark sections
+  useEffect(() => {
+    const start = titleRef.current.clientHeight + faqRef.current.clientHeight;
+    const finish = start + titleRef.current.clientHeight;
+    setDarkRanges([{ start, finish }]);
+  }, []);
+  return darkRanges;
+};

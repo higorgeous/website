@@ -13,7 +13,7 @@ const data = [
   {
     id: `hold`,
     label: `Max. Hold`,
-    value: 4,
+    value: 5,
     color: `rgb(178, 24, 43)`,
   },
 ];

@@ -44,6 +44,11 @@ const Cursor: React.FC = () => {
         el.addEventListener(`mouseover`, () => setLinkHovered(true));
         el.addEventListener(`mouseout`, () => setLinkHovered(false));
       });
+    if (isBrowser)
+      document.querySelectorAll(`#faq`).forEach((el) => {
+        el.addEventListener(`mouseover`, () => setLinkHovered(true));
+        el.addEventListener(`mouseout`, () => setLinkHovered(false));
+      });
   };
 
   const addEventListeners = () => {
