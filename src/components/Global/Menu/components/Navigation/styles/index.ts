@@ -27,6 +27,10 @@ export const Wrapper = styled(motion.div)`
   @media (max-width: ${Theme.responsive.small}) {
     padding: 650px 28px 150px;
   }
+  @media (max-height: 1000px) {
+    top: 30px;
+    transform: scale(0.8);
+  }
   &::-webkit-scrollbar {
     display: none;
   }
@@ -105,7 +109,6 @@ export const Wrapper = styled(motion.div)`
         &:hover {
           background-position: 0%;
         }
-        
       }
       a {
         text-decoration: none;

@@ -12,4 +12,5 @@ export const Image = styled(BackgroundImage)<ImageProps>`
   background-position: center;
   background-size: cover;
   opacity: ${({ opaque }) => (opaque ? `0.2` : `1`)};
+  transform: translateY(-25vh);
 `;

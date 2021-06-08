@@ -5,38 +5,20 @@ import { Wrapper, Legend, LegendItem } from './styles';
 
 const data = [
   {
-    id: `burn`,
-    label: `Burnt`,
-    value: 50,
+    id: `buy`,
+    label: `Max. Buy`,
+    value: 2,
     color: `rgb(103, 0, 31)`,
   },
   {
-    id: `community`,
-    label: `Community`,
-    value: 38,
+    id: `hold`,
+    label: `Max. Hold`,
+    value: 4,
     color: `rgb(178, 24, 43)`,
-  },
-  {
-    id: `charity`,
-    label: `Charity`,
-    value: 4,
-    color: `rgb(214, 96, 77)`,
-  },
-  {
-    id: `project`,
-    label: `Project`,
-    value: 4,
-    color: `rgb(244, 165, 130)`,
-  },
-  {
-    id: `team`,
-    label: `Team`,
-    value: 4,
-    color: `rgb(253, 219, 199)`,
   },
 ];
 
-const SupplyChart: React.FC<any> = ({ colorDark, windowSize }) => (
+const HoldChart: React.FC<any> = ({ colorDark, windowSize }) => (
   <Wrapper colorDark={colorDark}>
     <Legend>
       {data.map((i) => (
@@ -54,7 +36,8 @@ const SupplyChart: React.FC<any> = ({ colorDark, windowSize }) => (
         bottom: 0,
         left: 0,
       }}
-      startAngle={0}
+      startAngle={-90}
+      endAngle={90}
       innerRadius={0.4}
       padAngle={3}
       cornerRadius={3}
@@ -87,25 +70,13 @@ const SupplyChart: React.FC<any> = ({ colorDark, windowSize }) => (
       fill={[
         {
           match: {
-            id: `burn`,
+            id: `buy`,
           },
           id: `lines`,
         },
         {
           match: {
-            id: `charity`,
-          },
-          id: `dots`,
-        },
-        {
-          match: {
-            id: `project`,
-          },
-          id: `dots`,
-        },
-        {
-          match: {
-            id: `team`,
+            id: `hold`,
           },
           id: `dots`,
         },
@@ -133,4 +104,4 @@ const SupplyChart: React.FC<any> = ({ colorDark, windowSize }) => (
   </Wrapper>
 );
 
-export default SupplyChart;
+export default HoldChart;

@@ -9,6 +9,7 @@ import { handleExternalClick } from '@/utils';
 import ImagesHover from './components/ImagesHover';
 import SupplyChart from './components/SupplyChart';
 import TaxChart from './components/TaxChart';
+import HoldChart from './components/HoldChart';
 
 const Richtext: React.FC<any> = (section) => {
   const {
@@ -143,9 +144,14 @@ const Richtext: React.FC<any> = (section) => {
             },
           },
         })}
-      {type === `Supply chart` && <SupplyChart colorDark={colorDark} />}
+      {type === `Supply chart` && (
+        <SupplyChart colorDark={colorDark} windowSize={windowSize} />
+      )}
       {type === `Tax chart` && (
         <TaxChart colorDark={colorDark} windowSize={windowSize} />
+      )}
+      {type === `Hold chart` && (
+        <HoldChart colorDark={colorDark} windowSize={windowSize} />
       )}
       {images &&
         type === `Hover images` &&

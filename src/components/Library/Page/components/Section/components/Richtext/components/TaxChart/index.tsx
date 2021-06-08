@@ -95,12 +95,17 @@ const TaxChart: React.FC<any> = ({ colorDark, windowSize }) => (
       axisTop={null}
       axisRight={null}
       axisBottom={{
-        tickSize: 5,
-        tickPadding: 5,
+        tickSize: 0,
+        tickPadding: windowSize.width > 768 ? -30 : 5,
         tickRotation: 0,
         legend: windowSize.width > 768 ? `% burnt` : `sell within`,
         legendPosition: `middle`,
-        legendOffset: 40,
+        legendOffset: windowSize.width > 768 ? 0 : 40,
+      }}
+      axisLeft={{
+        tickSize: 0,
+        tickPadding: 10,
+        tickRotation: 0,
       }}
       labelSkipWidth={12}
       labelSkipHeight={12}

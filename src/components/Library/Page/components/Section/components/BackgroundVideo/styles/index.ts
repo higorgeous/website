@@ -9,5 +9,5 @@ export const Video = styled.video`
   bottom: 0;
   height: 100vh;
   width: 100%;
-  transform: translateY(0) !important;
+  transform: translateY(0);
 `;

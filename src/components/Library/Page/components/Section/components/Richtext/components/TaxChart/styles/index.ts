@@ -11,7 +11,7 @@ type LegendItemProps = {
 
 export const Wrapper = styled.div<WrapperProps>`
   width: 100%;
-  height: 450px;
+  height: 400px;
   z-index: 2;
   color: ${({ colorDark }) =>
     colorDark ? Theme.palette.light : Theme.palette.dark};
@@ -26,9 +26,6 @@ export const Wrapper = styled.div<WrapperProps>`
       text-transform: uppercase !important;
       fill: ${({ colorDark }) =>
         colorDark ? Theme.palette.light : Theme.palette.dark} !important;
-      @media (max-width: ${Theme.responsive.medium}) {
-        font-size: 40% !important;
-      }
     }
   }
 `;
@@ -46,7 +43,7 @@ export const Legend = styled.div`
 
 export const LegendItem = styled.div<LegendItemProps>`
   font-family: ${Theme.font} !important;
-  font-size: 40% !important;
+  font-size: 50% !important;
   font-weight: 900 !important;
   text-transform: uppercase !important;
   margin-right: 20px;
