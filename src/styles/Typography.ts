@@ -172,6 +172,9 @@ export default css`
       text-decoration: none;
       text-transform: uppercase;
       overflow: hidden;
+      @media (max-width: ${Theme.responsive.medium}) {
+        font-size: 60%;
+      }
       &:hover {
         color: ${Theme.palette.light};
         background-position: 0%;
