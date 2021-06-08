@@ -39,7 +39,7 @@ const Page: React.FC<any> = ({ queries }) => {
       <Title {...hero} slug={slug} innerRef={titleRef} />
       {sections &&
         sections.map((section: any) => (
-          <Section key={section.id} {...section} />
+          <Section key={section.id} {...section} windowSize={windowSize} />
         ))}
       {next && <Next {...next} />}
     </Wrapper>

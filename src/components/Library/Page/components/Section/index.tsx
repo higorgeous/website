@@ -11,6 +11,7 @@ import BackgroundVideo from './components/BackgroundVideo';
 import { Wrapper, Container } from './styles';
 
 type Props = {
+  windowSize: any;
   type: string;
   backgroundColor: string;
   width: string;
@@ -23,6 +24,7 @@ type Props = {
 const Section: React.FC<Props> = (section) => {
   const [activeImage, setActiveImage] = useState(null);
   const {
+    windowSize,
     type = `Default`,
     backgroundColor = `Alternative`,
     width = `Wide`,
@@ -45,6 +47,7 @@ const Section: React.FC<Props> = (section) => {
           <Richtext
             colorDark={colorDark}
             setActiveImage={setActiveImage}
+            windowSize={windowSize}
             {...section}
           />
         </Container>

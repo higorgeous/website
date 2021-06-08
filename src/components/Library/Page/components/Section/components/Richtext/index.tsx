@@ -11,7 +11,14 @@ import SupplyChart from './components/SupplyChart';
 import TaxChart from './components/TaxChart';
 
 const Richtext: React.FC<any> = (section) => {
-  const { type, richtext, images, setActiveImage, colorDark } = section;
+  const {
+    type,
+    richtext,
+    images,
+    setActiveImage,
+    colorDark,
+    windowSize,
+  } = section;
   const isDark = colorDark ? `dark` : ``;
   return (
     <div>
@@ -137,7 +144,9 @@ const Richtext: React.FC<any> = (section) => {
           },
         })}
       {type === `Supply chart` && <SupplyChart colorDark={colorDark} />}
-      {type === `Tax chart` && <TaxChart colorDark={colorDark} />}
+      {type === `Tax chart` && (
+        <TaxChart colorDark={colorDark} windowSize={windowSize} />
+      )}
       {images &&
         type === `Hover images` &&
         images.map((image: { id: string; title: string }) => (

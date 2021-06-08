@@ -7,7 +7,7 @@ type WrapperProps = {
 
 export const Wrapper = styled.div<WrapperProps>`
   width: 100%;
-  height: 350px;
+  height: 450px;
   z-index: 2;
   svg {
     text {
