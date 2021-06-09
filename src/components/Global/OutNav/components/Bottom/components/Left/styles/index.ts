@@ -12,7 +12,7 @@ export const Wrapper = styled.div`
   position: absolute;
   bottom: 20px;
   left: 0;
-  font-weight: 500;
+  font-weight: 400;
   ul {
     list-style: none;
     padding-left: 28px;

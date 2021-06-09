@@ -16,7 +16,7 @@ export const Wrapper = styled.div`
   position: absolute;
   bottom: 20px;
   right: 0;
-  font-weight: 500;
+  font-weight: 400;
   z-index: 999;
   ul {
     transform: rotate(-180deg);

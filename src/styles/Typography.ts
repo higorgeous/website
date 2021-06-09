@@ -131,7 +131,7 @@ export default css`
       font-size: 16px;
     }
     strong {
-      font-weight: 700;
+      font-weight: 600;
     }
     i {
       font-style: italic;

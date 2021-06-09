@@ -3,6 +3,9 @@ require('dotenv').config({
 });
 
 module.exports = {
+  siteMetadata: {
+    siteUrl: `https://www.higorgeous.io`,
+  },
   plugins: [
     `gatsby-plugin-emotion`,
     `gatsby-plugin-image`,
