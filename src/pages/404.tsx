@@ -40,40 +40,10 @@ export const query = graphql`
           gatsbyImageData(layout: FULL_WIDTH)
         }
       }
-      sections {
-        id
-        title
-        backgroundColor
-        width
-        richtext {
-          raw
-        }
-        image {
-          title
-          file {
-            url
-            contentType
-          }
-          gatsbyImageData(layout: FULL_WIDTH)
-        }
-        images {
-          id
-          title
-          gatsbyImageData(layout: FULL_WIDTH)
-        }
-        video {
-          file {
-            url
-            contentType
-          }
-        }
-      }
       next {
         id
+        title
         slug
-        seo {
-          pageTitle
-        }
       }
     }
   }

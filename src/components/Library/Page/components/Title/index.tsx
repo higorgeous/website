@@ -9,6 +9,7 @@ import BackgroundVideo from './components/BackgroundVideo';
 import HomeHero from './components/HomeHero';
 
 import { Wrapper, Shadow, PageTitle } from './styles';
+import NotFound from './components/NotFound';
 
 type Props = {
   innerRef: any;
@@ -49,30 +50,36 @@ const Title: React.FC<Props> = (hero) => {
 
   const index = getIndex >= 0 ? getIndex + 1 : 0;
 
+  let titleComponent;
+  if (slug === `/`) {
+    titleComponent = <HomeHero title={title} colorDark={colorDark} />;
+  } else if (slug === `/404`) {
+    titleComponent = <NotFound colorDark={colorDark} />;
+  } else {
+    titleComponent = (
+      <>
+        {shadows.map((i) => (
+          <Shadow key={i} colorDark={colorDark}>
+            <h1>{title}</h1>
+          </Shadow>
+        ))}
+        <PageTitle
+          colorDark={colorDark}
+          data-section={index === 0 ? `` : `0${index}`}
+        >
+          {title}
+        </PageTitle>
+      </>
+    );
+  }
+
   return (
     <Wrapper
       ref={innerRef}
       data-background={colorDark ? `dark` : null}
       backgroundColor={backgroundColor}
     >
-      {slug === `/` ? (
-        <HomeHero title={title} colorDark={colorDark} />
-      ) : (
-        <>
-          {shadows.map((i) => (
-            <Shadow key={i} colorDark={colorDark}>
-              <h1>{title}</h1>
-            </Shadow>
-          ))}
-          <PageTitle
-            colorDark={colorDark}
-            data-section={index === 0 ? `` : `0${index}`}
-          >
-            {title}
-          </PageTitle>
-        </>
-      )}
-
+      {titleComponent}
       {images && images.length === 1 && <BackgroundImage {...hero} />}
       {images && images.length > 1 && <BackgroundVideo {...hero} />}
     </Wrapper>

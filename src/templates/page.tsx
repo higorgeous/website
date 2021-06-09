@@ -46,18 +46,6 @@ export const query = graphql`
         richtext {
           raw
           references {
-            ... on ContentfulAsset {
-              contentful_id
-              __typename
-              title
-              gatsbyImageData(layout: FULL_WIDTH)
-            }
-            ... on ContentfulPageWebsite {
-              contentful_id
-              __typename
-              title
-              slug
-            }
             ... on ContentfulInfoLinks {
               contentful_id
               __typename
@@ -80,20 +68,11 @@ export const query = graphql`
           description
           gatsbyImageData(layout: FULL_WIDTH, quality: 80)
         }
-        video {
-          id
-          file {
-            url
-            contentType
-          }
-        }
       }
       next {
         id
+        title
         slug
-        seo {
-          pageTitle
-        }
       }
     }
   }
