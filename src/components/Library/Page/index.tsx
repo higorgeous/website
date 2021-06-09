@@ -1,10 +1,10 @@
-import React, { useRef } from 'react';
+import React, { useRef, useState } from 'react';
 
 import {
   getDarkRanges,
   useWindowSize,
   useScrollPosition,
-  getFaqRanges,
+  getFullPageRanges,
 } from '@/utils';
 
 import PageTransitions from '@/components/Global/PageTransition';
@@ -22,14 +22,16 @@ import Questions from './components/Questions';
 import { Wrapper } from './styles';
 
 const Page: React.FC<any> = ({ queries }) => {
+  const [questionOpen, setQuestionOpen] = useState(``);
+
   const titleRef = useRef(null);
-  const faqRef = useRef(null);
+  const nextRef = useRef(null);
 
   const { slug, seo, hero, sections = [], next = null } = queries;
 
   let darkRanges = getDarkRanges(sections, titleRef);
   if (slug === `/frequently-asked-questions`) {
-    darkRanges = getFaqRanges(titleRef, faqRef);
+    darkRanges = getFullPageRanges(nextRef, questionOpen);
   }
 
   const windowSize = useWindowSize();
@@ -56,9 +58,12 @@ const Page: React.FC<any> = ({ queries }) => {
           <Section key={section.id} {...section} windowSize={windowSize} />
         ))}
       {slug === `/frequently-asked-questions` && (
-        <Questions innerRef={faqRef} />
+        <Questions
+          questionOpen={questionOpen}
+          setQuestionOpen={setQuestionOpen}
+        />
       )}
-      {next && <Next {...next} />}
+      {next && <Next {...next} nextRef={nextRef} />}
     </Wrapper>
   );
 };

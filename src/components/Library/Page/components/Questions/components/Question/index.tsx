@@ -1,22 +1,34 @@
-import React, { useState } from 'react';
+import React from 'react';
 import Answer from '../Answer';
 
 import { Body, Heading, Wrapper } from './styles';
 
 type Props = {
+  id: string;
   question: string;
   answer: any;
   index: number;
+  questionOpen: string;
+  handleQuestionOpen: any;
 };
 
 const Question: React.FC<Props> = (item) => {
-  const { question, answer, index } = item;
-
-  const [isOpen, setOpen] = useState(false);
+  const {
+    id,
+    question,
+    answer,
+    index,
+    questionOpen,
+    handleQuestionOpen,
+  } = item;
 
   return (
     <Wrapper>
-      <Heading id="faq" onClick={() => setOpen(!isOpen)} isOpen={isOpen}>
+      <Heading
+        id="faq"
+        onClick={() => handleQuestionOpen(id)}
+        isOpen={questionOpen === id}
+      >
         <h5>
           {index < 9 ? `0${index + 1}` : index + 1} - {question}
         </h5>
@@ -25,7 +37,7 @@ const Question: React.FC<Props> = (item) => {
           alt="Open icon"
         />
       </Heading>
-      <Body className={!isOpen ? `collapsed` : ``}>
+      <Body className={questionOpen !== id ? `collapsed` : ``}>
         <div>
           <Answer answer={answer} />
         </div>

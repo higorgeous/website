@@ -6,10 +6,11 @@ import { Wrapper, NextTitle, NextLink } from './styles';
 type Props = {
   slug: string;
   seo: any;
+  nextRef: any;
 };
 
 const Next: React.FC<Props> = (next) => {
-  const { slug, seo } = next;
+  const { slug, seo, nextRef } = next;
   const { pageTitle } = seo;
 
   const data = useStaticQuery(
@@ -31,14 +32,10 @@ const Next: React.FC<Props> = (next) => {
 
   const index = getIndex >= 0 ? getIndex + 1 : 0;
   return (
-    <Wrapper data-background="dark">
+    <Wrapper data-background="dark" ref={nextRef}>
       <NextTitle>Keep reading</NextTitle>
       <NextLink>
-        <Link
-          to={slug}
-          data-fill={pageTitle}
-          data-section={`0${index}`}
-        >
+        <Link to={slug} data-fill={pageTitle} data-section={`0${index}`}>
           {pageTitle}
         </Link>
       </NextLink>

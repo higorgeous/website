@@ -10,6 +10,13 @@ export const Wrapper = styled.div`
   width: 100%;
   margin: 0 auto;
   text-align: left;
+  &:first-of-type {
+    & > div {
+      &:first-of-type {
+        border-top: 1px solid ${Theme.palette.dark};
+      }
+    }
+  }
 `;
 
 export const Heading = styled.div<HeadingProps>`
@@ -18,9 +25,7 @@ export const Heading = styled.div<HeadingProps>`
   align-items: center;
   padding: 20px;
   border-bottom: 1px solid ${Theme.palette.dark};
-  &:first-of-type {
-    border-top: 1px solid ${Theme.palette.dark};
-  }
+
   h5 {
     margin: 0;
   }
@@ -36,11 +41,9 @@ export const Body = styled.div`
   overflow: hidden;
   height: auto;
   max-height: 9999px;
-  transition: max-height 0.3s cubic-bezier(1, 0, 1, 0);
   &.collapsed {
     padding: 0;
     max-height: 0;
-    transition: max-height 0.35s cubic-bezier(0, 1, 0, 1);
   }
   & > div {
     padding: 50px 20px 20px;

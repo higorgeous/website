@@ -5,12 +5,18 @@ import { graphql, useStaticQuery } from 'gatsby';
 import { Wrapper } from './styles';
 import Question from './components/Question';
 
-type Props = {
-  innerRef: any;
-};
+const Questions: React.FC<any> = (questions) => {
+  const { questionOpen, setQuestionOpen } = questions;
 
-const Questions: React.FC<Props> = (questions) => {
-  const { innerRef } = questions;
+  const handleQuestionOpen = (id: string) => {
+    if (questionOpen !== `` && questionOpen === id) {
+      setQuestionOpen(``);
+    } else if (questionOpen !== `` && questionOpen !== id) {
+      setQuestionOpen(id);
+    } else {
+      setQuestionOpen(id);
+    }
+  };
 
   const data = useStaticQuery(
     graphql`
@@ -40,7 +46,7 @@ const Questions: React.FC<Props> = (questions) => {
 
   const faq = data.faq.questions;
   return (
-    <Wrapper ref={innerRef}>
+    <Wrapper id="full-section">
       <div>
         {faq.map(
           (
@@ -52,7 +58,13 @@ const Questions: React.FC<Props> = (questions) => {
             } & { children?: React.ReactNode },
             index: number,
           ) => (
-            <Question key={node.id} {...node} index={index} />
+            <Question
+              key={node.id}
+              {...node}
+              index={index}
+              questionOpen={questionOpen}
+              handleQuestionOpen={handleQuestionOpen}
+            />
           ),
         )}
       </div>

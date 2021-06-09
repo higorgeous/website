@@ -103,18 +103,20 @@ export const getDarkRanges = (
   return darkRanges;
 };
 
-// Get top and bottom ranges of FAQ section
-export const getFaqRanges = (
-  titleRef: { current: { clientHeight: any } },
-  faqRef: { current: { clientHeight: any } },
+// Get top and bottom ranges of next section
+export const getFullPageRanges = (
+  nextRef: {
+    current: { clientHeight: number; offsetTop: number };
+  },
+  questionOpen: string,
 ) => {
   const [darkRanges, setDarkRanges] = useState([]);
 
   // Get locations for dark sections
   useEffect(() => {
-    const start = titleRef.current.clientHeight + faqRef.current.clientHeight;
-    const finish = start + titleRef.current.clientHeight;
+    const start = nextRef.current.offsetTop;
+    const finish = start + nextRef.current.clientHeight;
     setDarkRanges([{ start, finish }]);
-  }, []);
+  }, [questionOpen]);
   return darkRanges;
 };
