@@ -39,28 +39,7 @@ module.exports = {
         siteUrl: `https://www.higorgeous.io`,
       },
     },
-    // {
-    //   resolve: 'gatsby-plugin-sitemap',
-    //   options: {
-    //     query: `
-    //     {
-    //       allContentfulPageWebsite(filter: {slug: {ne: "/404"}}) {
-    //         edges {
-    //           node {
-    //             slug
-    //           }
-    //         }
-    //       }
-    //     }
-    //   `,
-    //     resolveSiteUrl: () => `https://www.higorgeous.io`,
-    //     resolvePages: ({ allContentfulPageWebsite: { nodes: allPages } }) =>
-    //       allPages.map((page) => ({ ...page[page.slug] })),
-    //     serialize: ({ slug }) => ({
-    //       url: slug,
-    //     }),
-    //   },
-    // },
+    `gatsby-plugin-sitemap`,
     {
       resolve: 'gatsby-plugin-manifest',
       options: {
