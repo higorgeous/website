@@ -29,6 +29,7 @@
     "framer-motion": "^4.1.17",
     "gatsby": "3.6.0",
     "gatsby-background-image": "^1.5.3",
+    "gatsby-plugin-canonical-urls": "^3.7.0",
     "gatsby-plugin-emotion": "^6.4.0",
     "gatsby-plugin-image": "^1.4.0",
     "gatsby-plugin-manifest": "^3.6.0",

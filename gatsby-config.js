@@ -30,6 +30,12 @@ module.exports = {
         accessToken: process.env.GATSBY_CONTENTFUL_ACCESS_TOKEN,
       },
     },
+    {
+      resolve: `gatsby-plugin-canonical-urls`,
+      options: {
+        siteUrl: `https://www.higorgeous.io`,
+      },
+    },
     // {
     //   resolve: 'gatsby-plugin-sitemap',
     //   options: {
