@@ -7,7 +7,6 @@ import { Image } from './styles';
 const BackgroundImage: React.FC<any> = ({ image, backgroundColor, opaque }) => {
   const bgImage = getImage(image);
   const backgroundImage = convertToBgImage(bgImage);
-  console.log(opaque);
 
   return (
     <Image
