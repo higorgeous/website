@@ -1,12 +1,12 @@
 {
-  "name": "gorgeous",
+  "name": "gorgeous-website",
   "version": "1.0.0",
-  "description": "Source code for ERC-20 token and website.",
+  "description": "Source code for website.",
   "main": "index.js",
-  "repository": "https://github.com/hi-gorgeous/token.git",
+  "repository": "https://github.com/hi-gorgeous/website.git",
   "author": "Gorgeous Admin <admin@higorgeous.io>",
   "license": "MIT",
-  "private": true,
+  "private": false,
   "scripts": {
     "start": "gatsby develop",
     "build": "gatsby build",
