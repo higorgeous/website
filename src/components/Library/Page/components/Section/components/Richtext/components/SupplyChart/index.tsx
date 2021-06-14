@@ -11,8 +11,8 @@ const data = [
     color: `rgb(103, 0, 31)`,
   },
   {
-    id: `community`,
-    label: `Community`,
+    id: `liquidity`,
+    label: `Liquidity`,
     value: 38,
     color: `rgb(178, 24, 43)`,
   },
