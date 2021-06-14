@@ -6,27 +6,30 @@ import { Wrapper, Legend, LegendItem } from './styles';
 const data = [
   {
     time: `< 1 hr`,
-    seller: 60,
+    seller: 65,
     liquidity: 10,
     holders: 10,
-    charity: 10,
-    project: 10,
+    charity: 7,
+    project: 7,
+    burn: 1,
   },
   {
     time: `< 2 hrs`,
-    seller: 68,
-    liquidity: 8,
-    holders: 8,
-    charity: 8,
-    project: 8,
+    seller: 75,
+    liquidity: 7,
+    holders: 7,
+    charity: 5,
+    project: 5,
+    burn: 1,
   },
   {
     time: `Standard`,
-    seller: 80,
-    liquidity: 5,
-    holders: 5,
-    charity: 5,
-    project: 5,
+    seller: 85,
+    liquidity: 4,
+    holders: 4,
+    charity: 3,
+    project: 3,
+    burn: 1,
   },
 ];
 
@@ -61,9 +64,15 @@ const legendTop = [
     value: 0,
     color: `rgb(253, 219, 199)`,
   },
+  {
+    id: `burn`,
+    label: `Burn`,
+    value: 0,
+    color: `rgb(252, 229, 215)`,
+  },
 ];
 
-const keys = [`seller`, `liquidity`, `holders`, `charity`, `project`];
+const keys = [`seller`, `liquidity`, `holders`, `charity`, `project`, `burn`];
 
 const TaxChart: React.FC<any> = ({ colorDark, windowSize }) => (
   <Wrapper colorDark={colorDark}>
@@ -98,7 +107,7 @@ const TaxChart: React.FC<any> = ({ colorDark, windowSize }) => (
         tickSize: 0,
         tickPadding: windowSize.width > 768 ? -30 : 5,
         tickRotation: 0,
-        legend: windowSize.width > 768 ? `% burnt` : `sell within`,
+        legend: windowSize.width > 768 ? `% distributed` : `sell within`,
         legendPosition: `middle`,
         legendOffset: windowSize.width > 768 ? 0 : 40,
       }}
