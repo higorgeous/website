@@ -13,7 +13,7 @@ const data = [
   {
     id: `liquidity`,
     label: `Liquidity`,
-    value: 38,
+    value: 40,
     color: `rgb(178, 24, 43)`,
   },
   {
@@ -31,7 +31,7 @@ const data = [
   {
     id: `team`,
     label: `Team`,
-    value: 4,
+    value: 2,
     color: `rgb(253, 219, 199)`,
   },
 ];
