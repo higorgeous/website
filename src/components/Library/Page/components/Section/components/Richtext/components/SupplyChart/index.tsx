@@ -7,13 +7,19 @@ const data = [
   {
     id: `burn`,
     label: `Burnt`,
-    value: 50,
+    value: 20,
     color: `rgb(103, 0, 31)`,
+  },
+  {
+    id: `presale`,
+    label: `Presale`,
+    value: 40,
+    color: `rgb(72, 23, 37)`,
   },
   {
     id: `liquidity`,
     label: `Liquidity`,
-    value: 40,
+    value: 30,
     color: `rgb(178, 24, 43)`,
   },
   {
