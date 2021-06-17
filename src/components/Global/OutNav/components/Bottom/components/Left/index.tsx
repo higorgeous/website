@@ -38,12 +38,20 @@ const Left: React.FC<any> = ({ scrollPosition, darkRanges }) => {
           uri
           text
         }
+        dxsale: contentfulInfoLinks(
+          id: { eq: "1dad86e8-62dd-5ef0-8d00-e52592deb507" }
+        ) {
+          uri
+          text
+        }
       }
     `,
   );
 
-  const { uri, text } = data.pancakeswap;
-  const characters = Array.from(`Get on Pancakeswap`);
+  const presale = true;
+  const characters = Array.from(
+    presale ? `Join our pre-sale` : `Get on Pancakeswap`,
+  );
 
   return (
     <Wrapper>
@@ -51,10 +59,15 @@ const Left: React.FC<any> = ({ scrollPosition, darkRanges }) => {
         <li>
           <a
             className="no-style"
-            href={uri}
+            href={presale ? data.dxsale.uri : data.pancakeswap.uriri}
             target="_blank"
             rel="noreferrer"
-            onClick={() => handleExternalClick({ uri, name: text })}
+            onClick={() =>
+              handleExternalClick({
+                uri: presale ? data.dxsale.uri : data.pancakeswap.uri,
+                name: presale ? data.dxsale.text : data.pancakeswap.text,
+              })
+            }
           >
             {characters.map((character, index) => (
               <MapCharComponent

@@ -33,10 +33,16 @@ const HomeHero: React.FC<any> = ({ title, colorDark }) => {
           uri
           text
         }
+        dxsale: contentfulInfoLinks(
+          id: { eq: "1dad86e8-62dd-5ef0-8d00-e52592deb507" }
+        ) {
+          uri
+          text
+        }
       }
     `,
   );
-
+  const presale = true;
   return (
     <Wrapper colorDark={colorDark}>
       <Top
@@ -76,17 +82,17 @@ const HomeHero: React.FC<any> = ({ title, colorDark }) => {
         <BottomBox
           className={`no-style ${isDark}`}
           colorDark={colorDark}
-          href={data.pancakeswap.uri}
+          href={presale ? data.dxsale.uri : data.pancakeswap.uri}
           target="_blank"
           rel="noreferrer"
           onClick={() =>
             handleExternalClick({
-              uri: data.pancakeswap.uri,
-              name: data.pancakeswap.text,
+              uri: presale ? data.dxsale.uri : data.pancakeswap.uri,
+              name: presale ? data.dxsale.text : data.pancakeswap.text,
             })
           }
         >
-          <p>Get on Pancakeswap</p>
+          <p>{presale ? `Join our pre-sale` : `Get on Pancakeswap`}</p>
         </BottomBox>
       </Bottom>
     </Wrapper>
