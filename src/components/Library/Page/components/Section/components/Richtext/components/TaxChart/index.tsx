@@ -8,7 +8,7 @@ const data = [
     id: `seller`,
     label: `Seller`,
     value: 85,
-    color: `#67001f`,
+    color: `#b2182b`,
   },
   {
     id: `liquidity`,
@@ -26,29 +26,29 @@ const data = [
     id: `charity`,
     label: `Charity`,
     value: 3,
-    color: `#D33E43`,
+    color: `#b17acc`,
   },
   {
     id: `project`,
     label: `Project`,
     value: 3,
-    color: `#C82D32`,
+    color: `#ce4aab`,
   },
   {
     id: `burn`,
     label: `Burn`,
     value: 1,
-    color: `#A6262A`,
+    color: `#3fb3ea`,
   },
 ];
 
 const colors = {
-  seller: `#67001f`,
+  seller: `#b2182b`,
   liquidity: `#D33E43`,
   holders: `#723163`,
-  charity: `#D33E43`,
-  project: `#C82D32`,
-  burn: `#A6262A`,
+  charity: `#b17acc`,
+  project: `#ce4aab`,
+  burn: `#3fb3ea`,
 };
 
 const getColor = (bar) => colors[bar.id];
@@ -66,9 +66,9 @@ const TaxChart: React.FC<any> = ({ colorDark, windowSize }) => (
       data={data}
       colors={getColor}
       margin={{
-        top: windowSize.width > 768 ? 70 : 0,
+        top: 0,
         right: 0,
-        bottom: 0,
+        bottom: windowSize.width > 768 ? 70 : 0,
         left: 0,
       }}
       startAngle={0}
@@ -104,36 +104,6 @@ const TaxChart: React.FC<any> = ({ colorDark, windowSize }) => (
       fill={[
         {
           match: {
-            id: `burn`,
-          },
-          id: `lines`,
-        },
-        {
-          match: {
-            id: `charity`,
-          },
-          id: `lines`,
-        },
-        {
-          match: {
-            id: `project`,
-          },
-          id: `lines`,
-        },
-        {
-          match: {
-            id: `holders`,
-          },
-          id: `lines`,
-        },
-        {
-          match: {
-            id: `liquidity`,
-          },
-          id: `lines`,
-        },
-        {
-          match: {
             id: `seller`,
           },
           id: `dots`,
@@ -143,15 +113,15 @@ const TaxChart: React.FC<any> = ({ colorDark, windowSize }) => (
         data && windowSize.width > 768
           ? [
               {
-                anchor: `top`,
+                anchor: `bottom`,
                 direction: `row`,
                 justify: false,
                 translateX: 0,
-                translateY: -60,
+                translateY: 50,
                 itemsSpacing: 2,
                 itemWidth: 120,
                 itemHeight: 20,
-                itemDirection: `left-to-right`,
+                itemDirection: `top-to-bottom`,
                 itemOpacity: 0.85,
                 symbolSize: 20,
               },
