@@ -1,136 +1,155 @@
 import React from 'react';
-import { ResponsiveBar } from '@nivo/bar';
+import { ResponsivePie } from '@nivo/pie';
 
 import { Wrapper, Legend, LegendItem } from './styles';
 
 const data = [
   {
-    time: `< 1 hr`,
-    seller: 65,
-    liquidity: 10,
-    holders: 10,
-    charity: 7,
-    project: 7,
-    burn: 1,
-  },
-  {
-    time: `< 2 hrs`,
-    seller: 75,
-    liquidity: 7,
-    holders: 7,
-    charity: 5,
-    project: 5,
-    burn: 1,
-  },
-  {
-    time: `Standard`,
-    seller: 85,
-    liquidity: 4,
-    holders: 4,
-    charity: 3,
-    project: 3,
-    burn: 1,
-  },
-];
-
-const legendTop = [
-  {
     id: `seller`,
     label: `Seller`,
-    value: 0,
-    color: `rgb(103, 0, 31)`,
+    value: 85,
+    color: `#67001f`,
   },
   {
     id: `liquidity`,
     label: `Liquidity`,
-    value: 0,
-    color: `rgb(178, 24, 43)`,
+    value: 4,
+    color: `#D33E43`,
   },
   {
     id: `holders`,
-    label: `Holders`,
-    value: 0,
-    color: `rgb(214, 96, 77)`,
+    label: `holders`,
+    value: 4,
+    color: `#723163`,
   },
   {
     id: `charity`,
     label: `Charity`,
-    value: 0,
-    color: `rgb(244, 165, 130)`,
+    value: 3,
+    color: `#D33E43`,
   },
   {
     id: `project`,
     label: `Project`,
-    value: 0,
-    color: `rgb(253, 219, 199)`,
+    value: 3,
+    color: `#C82D32`,
   },
   {
     id: `burn`,
     label: `Burn`,
-    value: 0,
-    color: `rgb(252, 229, 215)`,
+    value: 1,
+    color: `#A6262A`,
   },
 ];
 
-const keys = [`seller`, `liquidity`, `holders`, `charity`, `project`, `burn`];
+const colors = {
+  seller: `#67001f`,
+  liquidity: `#D33E43`,
+  holders: `#723163`,
+  charity: `#D33E43`,
+  project: `#C82D32`,
+  burn: `#A6262A`,
+};
+
+const getColor = (bar) => colors[bar.id];
 
 const TaxChart: React.FC<any> = ({ colorDark, windowSize }) => (
   <Wrapper colorDark={colorDark}>
     <Legend>
-      {legendTop.map((i) => (
+      {data.map((i) => (
         <LegendItem key={i.id} color={i.color}>
           {i.label}
         </LegendItem>
       ))}
     </Legend>
-    <ResponsiveBar
+    <ResponsivePie
       data={data}
-      colors={{ scheme: `red_blue` }}
-      layout={windowSize.width > 768 ? `horizontal` : `vertical`}
-      keys={keys}
-      indexBy="time"
-      label={(e) => `${e.value}%`}
+      colors={getColor}
       margin={{
-        top: windowSize.width > 768 ? 50 : 10,
-        right: windowSize.width > 768 ? 80 : 20,
-        bottom: 50,
-        left: windowSize.width > 768 ? 80 : 30,
+        top: windowSize.width > 768 ? 70 : 0,
+        right: 0,
+        bottom: 0,
+        left: 0,
       }}
-      padding={windowSize.width > 768 ? 0.3 : 0.05}
-      valueScale={{ type: `linear` }}
-      indexScale={{ type: `band`, round: true }}
-      borderColor={{ from: `color`, modifiers: [[`darker`, 1.6]] }}
-      enableGridY={false}
-      axisTop={null}
-      axisRight={null}
-      axisBottom={{
-        tickSize: 0,
-        tickPadding: windowSize.width > 768 ? -30 : 5,
-        tickRotation: 0,
-        legend: windowSize.width > 768 ? `% distributed` : `sell within`,
-        legendPosition: `middle`,
-        legendOffset: windowSize.width > 768 ? 0 : 40,
-      }}
-      axisLeft={{
-        tickSize: 0,
-        tickPadding: 10,
-        tickRotation: 0,
-      }}
-      labelSkipWidth={12}
-      labelSkipHeight={12}
-      labelTextColor={{ from: `color`, modifiers: [[`darker`, 1.6]] }}
+      startAngle={0}
+      innerRadius={0.4}
+      padAngle={1}
+      cornerRadius={3}
+      borderWidth={1}
+      borderColor={{ from: `color`, modifiers: [[`darker`, 0.3]] }}
+      enableArcLinkLabels={false}
+      arcLabelsTextColor="#ffffff"
+      arcLabel={(e) => `${e.value}%`}
+      isInteractive={false}
+      defs={[
+        {
+          id: `dots`,
+          type: `patternDots`,
+          background: `inherit`,
+          color: `rgba(255, 255, 255, 0.3)`,
+          size: 4,
+          padding: 1,
+          stagger: true,
+        },
+        {
+          id: `lines`,
+          type: `patternLines`,
+          background: `inherit`,
+          color: `rgba(255, 255, 255, 0.3)`,
+          rotation: -45,
+          lineWidth: 6,
+          spacing: 10,
+        },
+      ]}
+      fill={[
+        {
+          match: {
+            id: `burn`,
+          },
+          id: `lines`,
+        },
+        {
+          match: {
+            id: `charity`,
+          },
+          id: `lines`,
+        },
+        {
+          match: {
+            id: `project`,
+          },
+          id: `lines`,
+        },
+        {
+          match: {
+            id: `holders`,
+          },
+          id: `lines`,
+        },
+        {
+          match: {
+            id: `liquidity`,
+          },
+          id: `lines`,
+        },
+        {
+          match: {
+            id: `seller`,
+          },
+          id: `dots`,
+        },
+      ]}
       legends={
         data && windowSize.width > 768
           ? [
               {
-                dataFrom: `keys`,
                 anchor: `top`,
                 direction: `row`,
                 justify: false,
                 translateX: 0,
-                translateY: -10,
+                translateY: -60,
                 itemsSpacing: 2,
-                itemWidth: 100,
+                itemWidth: 120,
                 itemHeight: 20,
                 itemDirection: `left-to-right`,
                 itemOpacity: 0.85,
@@ -139,7 +158,6 @@ const TaxChart: React.FC<any> = ({ colorDark, windowSize }) => (
             ]
           : []
       }
-      isInteractive={false}
     />
   </Wrapper>
 );

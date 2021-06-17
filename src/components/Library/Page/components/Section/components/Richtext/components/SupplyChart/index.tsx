@@ -8,39 +8,50 @@ const data = [
     id: `burn`,
     label: `Burnt`,
     value: 20,
-    color: `rgb(103, 0, 31)`,
+    color: `#67001f`,
   },
   {
     id: `presale`,
     label: `Presale`,
-    value: 40,
-    color: `rgb(72, 23, 37)`,
+    value: 35,
+    color: `#D33E43`,
   },
   {
     id: `liquidity`,
     label: `Liquidity`,
-    value: 30,
-    color: `rgb(178, 24, 43)`,
+    value: 35,
+    color: `#723163`,
   },
   {
     id: `charity`,
     label: `Charity`,
     value: 4,
-    color: `rgb(214, 96, 77)`,
+    color: `#D33E43`,
   },
   {
     id: `project`,
     label: `Project`,
     value: 4,
-    color: `rgb(244, 165, 130)`,
+    color: `#C82D32`,
   },
   {
     id: `team`,
     label: `Team`,
     value: 2,
-    color: `rgb(253, 219, 199)`,
+    color: `#A6262A`,
   },
 ];
+
+const colors = {
+  burn: `#67001f`,
+  presale: `#D33E43`,
+  liquidity: `#723163`,
+  charity: `#D33E43`,
+  project: `#C82D32`,
+  team: `#A6262A`,
+};
+
+const getColor = (bar) => colors[bar.id];
 
 const SupplyChart: React.FC<any> = ({ colorDark, windowSize }) => (
   <Wrapper colorDark={colorDark}>
@@ -53,7 +64,7 @@ const SupplyChart: React.FC<any> = ({ colorDark, windowSize }) => (
     </Legend>
     <ResponsivePie
       data={data}
-      colors={{ scheme: `red_blue` }}
+      colors={getColor}
       margin={{
         top: windowSize.width > 768 ? 70 : 0,
         right: 0,
@@ -62,9 +73,9 @@ const SupplyChart: React.FC<any> = ({ colorDark, windowSize }) => (
       }}
       startAngle={0}
       innerRadius={0.4}
-      padAngle={3}
+      padAngle={1}
       cornerRadius={3}
-      borderWidth={2}
+      borderWidth={1}
       borderColor={{ from: `color`, modifiers: [[`darker`, 0.3]] }}
       enableArcLinkLabels={false}
       arcLabelsTextColor="#ffffff"
