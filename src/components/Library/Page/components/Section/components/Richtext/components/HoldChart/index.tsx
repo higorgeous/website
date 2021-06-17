@@ -31,9 +31,9 @@ const HoldChart: React.FC<any> = ({ colorDark, windowSize }) => (
       data={data}
       colors={{ scheme: `red_blue` }}
       margin={{
-        top: windowSize.width > 768 ? 70 : 0,
+        top: 0,
         right: 0,
-        bottom: 0,
+        bottom: windowSize.width > 768 ? 70 : 0,
         left: 0,
       }}
       startAngle={-90}
@@ -85,15 +85,15 @@ const HoldChart: React.FC<any> = ({ colorDark, windowSize }) => (
         data && windowSize.width > 768
           ? [
               {
-                anchor: `top`,
+                anchor: `bottom`,
                 direction: `row`,
                 justify: false,
                 translateX: 0,
-                translateY: -60,
+                translateY: 50,
                 itemsSpacing: 2,
                 itemWidth: 120,
                 itemHeight: 20,
-                itemDirection: `left-to-right`,
+                itemDirection: `top-to-bottom`,
                 itemOpacity: 0.85,
                 symbolSize: 20,
               },
