@@ -38,8 +38,8 @@ const Left: React.FC<any> = ({ scrollPosition, darkRanges }) => {
           uri
           text
         }
-        dxsale: contentfulInfoLinks(
-          id: { eq: "1dad86e8-62dd-5ef0-8d00-e52592deb507" }
+        telegram: contentfulInfoLinks(
+          id: { eq: "f57cd561-5f22-5dd1-b362-f365b4ac03cc" }
         ) {
           uri
           text
@@ -50,7 +50,7 @@ const Left: React.FC<any> = ({ scrollPosition, darkRanges }) => {
 
   const presale = true;
   const characters = Array.from(
-    presale ? `Join our pre-sale` : `Get on Pancakeswap`,
+    presale ? `Join us on Telegram` : `Get on Pancakeswap`,
   );
 
   return (
@@ -59,13 +59,13 @@ const Left: React.FC<any> = ({ scrollPosition, darkRanges }) => {
         <li>
           <a
             className="no-style"
-            href={presale ? data.dxsale.uri : data.pancakeswap.uriri}
+            href={presale ? data.telegram.uri : data.pancakeswap.uriri}
             target="_blank"
             rel="noreferrer"
             onClick={() =>
               handleExternalClick({
-                uri: presale ? data.dxsale.uri : data.pancakeswap.uri,
-                name: presale ? data.dxsale.text : data.pancakeswap.text,
+                uri: presale ? data.telegram.uri : data.pancakeswap.uri,
+                name: presale ? data.telegram.text : data.pancakeswap.text,
               })
             }
           >
