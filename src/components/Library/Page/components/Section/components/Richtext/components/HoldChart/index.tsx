@@ -7,13 +7,13 @@ const data = [
   {
     id: `buy`,
     label: `Max. Buy`,
-    value: 2,
+    value: 1,
     color: `rgb(103, 0, 31)`,
   },
   {
     id: `hold`,
     label: `Max. Hold`,
-    value: 5,
+    value: 4,
     color: `rgb(178, 24, 43)`,
   },
 ];
