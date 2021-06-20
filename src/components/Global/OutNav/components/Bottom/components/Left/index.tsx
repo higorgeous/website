@@ -48,7 +48,7 @@ const Left: React.FC<any> = ({ scrollPosition, darkRanges }) => {
     `,
   );
 
-  const presale = true;
+  const presale = false;
   const characters = Array.from(
     presale ? `Join us on Telegram` : `Get on Pancakeswap`,
   );

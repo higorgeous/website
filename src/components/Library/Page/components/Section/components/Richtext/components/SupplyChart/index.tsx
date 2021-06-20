@@ -7,13 +7,19 @@ const data = [
   {
     id: `burn`,
     label: `Burnt`,
-    value: 50,
-    color: `#D33E43`,
+    value: 61.8,
+    color: `#a32f33`,
   },
   {
     id: `liquidity`,
     label: `Liquidity`,
-    value: 40,
+    value: 14.1,
+    color: `#b6363a`,
+  },
+  {
+    id: `presale`,
+    label: `Presale`,
+    value: 14.1,
     color: `#D33E43`,
   },
   {
@@ -37,8 +43,9 @@ const data = [
 ];
 
 const colors = {
-  burn: `#D33E43`,
-  liquidity: `#D33E43`,
+  burn: `#a32f33`,
+  liquidity: `#b6363a`,
+  presale: `#D33E43`,
   charity: `#D33E43`,
   project: `#C82D32`,
   team: `#A6262A`,

@@ -42,7 +42,7 @@ const HomeHero: React.FC<any> = ({ title, colorDark }) => {
       }
     `,
   );
-  const presale = true;
+  const presale = false;
   return (
     <Wrapper colorDark={colorDark}>
       <Top
