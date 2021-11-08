@@ -175,7 +175,8 @@ export default css`
       overflow: hidden;
       @media (max-width: ${Theme.responsive.medium}) {
         font-size: 90%;
-        margin: 10px auto;
+        margin: 5px auto;
+        padding: 5px 20px;
       }
       &:hover {
         color: ${Theme.palette.light};
