@@ -4,6 +4,7 @@ type Props = {
     light: string;
     alternative: string;
     navigation: string;
+    red: string;
   };
   responsive: {
     small: string;
@@ -17,8 +18,9 @@ const theme: Props = {
   palette: {
     dark: `#1e1e1e`,
     light: `#ffffff`,
-    alternative: `#f9e9cc`,
-    navigation: `#232129`,
+    alternative: `#f7dcdc`,
+    navigation: `#000941`,
+    red: `rgb(252,3,3)`,
   },
   responsive: {
     small: `420px`,

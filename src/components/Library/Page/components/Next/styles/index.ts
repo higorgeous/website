@@ -12,7 +12,7 @@ export const Wrapper = styled.section`
   align-items: center;
   flex-direction: column;
   color: ${Theme.palette.light};
-  background: ${Theme.palette.navigation};
+  background: ${Theme.palette.red};
   padding: 0 30px;
   z-index: 97;
   @media (max-width: ${Theme.responsive.large}) {

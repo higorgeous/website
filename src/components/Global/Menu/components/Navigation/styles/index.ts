@@ -49,7 +49,7 @@ export const Wrapper = styled(motion.div)`
       li {
         display: inline-block;
         margin: 20px;
-        border: 1px solid ${Theme.palette.light};
+        border: 2px solid ${Theme.palette.light};
         border-radius: 50%;
         padding: 10px;
         &:first-of-type {
@@ -75,7 +75,7 @@ export const Wrapper = styled(motion.div)`
         font-weight: 900;
         text-transform: uppercase;
         text-decoration: none;
-        -webkit-text-stroke: 0.02em ${Theme.palette.light};
+        -webkit-text-stroke: 0.04em ${Theme.palette.light};
         color: transparent;
         cursor: pointer;
         background-clip: text;

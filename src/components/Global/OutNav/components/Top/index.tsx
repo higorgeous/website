@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'gatsby';
 
-import { LogoDesktop, LogoMobile, LogoTablet } from '@/components/Library/Logo';
+import Logo from '@/components/Library/Logo/Logo';
 
 import { Wrapper, Container } from './styles';
 
@@ -29,9 +29,7 @@ const Top: React.FC<any> = ({ darkRanges, windowSize, scrollPosition }) => {
         aria-current="page"
       >
         <Container colorDark={colorDark}>
-          {windowSize.width > 960 && <LogoDesktop />}
-          {windowSize.width < 960 && windowSize.width > 768 && <LogoTablet />}
-          {windowSize.width < 768 && <LogoMobile />}
+          <Logo />
         </Container>
       </Link>
     </Wrapper>

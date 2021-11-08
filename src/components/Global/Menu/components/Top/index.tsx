@@ -1,11 +1,11 @@
 import React from 'react';
 import { Link } from 'gatsby';
 
-import { LogoDesktop, LogoMobile, LogoTablet } from '@/components/Library/Logo';
+import Logo from '@/components/Library/Logo/Logo';
 
 import { Wrapper, Container } from './styles';
 
-const Top: React.FC<any> = ({ windowSize }) => (
+const Top: React.FC<any> = () => (
   <Wrapper>
     <Link
       to="/"
@@ -14,9 +14,7 @@ const Top: React.FC<any> = ({ windowSize }) => (
       aria-current="page"
     >
       <Container>
-        {windowSize.width > 960 && <LogoDesktop />}
-        {windowSize.width < 960 && windowSize.width > 768 && <LogoTablet />}
-        {windowSize.width < 768 && <LogoMobile />}
+        <Logo />
       </Container>
     </Link>
   </Wrapper>

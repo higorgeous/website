@@ -67,7 +67,7 @@ const Menu: React.FC<Props> = ({ darkRanges, windowSize, scrollPosition }) => {
         ref={menuRef}
       >
         <motion.div className="background" variants={background}>
-          <Top windowSize={windowSize} />
+          <Top />
         </motion.div>
         <Navigation />
         <MenuToggle

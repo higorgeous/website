@@ -155,8 +155,9 @@ export default css`
     &.button {
       position: relative;
       display: inline-block;
+      width: 250px;
       padding: 10px 20px;
-      margin: 20px 32px;
+      margin: 10px 20px;
       border: 2px solid ${Theme.palette.dark};
       background-image: linear-gradient(
         to right,
@@ -173,7 +174,8 @@ export default css`
       text-transform: uppercase;
       overflow: hidden;
       @media (max-width: ${Theme.responsive.medium}) {
-        font-size: 60%;
+        font-size: 90%;
+        margin: 10px auto;
       }
       &:hover {
         color: ${Theme.palette.light};

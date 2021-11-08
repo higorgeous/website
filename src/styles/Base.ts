@@ -4,7 +4,7 @@ import { Theme } from '.';
 
 export default css`
   html {
-    background: ${Theme.palette.navigation};
+    background: ${Theme.palette.red};
     box-sizing: border-box;
     -ms-overflow-style: none;
     scrollbar-width: none;
