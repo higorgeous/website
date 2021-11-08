@@ -6,7 +6,9 @@ const SEO: React.FC<any> = (seo) => {
   const { pageTitle, slug, description, image, noindex, nofollow } = seo;
 
   const pageUrl = `${websiteConfig.siteUrl}/${slug}/`;
-  const pageImage = image.file.url;
+  const pageImage = `https:${image.file.url}`;
+
+  console.log(pageImage);
 
   const schemaOrgJSONLD = [
     {
