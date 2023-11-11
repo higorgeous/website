@@ -1,0 +1,27 @@
+# dependencies
+/node_modules
+/.pnp
+.pnp.js
+
+# env
+.env.development
+.env.production
+
+# testing
+/coverage
+
+# gatsby
+.cache/
+public/
+
+# misc
+.DS_Store
+.env\*
+
+# debug
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# yarn
+yarn.lock

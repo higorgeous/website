@@ -1,0 +1,89 @@
+{
+  "env": {
+    "browser": true,
+    "es6": true
+  },
+  "parserOptions": {
+    "ecmaFeatures": {
+      "jsx": true
+    },
+    "ecmaVersion": 2019,
+    "sourceType": "module"
+  },
+  "globals": {
+    "Atomics": "readonly",
+    "SharedArrayBuffer": "readonly"
+  },
+  "plugins": ["react", "react-hooks", "jsx-a11y", "prettier"],
+  "extends": ["plugin:react/recommended", "airbnb", "prettier"],
+  "rules": {
+    "no-script-url": "off",
+    "no-return-assign": "off",
+    "no-underscore-dangle": "off",
+    "consistent-return": "off",
+    "no-console": "off",
+    "prettier/prettier": "error",
+    "import/prefer-default-export": "off",
+    "react/require-default-props": "off",
+    "react/prop-types": "off",
+    "react/no-danger": "off",
+    "react/no-array-index-key": "off",
+    "react/destructuring-assignment": "off",
+    "react/jsx-filename-extension": [
+      1,
+      {
+        "extensions": [".tsx", ".ts"]
+      }
+    ],
+    "react/jsx-props-no-spreading": "off",
+    "import/extensions": [
+      "error",
+      "ignorePackages",
+      {
+        "ts": "never",
+        "tsx": "never",
+        "js": "never",
+        "jsx": "never"
+      }
+    ],
+    "@typescript-eslint/explicit-module-boundary-types": "off"
+  },
+  "overrides": [
+    {
+      "files": "**/*.+(ts|tsx)",
+      "parser": "@typescript-eslint/parser",
+      "parserOptions": {
+        "project": "./tsconfig.json"
+      },
+      "plugins": ["@typescript-eslint/eslint-plugin"],
+      "extends": [
+        "plugin:@typescript-eslint/eslint-recommended",
+        "plugin:@typescript-eslint/recommended",
+        "prettier"
+      ],
+      "rules": {
+        "@typescript-eslint/explicit-function-return-type": "off",
+        "@typescript-eslint/no-explicit-any": "off",
+        "@typescript-eslint/no-var-requires": "off",
+        "no-use-before-define": [0],
+        "@typescript-eslint/no-use-before-define": [1],
+        "@typescript-eslint/quotes": [
+          2,
+          "backtick",
+          {
+            "avoidEscape": true
+          }
+        ]
+      }
+    }
+  ],
+  "settings": {
+    "import/resolver": {
+      "root-import": {
+        "rootPathPrefix": "@",
+        "rootPathSuffix": "src",
+        "extensions": [".js", ".ts", ".tsx", ".jsx", ".mdx"]
+      }
+    }
+  }
+}
